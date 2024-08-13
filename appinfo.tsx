@@ -137,7 +137,7 @@ const appinfo = {
 			"without notice.",
 			"- Fixed some $t(common:MorphoSyntax) information modals that",
 			"had unreachable info off the side of the screen.",
-			"- Added \"$t(concepts:Landau 200)\" to $t(common:Concepts)."
+			"- Added \"$t(concepts:Landau200)\" to $t(common:Concepts)."
 		]
 	}
 };
