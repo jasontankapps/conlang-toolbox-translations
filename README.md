@@ -430,3 +430,92 @@ Each character in Extra Characters has an official Unicode name. You can find th
 | 🔴 | HideOlderChanges | Hide Older Changes |  |
 | 🔴 | ShowOlderChanges | Show Older Changes |  |
 |  | changeLog | *See description* | This is a special object containing multiple properties. Each property is an array of strings in Markdown format. They describe the various changes to the app. |
+
+---
+
+## Concepts : concepts.tsx
+
+| Label | Key | English Translation | Description (if needed) |
+| --- | --- | --- | --- |
+| 🔴 | Stop | Stop |  |
+| 🔴 | Swadesh100 | Swadesh 100 | Name of a list |
+| 🔴 | Swadesh207 | Swadesh 207 | Name of a list |
+| 🔴 | SwadeshYakhontov | Swadesh-Yakhontov | Name of a list |
+| 🔴 | SwadeshWoodward | Swadesh-Woodward | Name of a list |
+| 🔴 | Dolgopolsky | Dolgopolsky | Name of a list |
+| 🔴 | LeipzigJakarta | Leipzig-Jakarta | Name of a list |
+| 🔴 | ASJP | ASJP | Name of a list |
+| 🔴 | Landau200 | Landau 200 | Name of a list |
+| 🟡 | addToColumnMsg | Your selected meanings will be added to the $t(common:Lexicon) under that column. |  |
+| 🟦5 | tapToLinkMsg | Tap meanings you want to link, in the order you wish to link them. |  |
+| 🟡 | meaningsStillSelected_other | You have {{count}} meanings still selected. Do you want to link them? | `{{count}}` will **NEVER** be 0 or 1. |
+| 🟨 | StopLinking | Stop Linking? |  |
+| 🔴 | YesSaveThem | Yes, Save Them | "Them" refers to the meanings being linked together |
+| 🔴 | NoDiscardThem | No, Discard Them | "Them" refers to the meanings being linked together |
+|  | Combination | Combination | The combination of meanings; used by `thingSaved` |
+| 🟦2.5 | tapToSaveMsg | Tap meanings you want to save to $t(common:Lexicon) |  |
+|  | SelectedMeanings_one | Selected meaning | Fills the `{{what}}` role in `saveToLexColumn` |
+|  | SelectedMeanings_other | Selected meanings | As above, but for English plurals |
+| 🟦3 | tapToUnlinkMsg | Tap combinations you want to delete, then tap the Unlink button again. |  |
+| 🟨 | delMeanings_one | Delete {{count}} meaning? | English singular |
+| 🟨 | delMeanings_other | Delete {{count}} meanings? | English plural |
+| 🟡 | delMeaningsMessage_one | The selected meaning will be removed. $t(common:cannotUndo) | English singular |
+| 🟡 | delMeaningsMessage_other | The selected meanings will be removed. $t(common:cannotUndo) | English plural |
+| 🔴 | MyCombinations | My Combinations |  |
+| 🔴 | AllMeanings | All Meanings | Used in `saveGeneralThings` |
+| 🔴 | SelectedMeanings | the Selected Meanings | Used in `saveGeneralThings` |
+| 🟥 | CurrentCombo | Current Combination: | *(presentation context)* |
+
+### info
+
+The `info` key has multiple subkeys. They are all arrays of strings in Markdown format.
+
+#### info.basic
+
+>\[  
+>"Presented here are a number of lists of basic concepts. Each list was originaly created for the purposes of historical-comparative linguistics.",  
+>"",  
+>"They are included in this app because they may serve you as a useful source of meanings to start a conlang with. Remember: you can combine multiple meanings into a single word!",  
+>\],
+
+#### info.controlLexicon
+
+>\[ "Use the \"lexicon\" button to quickly save meanings to the $t(common:Lexicon)." \],
+
+#### info.controlJoin
+
+>\[ "Use the \"join\" button to create compound meanings." \],
+
+#### info.controlUnjoin
+
+>\[ "Use the \"unjoin\" button to delete compound meanings." \],
+
+#### info.theLists
+
+>\[  
+>"## Swadesh Lists",  
+>"",  
+>"Originally assembled by Morris Swadesh, this list of concepts was chosen for their universal, culturally independent availability in as many languages as possible. However, he relied more on his intuition than on a rigorous set of criteria. \*\*$t(Swadesh100)\*\* is his final list from 1971. The \*\*$t(Swadesh207)\*\* is adapted from his original list from 1952. \*\*$t(SwadeshYakhontov)\*\* is a subset of the 207 assembled by Sergei Yakhontov. And the \*\*$t(SwadeshWoodward) Sign List\*\* was assembled by James Woodward to take into account the ways sign languages behave.",  
+>"",  
+>"## $t(Dolgopolsky) List",  
+>"",  
+>"Compiled by Aharon Dolgopolsky in 1964, this lists the 15 lexical items that are the least likely to be replaced by other words as a language evolves. It was based on a study of 140 languages from across Eurasia, only.",  
+>"",  
+>"## $t(LeipzigJakarta) List",  
+>"",  
+>"Similar to the Dolgopolsky list, this is a list of words judged to be the most resistant to borrowing. Experts on 41 languages from across the world were given a uniform vocabulary list and asked to provide the words for each item in the language on which they were an expert, as well as information on how strong the evidence that each word was borrowed was. The 100 concepts that were found in most languages and were most resistant to borrowing formed the Leipzig-Jakarta list.",  
+>"",  
+>"## $t(ASJP) List",  
+>"",  
+>"The \*\*Automated Similarity Judgment Program\*\* is a collaborative project applying computational approaches to comparative linguistics using a database of word lists. It uses a 40-word list to evaluate the similarity of words with the same meaning from different languages.",  
+>"",  
+>"## $t(Landau200)",  
+>"",  
+>"The \*\*Basic 200 List\*\* is a subset of the \*\*Landau Core Vocabulary (LCV)\*\* developed by James Landau. It is Part I of the entire LCV. This list consists of 200 basic concepts that basically all anthropic cultures will have and have words for. This list makes many semantic distinctions that are not made in English (e.g \"leaf (on plant)\" vs. \"leaf (fallen off)\"), and some that are not made in any \"Standard Average European\" language (e.g. \"river (flowing into the sea)\" vs. \"river (flowing into another river)\").",  
+>]
+
+### The concepts list
+
+You can find the master list of concepts in [CONCEPTS.md](CONCEPTS.md).
+
+---
