@@ -519,3 +519,394 @@ The `info` key has multiple subkeys. They are all arrays of strings in Markdown 
 You can find the master list of concepts in [CONCEPTS.md](CONCEPTS.md).
 
 ---
+
+## Lexicon : lexicon.tsx
+
+| Label | Key | English Translation | Description (if needed) |
+| --- | --- | --- | --- |
+|  | beginDeleteMode | Tap on items to mark them for deletion. Finish deleting by tapping the top floating button. Cancel by tapping the bottom floating  button. |  |
+| 🟨 | delItems_one | Delete {{count}} Item? |  |
+| 🟨 | delItems_other | Delete {{count}} Items? |  |
+| 🟦2.5 | delItemsSuccess_one | Deleted {{count}} item. |  |
+|  | delItemsSuccess_other | Deleted {{count}} items. | English plural of the above key |
+| 🟡 | noInfoProvided | You did not type any information into any text field. |  |
+| 🔵 | MergeSelected | Merge selected items |  |
+| 🔵 | LexiconTitle | $t(common:Lexicon) $t(common:Title) |  |
+|  | LexiconTitle_presentation | $t(common:Lexicon) $t(common:Title) | *Note: This key being in presentation context will cause it to pull common:Title_presentation by default* |
+|  | lexTitleHelperText | Usually the language name. |  |
+|  | lexDescriptionHelperText | A short description of this lexicon. |  |
+| 🟥 | lexItems_one | {{count}} Item | *(formal context)* |
+|  | lexItems_other | {{count}} Items | *(formal context)* English plural of the above key |
+|  | lexitems_one | {{count}} item |  |
+|  | lexitems_other | {{count}} items | English plural of the above key |
+| 🟥 | LexiconStorage | $t(common:Lexicon) Storage |  |
+| 🔴 | ClearLexicon | Clear $t(common:Lexicon) |  |
+|  | SavedLexicon | Saved $t(common:Lexicon) | Gets used by `deleteThing` |
+| 🟥 | LexiconSorting | $t(common:Lexicon) Sorting |  |
+|  | sortLexDescription | The Lexicon will be sorted in the order you choose. It alphabetically sorts by the first column in the list. If two items are identical in that column, it will sort them by the next column in the list, and so on. |  |
+|  | Sort | Sort | Used by `deleteThing` |
+| 🟥 | Sort_presentation | Sort: | *(presentation context)* |
+| 🔵 | DeleteSelectedLexItems | Delete selected lexicon items |  |
+| 🔵 | DeleteMultipleLexItems | Delete multiple lexicon items |  |
+| 🔵 | CancelDel | Cancel deleting |  |
+| 🟦4 | LexCleared | Lexicon cleared |  |
+| 🟦3 | NothingToClear | Nothing to clear |  |
+| 🟡 | deleteEverythingMessage | This will erase everything currently displayed (but not anything previously saved). Are you sure you want to do this? |  |
+| 🟡 | loadLexiconConfirm | Are you sure you want to load this? It will overwrite your current lexicon and cannot be reversed. |  |
+| 🟥 | NoSavedLexicons | No Saved Lexicons |  |
+| 🟦2.5 | LexSavedAsNew | Lexicon saved as new lexicon! |  |
+| 🟡 | needTitleMsg | You must input a title before saving. |  |
+| 🟡 | needLexiconTitleMsg | Please give your lexicon a title before exporting it. |  |
+| 🟡 | needWordsMsg | Please add words to your lexicon before exporting it. |  |
+| 🔴 | Item | Item |  |
+| 🔴 | Column | Column |  |
+| 🟥 | EditCols | Edit Columns |  |
+| 🟥 | LexItem | $t(common:Lexicon) $t(Item) |  |
+| 🟨 | ExitWOSave | Exit Without Saving? |  |
+| 🟡 | exitWithoutSavingMsg | You have unsaved changes. Are you sure you want to exit? |  |
+|  | New | New | Default label for a new column |
+| 🟡 | deleteColumnMsg | Are you sure you want to delete this column? $t(common:cannotUndo) |  |
+| 🟥 | LexOptions | $t(common:Lexicon) Options |  |
+| 🔴 | ShowTitles | Show Full Column Titles |  |
+|  | SortBlanks | Sort blank columns: | *(presentation context)* |
+| 🟥 | RearrangeColumns | Rearrange Lexicon Columns |  |
+| 🔴 | optionToBeginning | To Beginning, Always | Describes how blank columns will be sorted in the Lexicon |
+| 🔴 | optionToEnd | To End, Always | Describes how blank columns will be sorted in the Lexicon |
+| 🔴 | optionAlphaFirst | As Alphabetically First | Describes how blank columns will be sorted in the Lexicon |
+| 🔴 | optionAlphaLast | As Alphabetically Last | Describes how blank columns will be sorted in the Lexicon |
+| 🔵 | FieldName | Field Name | Column info |
+| 🔴 | Small | Small | Small column size *(Note: this must be kept very short)* |
+| 🔴 | Med | Med | Medium column size *(Note: this must be kept very short)* |
+| 🔴 | Large | Large | Large column size *(Note: this must be kept very short)* |
+|  | Changes | Changes | Used by `saveGeneralThings` |
+|  | workingMsg | Working... |  |
+|  | TITLE | TITLE | Only used in CSV exports |
+| 🔴 | exportTextTab | Text, Tabbed | Type of export |
+| 🔴 | exportTextSemicolon | Text, Semicolons | Type of export |
+| 🔴 | exportTextNewline | Text, Newlines | Type of export |
+| 🔴 | exportCSVFile | CSV File | Type of export |
+| 🔴 | exportCSVFileNoDesc | CSV File, no title/description | Type of export |
+| 🔴 | fileJson | JSON File | Type of export |
+| 🔴 | fileXml | XML File | Type of export |
+|  | Word | Word | Initial column name |
+|  | PartOfSpeech | Part of Speech | Initial column name |
+|  | Definition | Definition | Initial column name |
+|  | lexiconMergeInstructions | This will combine the selected Lexicon items into one single Lexicon item. Use the \"How to Merge\" section to choose how the items are merged, and see a preview of the final result in the \"Current Merged Result\" section. This action cannot be undone. |  |
+|  | HowToMerge | How to Merge |  |
+|  | CurrentMerge | Current merged result: | *(presentation context)* |
+| 🔴 | CancelMerge | Cancel Merging |  |
+| 🔴 | SaveMerge | Save and Merge |  |
+| 🟥 🔵 | MergeItems | Merge Items |  |
+| 🔴 | merge.first | Use first non-blank value | Lexicon merging option |
+| 🔴 | merge.last | Use last non-blank value | Lexicon merging option |
+| 🔴 | merge.merge | Merge all non-blank values together | Lexicon merging option |
+| 🔴 | merge.firstAll | Use first value, even if it's blank | Lexicon merging option |
+| 🔴 | merge.lastAll | Use last value, even if it's blank | Lexicon merging option |
+| 🔴 | merge.mergeAll | Merge all values together, including any that are blank | Lexicon merging option |
+| 🔴 | merge.blank | Save nothing, leave blank | Lexicon merging option |
+
+### info
+
+The `info` key has multiple subkeys. They are all arrays of strings in Markdown format.
+
+#### info.basic
+
+>[ "This tool is for storing the raw info of your language, whether that be words or something else. The default setup includes dictionary-style columns such as \"word\", \"part of speech\" and \"definition\", but you can add, remove, or rename columns as you see fit." ]
+
+#### info.description
+
+>[ "The beginning of the page has a place where you can title your collection and give it a short description. You can toggle this" entire section by using the (^) button at the top of the page." ]
+
+#### info.saveCounterAndSort
+
+>[  
+>"The save button at the top can be used to store, delete, and export entire lexicons.",  
+>"",  
+>"Below the title and description, you'll find a counter displaying how many words you have stored in your $t(common:Lexicon). Next to it is are two sort buttons, where you can choose which columns will be used to sort your collection."  
+>]
+
+#### info.editColumnsEtc
+
+**Note:** Use `` `DRAG HANDLE` `` to insert the drag handle icon into the text.
+
+>[  
+>"The gear icon opens the \*\*Edit Columns\*\* settings. You can choose whether or not to show the columns' full names, the method you wish to use to sort the $t(common:Lexicon), and how blank columns will be handled. Below that you'll find a list of all current columns. You can edit them, delete them, add more, or use the &#96;DRAG HANDLE&#96; drag handles to rearrange their order.",  
+>"",  
+>"The second row contains the titles of the columns. Beneath them are input boxes for quickly adding info to the $t(common:Lexicon). Use the small (+) button to save what you've typed.",  
+>"",  
+>"Under those boxes you'll find the meat of $t(common:Lexicon): all the items you've stored. They will appear as striped rows. You can \*\*swipe left\*\* on each one to find \*\*Edit\*\* and \*\*Delete\*\* buttons."  
+>]
+
+#### info.mergeButton
+
+>[  
+>"You can swipe right on a lexicon item to find the \*\*Merge Items\*\* button. You can use this to mark multiple entries. Once you've selected at least two, a large paperclip button will appear at the bottom of the page. Tapping on it will prompt you to merge the selected items into one entry.",  
+>"",  
+>"Several tools in $t(common:appTitle) can export info into the $t(common:Lexicon). The merge function can be used to merge all this different info. Here's an example:",  
+>"",  
+>"1. You begin by naming columns in the $t(common:Lexicon) \"original\", \"changed\", and \"definition\".",
+>"2. Then, you use $t(common:WordGen) to create a bunch of new words, which you export to $t(common:Lexicon) under the \"original\" column.",
+>"3. Next, you change those words with $t(common:WordEvolve) and export the changed words to \"changed\".",
+>"4. Then, you visit $t(common:Concepts) and export meanings to \"definition\".",
+>"5. Finally, you swipe and link each \"original\", \"changed\" and \"definition\" column with each other and merge them into single entries."  
+>]
+
+#### info.toolButton
+
+>[ "At the bottom of the page, you'll find a large tool button. You can tap on it to pull up a small menu. Tap on the (+) button to pop up a large form for adding to the $t(common:Lexicon). Tap on the trash can to enter mass-delete mode, where you can select multiple entries and delete them all at once." ]
+
+---
+
+## Declenjugator : dj.tsx
+
+| Label | Key | English Translation | Description (if needed) |
+| --- | --- | --- | --- |
+| 🟥 | Groups | Groups | The delenjugation groups as a whole |
+|  | Group | Group | used in `thingDeleted` and `thingSaved` |
+|  | NumGroups_one | {{count}} Group | used by `thingsDeleted` |
+|  | NumGroups_other | {{count}} Groups | English plural of the key above |
+| 🟥 | Type | Type | The 'type' refers to whether a group is a declension, conjugation, or other. |
+|  | Type_presentation | Type: | *(presentation context)* |
+| 🟥 🔴 | Declensions | Declensions | group of declensions on-screen |
+|  | Declension | Declension | a single Declension |
+| 🟥 🔴 | Conjugations | Conjugations | group of conjugations on-screen |
+|  | Conjugation | Conjugation | a single Conjugation |
+| 🟥 🔴 | Other | Other | group of 'other' type on-screen |
+|  | Other1 | Other | a single instance of an 'Other' type |
+|  | Forms | Forms | a plural version of 'other', mainly used in exports |
+|  | errorBadInternalFormatMsg | Error in exporting: bad format (internal) | An error message |
+|  | Equality | Equality | used by `addThing`, `thingAdded`, `editThing`, `thingEdited` |
+|  | Relation | Relation | used by `addThing`, `thingAdded`, `editThing`, `thingEdited` |
+| 🔵 | WordsToGiveDJ | Words to send through $t(common:Declenjugator) |  |
+|  | EnterWordsOnePerLine | Enter words here, one per line |  |
+|  | delEntireGroup | This will delete this entire Group, and cannot be undone. |  |
+|  | AllCurrentGroups | all current Groups | used by `clearOverwriteGeneralThings` |
+| 🟨 | ClearAllGroups | Clear All Groups? |  |
+| 🟡 | needTitleOrDescriptionMsg | You must provide a title or description before saving. |  |
+| 🟡 | regExNeedsBothMsg | If using regular expressions, you must provide both match and replacement expressions. |  |
+| 🟡 | needConditionMsg | You must provide at least one condition (start or end) before saving. |  |
+| 🟡 | noMatchExpressionMsg | You did not enter a match expression. |  |
+| 🟥 | AddGroup | Add Group |  |
+| 🟥 | EditGroup | Edit Group |  |
+|  | TitleInput | Title or Description of this grouping: | *(presentation context)* |
+| 🔵 | TypesBeingAffected | Type(s) of word this group affects |  |
+|  | TypesBeingAffected_presentation | Type(s) of word this group affects: | *(presentation context)* |
+|  | exampleAppliesTo | nouns? verbs? adjectives? |  |
+|  | UseRegExpToIdStem | Use regular expressions to identify the stem. |  |
+| 🟥 | SimpleRootFinder | Simple Root Finder |  |
+| 🟥 | Modification | Modification |  |
+| 🟥 | MatchingExpression | Matching Expression |  |
+|  | MatchingExpression_presentation | Matching Expression: | *(presentation context)* |
+| 🟥 | ReplacementExpression | Replacement Expression |  |
+|  | ReplacementExpression_presentation | Replacement Expression: | *(presentation context)* |
+| 🟥 | TitleMethod_Declensions | Title or Description of this declension: | *(presentation context)* |
+| 🟥 | TitleMethod_Conjugations | Title or Description of this conjugation: | *(presentation context)* |
+| 🟥 | TitleMethod_Other | Title or Description of this method: | *(presentation context)* |
+|  | advancedExplanation_Declensions | Use regular expressions to craft a declension. |  |
+|  | advancedExplanation_Conjugations | Use regular expressions to craft a conjugation. |  |
+|  | advancedExplanation_Other | Use regular expressions to craft a method. |  |
+|  | groupAppliesTo | ; applies to $t(appliesTo) | `appliesTo` will be a user-generated string |
+| 🟥 | WhatIsDJ | What is $t(common:Declenjugator)? |  |
+| 🟡 | noFormatMsg | You didn't select a format. |  |
+| 🟡 🟦2.5 | noDisplayGroupMsg | Please choose at least one Group to display. |  |
+| 🟥 | UnmatchedWords | Unmatched Words |  |
+| 🟥 | declenjugatorTitle | Declension/Conjugation Title |  |
+| 🟥 | declenjugatorDocumentTitle | Declensions/Conjugations |  |
+|  | declenjugatorDocumentDescription | A declension/conjugation document exported from $t(common:appTitle). |  |
+|  | caseMakerInstructions | Tap on terms to add them. Tap them again to remove them. Tap save button when you're finished. |  |
+| 🔴 | Hide | Hide |  |
+| 🔴 | ShowMore | Show More |  |
+|  | DisplayAs | Display as: | *(presentation context)* |
+| 🔴 | ChartTopHeaders | Chart, Top Headers |  |
+| 🔴 | ChartSideHeaders | Chart, Side Headers |  |
+| 🔴 | Text | Text |  |
+| 🟥 | UseInput | Use $t(common:Input) |  |
+|  | showDeclenjugationsInInputMsg | Display the declensions/conjugations of words in the input. |  |
+| 🟥 | ShowGroupInfo | Show Group Info |  |
+|  | includeGeneralInfoMsg | Include general Group information. |  |
+| 🟥 | ShowExamples | Show Examples |  |
+|  | includeGenericMsg | Include generic example. |  |
+| 🟥 | SortInput | Sort $t(common:Input) |  |
+| 🟥 | OneMatch | OneMatch |  |
+|  | oneMatchMsg | $t(common:Input) words can only match one method |  |
+| 🟥 | ShowUnmatchedWords | Show Unmatched Words |  |
+|  | showUnmatchedMsg | Display any words that were not matched by any Group. |  |
+| 🟥 | InputTab | $t(common:Input) Tab |  |
+| 🟥 | GroupsTab | Groups Tab |  |
+| 🟥 | OutputTab | Output Tab |  |
+| 🟥 | RegExp | Regular Expression |  |
+| 🟡 | willClearOverwriteMsg | This will clear and overwrite the previous save. |  |
+| 🟥 | LoadSavedInfo | Load Saved Info |  |
+| 🔴 | Export | Export |  |
+| 🟥 | Example | Example |  |
+| 🟥 | Examples | Examples |  |
+| 🟥 | Prefix | Prefix |  |
+| 🟥 | Suffix | Suffix |  |
+| 🟥 | stem | stem |  |
+| 🟥 | word | word |  |
+|  | wordBlock | \[word\] |  |
+|  | stemBlock | \[stem\] |  |
+|  | noMatchesMsg | No words matched this Group. |  |
+| 🔵 | RemoveFromEndOfWordToFindRoot | Remove from End of Word to Find Root |  |
+| 🟥 | RemoveFromEndOfWordToFindRoot_presentation | Remove from End of Word to Find Root: | *(presentation context)* |
+| 🔵 | RemoveFromStartOfWordToFindRoot | Remove from Start of Word to Find Root |  |
+| 🟥 | RemoveFromStartOfWordToFindRoot_presentation | Remove from Start of Word to Find Root: | *(presentation context)* |
+| 🟥 | UseAdvancedMethod | Use advanced method |  |
+| 🟥 | UseEntireWord | Use entire word |  |
+|  | modBaseWordNotStemMsg | This applies your modifications to the base word instead of the stem. |  |
+|  | SepMultiWith | Separate Multiple Conditions With: | *(presentation context)* |
+| 🔵 | ChooseSeparator | Choose Separator |  |
+| 🔴 | Space | \[ \] Space |  |
+| 🔴 | Comma | \[,\] Comma |  |
+| 🔴 | Semicolon | \[;\] Semicolon |  |
+| 🔴 | Slash | \[/\] Slash |  |
+|  | wordMarker | \[W\] | a small notation that this declension/etc uses the "entire word" option instead of the stem/root |
+|  | matchesParameters | matches {{params}} | This is a short description describing how a declension or conjugation is found. `{{params}}` may become something like `"-ar, -or"`, `"en-oof"`, or `"/[a-z]d[aeiou]$/"` |
+
+### cases
+
+The `cases` object is an array of objects. Each object has a `header` property (a string), a `content` property (an array, described below), and an optional `extended` property (an array, same contents as `content`).
+
+The `content` and `extended` properties are an array of either strings or arrays with exactly two strings.
+
+The `header` is presented to the user, along with the items in the content property. (Items that are arrays only show the first string.) Tapping on an item will add it to the user's input, along with a single space. (Items that are array will add the second string instead of a space.)
+
+The `extended` items will be hidden; the user can toggle to see them, At which point they appear the same way as `content` items.
+
+>**cases:** \[
+>
+>>{  
+>>**header:** "Modifiers",  
+>>**content:** \[ \[ "non-", "" \], \[ "high-", "" \], \[ "low-", "" \], "formal", "diminutive", "augmentative", "emphatic" \]  
+>>},
+>>
+>>{  
+>>**header:** "Number",  
+>>**content:** \[ "singular", "plural", "dual", "trial", "paucal", "definite", "indefinite" \]  
+>>},
+>>
+>>{  
+>>**header:** "Noun Case",  
+>>**content:** \[ "male", "female", "neuter", "animate", "inanimate" \]  
+>>},
+>>
+>>{  
+>>**header:** "Grammatical Case",  
+>>**content:** \[ "nominative", "accusative", "genitive", "dative", "ablative", "instrumental", "locative" \],  
+>>**extended:** \[ "vocative", "ergative", "absolutive", "partitive", "abessive", "adessive", "allative", "benefactive", "causal", "comitative", "delative", "distributive", "elative", "essive", "illative", "inessive", "instructive", "interrogative", "semblative", "sociative", "sublative", "superessive", "temporal", "terminative", "translative", "proximal", "relative", "adverbial", "oblique", "prepositional" \]  
+>>},
+>>
+>>{  
+>>**header:** "Person",  
+>>**content:** \[ "1st-person", "2nd-person", "3rd-person", "1s", "1pl", "2s", "2pl", "3s", "3pl" \]  
+>>},
+>>
+>>{  
+>>**header:** "Tense",  
+>>**content:** \[ "past", "present", "future" \]  
+>>},
+>>
+>>{  
+>>**header:** "Aspect",  
+>>**content:** \[ "perfective", "imperfective", "perfect", "continuative", "progressive" \],  
+>>**extended:** \[ "pluperfect", "habitual", "punctual", "iterative", "completive", "inceptive", "atelic", "telic", "static" \]  
+>>},
+>>
+>>{  
+>>**header:** "Mode",  
+>>**content:** \[ "realis", "irrealis", "conditional", "subjunctive", "interrogative" \],  
+>>**extended:** \[ "optative", "deontic", "hypothetical", "imaginary", "potential", "evidentiality", "validationality", "mirativity" \]  
+>>},
+>>
+>>{  
+>>**header:** "Valence",  
+>>**content:** \[ "causative", "applicative", "reflexive", "reciprocal", "passive", "inverse", "anticausative", "antipassive" \]  
+>>}
+>
+>\],
+
+### info
+
+The `info` object has several properties. Most are arrays of strings in Markdown format, but one is special.
+
+#### info.input
+
+>\[  
+>"This tab has one purpose: determining which words you want to decline or conjugate. Using this tab is entirely optional.",  
+>"",  
+>"The easiest way is to copy-paste a list of words, each on a line by itself. Or, you can use the \*\*Import From Lexicon\*\* button to pull in words stored in the \*\*$t(common:Lexicon)\*\*.",  
+>"",  
+>"Use the \*\*$t(common:Input)\*\* button to empty all words from $t(common:Input).",  
+>\]
+
+#### info.groups
+
+`` `DRAG HANDLE` `` (or any other text inside backticks) will be replaced with the drag handle icon.
+
+>\[  
+>"This is where you define groups of declensions and conjugations. Most languages treat certain groupings of words differently when they are declined or conjugated. For instance, English only declines its pronouns for case and person while Spanish has different conjugations for verbs depending on if they end in -ar, -er, or -ir.",  
+>"",  
+>"Click the (+) button to add a new Group. When you make a Group, you must give it a title or description. You can choose to label this as a \_declension\_, a \_conjugation\_ or under \_other\_ if you don't want to use those labels Optionally, you can note what types of words this Group will apply to.",  
+>"",  
+>"Next, you will provide instructions on how to find the \"$t(stem)\" of the word. For example, if you were creating a conjugation for words ending in -ar, you would put \"ar\" in the box labelled \"$t(RemoveFromEndOfWordToFindRoot)\".",  
+>"",  
+>"Note: You can provide multiple conditions. For instance, putting \"ar\" in both boxes will match words that begin with ar- \_and\_ end with -ar. You can also hit the \"$t(UseAdvancedMethod)\" toggle switch to use \*\*regular expressions\*\* to find a $t(stem). (See the end of this section for more info on regular expressions.)",  
+>"",  
+>"---",  
+>"",  
+>"At the end of the form, you will see an \"$t(common:AddNew)\" button. Use this to create the Group's individual declensions or conjugations. For simplicity, we will use the term \"method\" to mean either.",  
+>"",  
+>"First, you give the method a title. There is a small (+) button next to the input that will open a pop-up with numerous common declension and conjugation types, if you wish to use it.",  
+>"",  
+>"Below that is a toggle \"$t(UseEntireWord)\". If checked, the method will operate on the entire word instead of just the $t(stem).",  
+>"",  
+>"At the bottom, there are two input boxes around the word \"$t(stem)\". (This becomes \"$t(word)\" if you check the toggle above.) If this method would add a prefix, put the prefix in the box before \"$t(stem)\". If it would use a suffix, put it in the box after \"$t(stem)\". You can use both boxes for a circumfix but for infixes and other more complicated changes, you will need to use the \"advanced method\" and regular expressions.",  
+>"",  
+>"---",  
+>"",  
+>"Once your Groups are made, they will show up on the screen. Swipe left on them to find $t(common:Edit) and $t(common:Delete) buttons. You can also use the &#96;DRAG HANDLE&#96; drag handles to rearrange their order. (Note: you can't rearrange across types dragging a \"conjugation\" into the \"other\" or \"declension\" areas, for example. If you want to change its type, swipe left and choose the $t(common:Edit) button.)",  
+>"",  
+>"Here's an example of possible methods you could make for a Spanish-type conjugation:",
+>\]
+
+#### info.groupsExample
+
+This is an array of two objects. Each object has a `title` property as a header and a `content` property that is an array of strings in Markdown format.
+
+>\[
+
+This first object describe a Declenjugation group.
+
+>>{  
+>>**title:** "Group",  
+>>**content:** [ "- \*\*$t(common:Title)\*\*: Conjugations (A)", "- \*\*Type\*\*: \_conjugation\_", "- \*\*Remove from Start of Word\*\*: (blank)", "- \*\*Remove from End of Word\*\*: ar", ],  
+>>},
+
+This second object describes a set of conjugations.
+
+>>{  
+>>**title:** "Conjugations",  
+>>**content:** [ "- \*\*1st-person singular present\*\*: $t\(stem\)\[o\]", "- \*\*2nd-person singular present\*\*: $t\(stem\)\[as\]", "- \*\*3rd-person singular present\*\*: $t\(stem\)\[a\]", "- \*\*1st-person plural present\*\*: $t\(stem\)\[amos\]", "- \*\*3rd-person plural present\*\*: $t\(stem\)\[an\]", ],  
+>>}
+>
+>\]
+
+#### info.output
+
+>\[  
+>"This is where you can find the results of your work. At the top of the page, you can choose how you want the information to display, and choose if you want to display declensions conjugations, and/or other. If you want to decline/conjugate words you put in the \*\*$t(common:Input)\*\* tab be sure to switch the toggle on. It will open up a new set of options you can use to fine-tune the results.",  
+>"",  
+>"Click on $t(common:Generate) to display your info, or click on $t(Export) to export your info to a file. \*\*Note\*\*: when displaying a chart in the app, it may clip off the edge of the screen. If this happens, you can drag the chart left and right to scroll the hidden areas into view.",
+>\]
+
+#### info.overview
+
+>\[  
+>"This tool is for creating \*\*declensions\*\* and \*\*conjugations\*\*.",  
+>"",  
+>"A declension is, at its most basic, modifying a word to show its role in a sentence. $t(Declensions) may apply to nouns pronouns, adjectives, adverbs, and articles to indicate number (singular, dual, plural, etc), case (nominative accusative, genitive, dative, etc), gender (male, female inanimate, etc), and other grammatical categories. ",  
+>"",  
+>"A conjugation is much like a declension, but it modifies verbs. Like declensions, they can indicate number gender, and case, but they also often include person (I, you they, etc), tense (past, present, future, etc), aspect (perfect, imperfect, etc), mood/mode, politeness, and numerous other verb qualities.",
+>\]
+
+---
