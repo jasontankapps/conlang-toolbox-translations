@@ -321,7 +321,7 @@ const wg = {
 			"",
 			"`charGroup example`",
 			"",
-			"...you could decide to make a list of syllables such as the",
+			"Then you could decide to make a list of syllables such as the",
 			"following:",
 		],
 		syllablesStartIsOverview: [ // Markdown format

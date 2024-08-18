@@ -431,7 +431,7 @@ Each character in Extra Characters has an official Unicode name. You can find th
 | 🟥 | Changelog | Changelog | A list of changes made to the app |
 | 🔴 | HideOlderChanges | Hide Older Changes |  |
 | 🔴 | ShowOlderChanges | Show Older Changes |  |
-|  | changeLog | *See description* | This is a special object containing multiple properties. Each property is an array of strings in Markdown format. They describe the various changes to the app. |
+|  | changelog | *See description* | This is a special object containing multiple properties. Each property is an array of strings in Markdown format. They describe the various changes to the app. |
 
 ---
 

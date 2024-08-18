@@ -46,6 +46,21 @@ const appinfo = {
 	ShowOlderChanges: "Show Older Changes", // 🔴
 	changelog: {
 		// Markdown format
+		//v0.12.0
+		v0120: [
+			"- Overhauled the inner workings of the app to allow for the",
+			"possibility of **translations** to happen; visit",
+			"[this github](https://github.com/jasontankapps/conlang-toolbox-translations)",
+			"to look at the translation files",
+			"    - I am not multilingual, so I cannot provide translations for",
+			"other languages (nor can I pay for pricey and often-inaccurate",
+			"translate-on-demand services), but if you're familiar with",
+			"`i18next` and want to give it a shot, go right ahead!",
+			"- Made some Concepts less ambiguous; e.g. `slow` became `slow",
+			"(adjective)` as opposed to a verb",
+			"- Fixed a bug in the way merging items worked in Lexicon",
+			"- Other minor bugfixes and improvements"
+		],
 		//v0.11.3
 		v0113: [
 			"- Overhauled main page.",
