@@ -17,7 +17,7 @@ const settings = {
 	SolarizedDark: "Solarized Dark", // Solarized is the name of a popular color palette
 
 	exportAllMsg: [ // Markdown format
-		"Save this info to a note or file.   ",
+		"Save this info to a note or file.  ",
 		"You will be able to use it later to restore your data."
 	],
 	ExportedData: "Exported Data", // 🔵
