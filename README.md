@@ -1514,7 +1514,10 @@ This is a block of text representing a set of Character Groups. It can be used i
 
 ```javascript
 [
-  "I=pbk L=lr C=pbklr V=eioau"
+  "I=pbk",
+  "L=lr",
+  "C=pbklr",
+  "V=eioau"
 ]
 ```
 
@@ -1592,7 +1595,9 @@ This is a block of text representing a set of Syllables. It can be used in the n
 
 ```javascript
 [
-  "ILV CV ILVC"
+  "ILV",
+  "CV",
+  "ILVC"
 ],
 ```
 
@@ -1632,7 +1637,7 @@ This section is the end of the Syllables help page, and not shown on the Overvie
 
 #### info.transBlocks
 
-This object uses `BlockFormat` objects, as described in [info.soundChangesBlocks](#infosoundchangesblocks)
+This object uses `BlockFormat` objects, as described in [WordEvolve's info.soundChangesBlocks](#infosoundchangesblocks)
 
 Insert a formatted block into the text with `` `nameOfBlock` `` inside backticks.
 
