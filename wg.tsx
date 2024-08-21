@@ -44,7 +44,7 @@ const wg = {
 		+ " tendency. A rate of zero is flat, making all characters"
 		+ " equiprobable.",
 	CharGroupRunDropoff: "Character Group run dropoff", // 🟥
-	SyllableBoxDropoff: "syllable box dropoff", // 🟥
+	SyllableBoxDropoff: "Syllable box dropoff", // 🟥
 	UseMultiSyllTypes: "Use multiple syllable types", // 🔴
 	PseudoText: "Pseudo-text", // 🔴
 	Wordlist: "Wordlist", // 🔴
@@ -178,6 +178,7 @@ const wg = {
 	//TO
 	doubleVowels: "double vowels",
 	singleDipthongs: "single dipthongs",
+	dipthong: "dipthong",
 	dipthongs: "dipthongs",
 	nt: "nt",
 	mp: "mp",
@@ -601,13 +602,13 @@ const wg = {
 			"1. Uses the sounds k, g, s, z, t, d, n, h, b, p, m, y, r, w, a,",
 			"i, u, e, and o.",
 			"2. Sounds can be grouped like this:",
-			"   1. k, g, s, z, t, d, n, h, b, p, m, r",
-			"   2. a, i, u, e, o",
-			"   3. y",
-			"   4. a, u, o",
-			"   5. w",
-			"   6. a, o",
-			"   7. n",
+			"    1. k, g, s, z, t, d, n, h, b, p, m, r",
+			"    2. a, i, u, e, o",
+			"    3. y",
+			"    4. a, u, o",
+			"    5. w",
+			"    6. a, o",
+			"    7. n",
 			// second-level ordered lists like the one above will use lowercase roman numerals
 			"3. Syllables can be made from (i)+(ii), (iii)+(iv), (v)+(vi),",
 			"(ii) by itself, and (vii) by itself.",

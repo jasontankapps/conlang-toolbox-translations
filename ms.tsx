@@ -10,6 +10,7 @@ const ms = {
 
 	clearMSInfo: "Clear $t(common:MorphoSyntax) Info",
 	noInfoToClearMsg: "You have no information to clear.", // 🟦2.5
+	clearedMS: "All $t(common:MorphoSyntax) information has been cleared.", // 🟦2.5
 	morphoSyntaxInfo: "everything currently in $t(common:MorphoSyntax) (but not anything previously saved)", // used by clearOverwriteGeneralThings
 	needInfoToExportMsg: "Please add information to your MorphoSyntax document in at least one section before exporting it.", // 🟡
 	msDocument: "$t(common:MorphoSyntax) document",
@@ -24,7 +25,7 @@ const ms = {
 	UsuallyLangName: "Usually the language name.",
 	ShortDescriptionMsg: "A short description of this document.",
 	MorphoSyntaxInfo: "$t(common:MorphoSyntax) Info",
-	SavedMorphoSyntaxInfo: "Saved $t(MorphoSyntax Info)",
+	SavedMorphoSyntaxInfo: "Saved $t(MorphoSyntaxInfo)",
 	MISSINGTITLE: "MISSING TITLE", // 🟥 (error message)
 	genericInfoButtonText: "Information", // 🔴
 	rangeFromTo: "Range from {{start}} to {{end}}", // 🔵

@@ -242,9 +242,6 @@ const common = {
 
 	defaultSort: "Default sort", // 🔴 Refers to the default sort method, whatever it may be
 
-	LexiconNeedsColumns: // 🟡
-		"You need to add columns to the $t(Lexicon) before you can add anything to it.",
-
 	error: "Error",
 	emphasizedError: "<$t(error)>", // 🟥
 
@@ -267,7 +264,6 @@ const common = {
 	// Import from Lexicon (to WG or WE)
 	Import: "Import", // 🔴
 	ImportFromWhichColumns: "Import from which column(s)?", // 🟨
-	LexiconHasNoColumns: "Lexicon Has No Columns", // 🟥
 	optional: "(optional)",
 	AddConditions: "Add Conditions $t(optional)",
 	WordMustContainX: "Word must contain [x]",

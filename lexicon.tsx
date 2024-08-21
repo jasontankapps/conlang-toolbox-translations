@@ -67,6 +67,7 @@ const lexicon = {
 	deleteColumnMsg: "Are you sure you want to delete this column? $t(common:cannotUndo)", // 🟡
 	LexOptions: "$t(common:Lexicon) Options", // 🟥
 	ShowTitles: "Show Full Column Titles", // 🔴
+	cannotDeleteFinalColumnMsg: "Cannot delete: a Lexicon must contain at least ONE column.", // 🟦 5
 
 	// always presentational context:
 	SortBlanks: "Sort blank columns:",

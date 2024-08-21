@@ -2,7 +2,7 @@ const wgwe = {
 
 	// WordGen and WordEvolve common terms
 
-	CharGroup: "Character Groups",
+	CharGroup: "Character Group",
 	CharGroups: "Character Groups",
 	DeleteAll: "Delete All", // 🟨
 	delAllCharGroups_one:
