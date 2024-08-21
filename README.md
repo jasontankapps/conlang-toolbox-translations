@@ -213,12 +213,10 @@ These are terms used across the app, or only on "main" app pages, like Settings 
 | 🟡 | MaybeClearEntireInput | $t(areYouSure) This will clear the entire input, and cannot be undone. | Clearing the entire Input in Declenjugator and WE |
 | 🔴 | YesClear | Yes, Clear It | Affirmative answer to the above question. |
 | 🔴 | defaultSort | Default sort | Refers to the default sort method (whatever it may be) |
-| 🟡 | LexiconNeedsColumns | You need to add columns to the $t(Lexicon) before you can add anything to it. | Error message |
 | 🔴 🟥 🟨 | ImportFrom | Import from {{source}} | `{{source}}` is always Lexicon, WordGen or WordEvolve |
 | 🔴 | LoadPreset | Load Preset | Load a preset in WE or WG |
 | 🔴 | Import | Import | Import from Lexicon (to WG or WE) |
 | 🟨 | ImportFromWhichColumns | Import from which column(s)? | Import from Lexicon (to WG or WE) |
-| 🟥 | LexiconHasNoColumns | Lexicon Has No Columns | Error message trying to import from an empty Lexicon |
 |  | optional | (optional) | Placeholder text for optional text inputs |
 |  | AddConditions | Add Conditions $t(optional) | The user can specify conditions that must be met before a specific word can be imported from the Lexicon. |
 |  | Condition | Condition | Used in `thingSaved` inside the Import from Lexicon modal |
@@ -586,6 +584,7 @@ You can find the master list of concepts in [CONCEPTS.md](CONCEPTS.md).
 | 🟡 | deleteColumnMsg | Are you sure you want to delete this column? $t(common:cannotUndo) |  |
 | 🟥 | LexOptions | $t(common:Lexicon) Options |  |
 | 🔴 | ShowTitles | Show Full Column Titles |  |
+| 🟦 5 | cannotDeleteFinalColumnMsg | Cannot delete: a Lexicon must contain at least ONE column. |  |
 |  | SortBlanks | Sort blank columns: | *(presentation context)* |
 | 🟥 | RearrangeColumns | Rearrange Lexicon Columns |  |
 | 🔴 | optionToBeginning | To Beginning, Always | Describes how blank columns will be sorted in the Lexicon |
@@ -962,6 +961,7 @@ This is an array of two objects. Each object has a `title` property as a header 
 |  | showUnused | \[ "\#\# Show Unused Sections", "", "Include sections that you did not fill out, leaving space for you to write in later.&nbsp;&nbsp;", "\*\*NOTE: this option has no effect on JSON and XML exports.\*\*" \] | This is an array of strings in Markdown format. |
 |  | clearMSInfo | Clear $t(common:MorphoSyntax) Info |  |
 | 🟦2.5 | noInfoToClearMsg | You have no information to clear. |  |
+| 🟦2.5 | clearedMS | All $t(common:MorphoSyntax) information has been cleared. |  |
 |  | morphoSyntaxInfo | everything currently in $t(common:MorphoSyntax) (but not anything previously saved) | used by clearOverwriteGeneralThings |
 | 🟡 | needInfoToExportMsg | Please add information to your MorphoSyntax document in at least one section before exporting it. |  |
 |  | msDocument | $t(common:MorphoSyntax) document |  |
@@ -976,7 +976,7 @@ This is an array of two objects. Each object has a `title` property as a header 
 |  | UsuallyLangName | Usually the language name. |  |
 |  | ShortDescriptionMsg | A short description of this document. |  |
 |  | MorphoSyntaxInfo | $t(common:MorphoSyntax) Info |  |
-|  | SavedMorphoSyntaxInfo | Saved $t(MorphoSyntax Info) |  |
+|  | SavedMorphoSyntaxInfo | Saved $t(MorphoSyntaxInfo) |  |
 | 🟥 | MISSINGTITLE | MISSING TITLE | (error message) |
 | 🔴 | genericInfoButtonText | Information |  |
 | 🔵 | rangeFromTo | Range from {{start}} to {{end}} |  |
@@ -1315,7 +1315,7 @@ Other `info` properties may access these bits on information by putting a block'
 |  | dropoffRate | Dropoff Rate | formal context |
 |  | characterDropoffExplanation | Characters at the beginning of a group tend to be picked more often than characters at the end of the group. This slider controls this tendency. A rate of zero is flat, making all characters equiprobable." |  |
 | 🟥 | CharGroupRunDropoff | Character Group run dropoff |  |
-| 🟥 | SyllableBoxDropoff | syllable box dropoff |  |
+| 🟥 | SyllableBoxDropoff | Syllable box dropoff |  |
 | 🔴 | UseMultiSyllTypes | Use multiple syllable types |  |
 | 🔴 | PseudoText | Pseudo-text |  |
 | 🔴 | Wordlist | Wordlist |  |
@@ -1438,6 +1438,7 @@ These keys are a part of `wg.tsx` and name Presets and their components' descrip
 |  | ngkNgt | ngk and ngt | a `{{from}}` |
 |  | doubleVowels | double vowels | a `{{to}}` |
 |  | singleDipthongs | single dipthongs | a `{{to}}` |
+|  | dipthong | dipthong | a `{{to}}` |
 |  | dipthongs | dipthongs | a `{{to}}` |
 |  | nt | nt | a `{{to}}` |
 |  | mp | mp | a `{{to}}` |
@@ -1802,19 +1803,360 @@ Second-level numeric lists, like the "Sounds can be grouped like this:" sublist,
   "",
   "1. Uses the sounds k, g, s, z, t, d, n, h, b, p, m, y, r, w, a, i, u, e, and o.",
   "2. Sounds can be grouped like this:",
-  "   1. k, g, s, z, t, d, n, h, b, p, m, r",
-  "   2. a, i, u, e, o",
-  "   3. y",
-  "   4. a, u, o",
-  "   5. w",
-  "   6. a, o",
-  "   7. n",
+  "    1. k, g, s, z, t, d, n, h, b, p, m, r",
+  "    2. a, i, u, e, o",
+  "    3. y",
+  "    4. a, u, o",
+  "    5. w",
+  "    6. a, o",
+  "    7. n",
   "3. Syllables can be made from (i)+(ii), (iii)+(iv), (v)+(vi), (ii) by itself, and (vii) by itself.",
   "",
   "With that information, you can proceed into the rest of this tool:",
   "",
   "The **Character Groups** tab is for holding groups of sounds, and the **Syllables** tab describes how they fit together. For more complex words, the **Transformations** tab provides a way to tweak the generated output with search expressions and replacement expressions. The **Output Tab** is where the new words can be found, and the **$t(common:Settings)** tab has other options you can tweak if needed.",
   "",
-  "Be sure to check out the _Presets_ over on the Settings tab. The \"Pseudo-Japanese\" preset shows one way to put the above info to use.",
+  "Be sure to check out the _Presets_ over on the Settings tab. The \"Pseudo-Japanese\" preset shows one way to put the above info to use."
 ]
 ```
+
+## CHECKLIST
+
+If you have a working app with the translation loaded, you can follow these steps to ensure all messages are appearing correctly.
+
+1. Settings
+    - Tap on Change Theme, verify all theme names
+    - Tap on Export Data
+        - Make sure all toggles are on
+        - Copy to clipboard, make sure toast message is correct
+    - Go to Import Data
+        - Paste in data from clipboard
+            - **If you are working with a non-clean version of the app, save this data elsewhere so you can restore your app state when you are done.**
+        - Tap on Analyze
+        - Tap on Import, verify the toast message is correct.
+    - Go to Sort Settings
+        - Tap on Sort Sensitivity, verify all four options.
+        - Tap on Using Custom Sort and verify "WG Presets Sorter" is correct.
+        - Tap on New Custom Sort
+            1. Attempt to save the blank sort: should say there is no title
+            1. Add a title
+            1. Attempt to save the sort again: should say there is no information
+            1. Toggle the alternate alphabet
+                - Tap on Alphabet separator and verify all five options
+            1. Attempt to save: should say the alphabet is blank
+            1. Tap on Add Relation
+                1. Tap on Pre/Post separator and verify all five options
+                2. Attempt to save: should give a message saying there is no base character
+                3. Add a base character
+                4. Attempt to save again: should say you must provide pre or post characters
+                5. Add a pre or post character
+                6. Save the relation, verify the toast message is correct
+            1. Swipe left on the relation, tap the edit button
+                - Verify the title of the page, then tap Save and verify the message is correct
+            1. Swipe left on the relation, tap the delete button, verify the message is correct
+            1. Tap on Add Equality
+                1. Add a base character
+                2. Attempt to save: should say you must provide "equal" characters
+                3. Add an equal character
+                4. Save the equality, verify the toast message is correct
+            1. Swipe left on the Equality, tap the edit button
+                - Verify the title of the page, then tap Save and verify the message is correct
+            1. Swipe left on the Equality, tap the delete button, verify the message is correct
+            1. Save the Custom Sort, verify the message is correct
+            1. Swipe left on the Custom Sort, tap the edit button
+                - Verify the title of the page, then tap Save and verify the message is correct
+            1. Swipe left on the Custom Sort, tap the delete button, verify the message is correct
+2. Morphosyntax
+    - **Note:** be sure to notice the "Loading" page!
+    - Go through each page, starting with the Overview, then going through pages 1-10.
+        - Hit every information button on every page, making sure the info text matches the section it's linked in.
+    - On the settings page, hit the Clear Info button to see the popup.
+    - Tap Load, verify the "no saved docs" message
+    - Tap Save, verify the "no title" message
+    - Add a title and description, tap Save again, verify save message
+    - Tap on Save New, verify save message
+    - Tap on Load, tap on a saved document, verify warning message
+    - Go to page 1
+        - Move one slider
+        - Check at least one checkbox
+        - Add text to at least one box
+    - Go to page 2 and check at least one checkbox
+    - Go to settings, tap on Export
+        - Leave "Show Unused Sections" on
+        - Export three times, once as Text File (plain), once as a Text File (markdown), and finally as a Word Document (docx)
+        - Leave the app and verify the three exports
+            - Check the sliders, checkboxes and text boxes you modified
+            - Check the other checkboxes that were not modified and text boxes not filled
+3. WordGen
+    1. Check the overview, verify all text
+    2. Go to Character Groups
+        - Tap on Help button, verify all text
+        - Tap on the Add button
+        - Attempt to save, verify the error message
+        - Tap the Suggest button, verify the error message
+        - Add title, label and characters, then tap Add Character Group
+        - Save another character group
+        - Swipe left and Tap Edit
+            - Verify the title
+            - Tap the Delete button, verify the messaging
+            - Close modal
+        - Swipe left and Tap Delete
+            - Verify the text
+            - Tap Yes, verify the toast message
+        - Tap the Clear Everything button
+            - Verify the text
+            - Tap Yes, verify the toast message
+    3. Go to Syllables
+        - Tap on Help button, verify all text
+        - Toggle the multiple syllable types **on**
+        - Edit the main syllables box only
+        - Tap the Clear Everything button
+            - Verify the text
+            - Tap Yes, verify the toast message
+        - Add main syllables again
+    4. Go to Transformations
+        - Tap on Add button
+        - Attempt to save, verify the error message
+        - Add a search expression
+        - Save two Transformations
+        - Swipe left and Tap Edit
+            - Verify the title
+            - Tap the Delete button, verify the messaging
+            - Close modal
+        - Swipe left and Tap Delete
+            - Verify the text
+            - Tap Yes, verify the toast message
+        - Tap the Clear Everything button
+            - Verify the text
+            - Tap Yes, verify the toast message
+    5. Go to Output
+        - Tap Generate, verify error message
+        - Tap Copy button, verify error message
+        - Tap the Settings icon, verify modal, close it
+    6. Go to Settings
+        - Tap Save/Load info
+            - Verify title, "no saved info" message
+            - Add a title, tap Save, verify toast message
+            - Tap Load/Save again
+                - Tap "Load" next to the saved info
+                    - Verify warning
+                    - Tap Yes, verify toast message
+            - Tap Load/Save again
+                - Tap Delete button
+                - Confirm, verify toast message
+            - Close Modal
+        - Tap "Load Preset"
+            - Verify all names
+            - Tap on Simple
+                - Verify warning message
+                - Confirm, and verify toast message
+                - Go back to Character Groups, verify titles of all groups
+            - Return to Settings, Load the Medium preset
+                - Go back to Character Groups, verify titles of all groups
+            - Return to Settings, Load the Complex preset.......
+                - Go back to Character Groups, verify titles of all groups
+                - Go to Transformations, verify descriptions of all transforms
+            - Return to Settings, Load the Pseudo-Latin preset
+                - Go back to Character Groups, verify titles of all groups
+            - Return to Settings, Load the Pseudo-Chinese preset
+                - Go back to Character Groups, verify titles of all groups
+            - Return to Settings, Load the Pseudo-English preset......
+                - Go back to Character Groups, verify titles of all groups
+                - Go to Transformations, verify descriptions of all transforms
+            - Return to Settings, Load the Pseudo-Japanese preset
+                - Go to Transformations, verify descriptions of all transforms
+    7. Go back to Output
+        - Tap "Generate"
+        - Tap Copy button, verify toast message
+        - Tap the Lexicon button, verify toast message
+            - Tap any number of words
+            - Tap the Save icon
+                - Verify messaging
+4. WordEvolve
+    1. Start with Overview
+    2. Go to Input
+        - Add a few words
+        - Tap the Clear button
+            - Verify warning message
+            - Confirm, and verify toast message
+        - Add a few words again
+    3. Go to Character Groups
+        - Tap on the Import button
+            - Confirm, verify the toast message
+        - Tap on the Clear All button
+            - Confirm, verify the toast message
+    4. Go to Transformations
+        - Tap the Add button, verify the Direction options
+    5. Go to Sound Changes
+        - Tap the Add button
+        - Tap Save, verify error messages
+        - Add a search expression and a context expression
+        - Tap Save, verify toast message
+        - Swipe left on the Change
+            - Verify the title
+            - Tap the Delete button, verify the messaging
+            - Close modal
+        - Swipe left and Tap Delete
+            - Verify the text
+            - Tap Yes, verify the toast message
+        - Tap the Clear Everything button
+            - Verify the text
+            - Tap Yes, verify the toast message
+    6. Go to Output
+        - Tap on the Settings icon
+            - Verify all text, close modal
+        - Tap Copy, verify the error message
+        - Tap Evolve, verify the error message
+        - Tap Load Preset
+            - Tap on "Great English Vowel Shift"
+            - Tap Yes, and verify the toast message
+    7. Go back to **WordGen** and tap on Character Groups
+        - Tap on the Import button
+            - Confirm, verify the toast message
+5. Declenjugator
+    1. Visit Overview
+    2. Go to Input
+        - Add a couple of words
+        - Tap the Clear button
+            - Verify warning message
+            - Confirm, and verify toast message
+        - Add a couple of words again
+    3. Go to Groups
+        - Tap Add
+            - Tap Save, verify error message
+            - Tap on Type, verify all three types are present
+            - Type in a title, tap Save, verify error message
+            - Tap Use Advanced Method
+                - Tap save, verify error message
+                - Put a Question Mark by itself in the Match Expression
+                - Put anything in the Replacement
+                - Hit Save, verify error message
+            - Toggle Use Advanced Method off
+            - Type something into either text box
+            - Tap "Separate Multiple Conditions With" and verify all four options
+            - Tap "Add New" at the bottom
+                - Tap Save, verify error message
+                - Tap on the (+) button
+                    - Verify all messaging
+                    - Be sure to tap on all Show More buttons
+                    - Tap Save, verify error message
+                    - Tap (+) again, tap on a word, tap Save again, verify success message
+                - Tap on Use Advanced Method, verify alternate messaging
+                - Tap Save, verify save message
+            - Swipe left on the new Declension
+                - Verify the title
+                - Tap the Delete button, verify the messaging
+                - Close modal
+            - Swipe left and Tap Delete
+                - Verify the text
+                - Tap Yes, verify the toast message
+            - Tap Save
+        - Swipe left on the new Group
+            - Verify the title
+            - Tap the Delete button, verify the messaging
+            - Close modal
+        - Swipe left and Tap Delete
+            - Verify the text
+            - Tap Yes, verify the toast message
+        - Add another new Group
+        - Tap the Clear Everything button
+            - Verify the text
+            - Tap Yes, verify the toast message
+        - Go back to the Groups tab
+            - Add at least three Groups
+                - One should be Declensions, one Conjugations, and the last Other
+    4. Go to Output
+        - Tap Display as, verify all three modes
+        - Tap on Groups, verify text, uncheck all Groups
+        - Tap Generate, verify error message
+        - Toggle Use Input, verify the new options that appear
+        - Toggle Show Unmatched Words
+        - Make sure Show Group Info and Show Examples are toggled
+        - Tap on Groups, select all Groups
+        - Tap on Generate
+            - Verify all generated text
+                - If all three Groups and Unmatched Words haven't appeared, adjust the Input words until they all show up
+            - Tap Copy to Clipboard button, verify message
+        - Tap on Export, verify text and all three options
+            - If only two options appear, Tap Display As and change it to a Chart, then Tap on Export again
+6. Lexicon
+    1. Verify main text
+    1. Tap Help button, verify text
+    1. Tap (+) button, verify error message
+    1. Add at least one item into the Lexicon
+        - Swipe left on the item, tap Edit
+            - Verify text
+            - Tap Delete, verify message, cancel
+            - Change anything, then Tap on the (x)
+                - Verify error message
+            - Tap Save, verify toast message
+        - Swipe left on the item, tap Delete
+            - Verify text,
+            - Tap Yes, verify toast message
+    1. Tap Save button, verify text
+        - Tap "Save", verify error message (no title)
+        - Tap "Export", verify error message (no title)
+        - Tap "Load", verify the no-lexicons-saved message
+    1. Tap on the "Sort" button
+        - Verify all text, close modal
+    1. Add a title, Tap Save button again
+        - Tap "Export", verify error message (no items)
+        - Tap "Save", verify toast message
+        - Tap "Save as New", verify toast message
+        - Tap "Clear", verify text, Tap Yes, verify toast message
+            - Verify all three default column labels
+        - Tap "Load", choose a saved Lex, verify toast message
+    1. Tap the Tools button, then Tap on the Add button
+        - Verify all text
+        - Finish adding an item to the Lexicon
+        - Tap Tools again, Tap on the Trash button, verify toast messages
+    1. Tap Save button again
+        - Tap "Export", verify all text
+    1. Tap the Settings button
+        - Tap on "Sort blank columns", verify all four options
+        - Tap "Add Column"
+            - Verify toast message
+            - Verify the default column name
+        - Tap Delete button on a column, verify text
+        - Delete all columns
+            - Verify error message when trying to delete the last column
+        - Cancel the modal
+    1. Add item(s) until there are at least two Lexicon items
+        - Swipe right on two or more items and tap the Link buttons underneath
+        - Tap the Link button
+        - Verify all text
+        - Tap on a column under "How to Merge", verify all seven options
+        - Save or Cancel
+    1. Ensure there are items in the Lexicon, and that ALL items are BLANK in at least one column
+    1. Go to WordEvolve (or Declenjugator), Input tab
+        - Tap on Import From Lexicon, verify all text
+        - Tap on Import without selecting a column, verify toast message
+        - Select a BLANK column, Tap Import, verify toast message
+        - Select a filled column, Tap Import, verify toast message
+7. Concepts
+    1. Verify Display buttons
+    1. Tap the help icon, verify all text
+    1. Tap on all Display buttons
+        - Verify ALL words on screen
+    1. Tap the Lexicon button
+        - Verify toast message and button texts
+        - Tap on at least one word
+        - Tap on Save Selected Meanings
+            - Verify dialog text
+            - Tap Save, verify toast message
+    1. Tap the Link button
+        - Verify the toast message
+        - Verify "Current Combination" text
+        - Select at least two words
+        - Tap Save, verify toast message
+    1. Tap the Unlink button
+        - Verify toast message
+        - Tap on the combination you created
+        - Tap Unlink again
+            - Verify dialog text
+8. App Info
+    1. Verify all text
+    2. Tap on Get Error Logs, verify the text
+    3. Tap on Show Older Changes
+        - Verify the new "Hide Other Changes" button
+        - Verify all new text
