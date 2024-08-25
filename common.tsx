@@ -111,6 +111,7 @@ const common = {
 	// Toast and Alert messages
 	CopiedToClipboard: "Copied to clipboard",// 🟦1.5 result message
 	NothingToCopy: "Nothing to copy",        // 🟦1.5 error message
+	CharactersToBeCopied: "Characters to be copied", // 🔵
 
 	Untitled: "[Untitled]", // used as a document title if no title is provided
 	fileFormat: "{{title}} - {{date}}.{{extension}}", // safe for use as a filename
@@ -133,7 +134,7 @@ const common = {
 	SelectAColumn: "Select a column",
 	GoToLexicon: "Go to $t(Lexicon)", // 🟦3.5+🔴
 	TapWordsToSave: "Tap words you want to save to $t(Lexicon).", // 🟦2.5
-	"SaveToLexiconMessage": // 🟡
+	SaveToLexiconMessage: // 🟡
 		"Your selected words will be added to the $t(Lexicon) under that column.",
 
 	// Exporting files
@@ -149,31 +150,6 @@ const common = {
 	fileJson: "JSON File",
 	fileXml: "XML File",
 
-	CharactersToBeCopied: "Characters to be copied", // 🔵
-
-	// Things will take `count` properties for plurality, but the exact number will usually be expressed
-	//   in the `things` property itself
-	thingsDeleted_one: "{{things}} deleted.", // 🟦2.5
-	thingsDeleted_other: "{{things}} deleted.",
-
-	// General Things are unknown: may be 0, 1, or any number
-	clearOverwriteGeneralThings: "This will clear and overwrite {{things}}.", // 🟡
-	saveGeneralThings: "Save {{things}}", // 🟥 🔴
-
-	// Singular Things
-	thingAdded: "{{thing}} added.", // 🟦2
-	thingSaved: "{{thing}} saved.", // 🟦2
-	thingDeleted: "{{thing}} deleted.", // 🟦2.5
-	thingEdited: "{{thing}} edited.", // 🟦2 🟨
-	deleteThing: "Delete {{thing}}", // 🔴 🟨
-	editThing: "Edit {{thing}}", // (H)
-	addThing: "Add {{thing}}", // 🟥 🔴
-	saveThing: "Save {{thing}}", // 🔴
-	loadThing: "Load {{thing}}", // 🟥
-	missingThing: "Missing {{thing}}", // 🟨
-	exportThing: "Export {{thing}}", // 🟥
-	exportThing_presentation: "Export {{thing}}:",
-
 	// Titled things
 	deleteTitleQ: "Delete \"{{title}}\"?", // 🟨
 	loadTitleQ: "Load \"{{title}}\"?", // 🟨
@@ -187,14 +163,16 @@ const common = {
 	// "It" refers to saved info from WG, WE, or Declenjugation
 	YesOverwriteIt: "Yes, Overwrite It", // 🔴
 
-	prevSave: "the previous save",
+	ClearOverwritePrevSave: "This will clear and overwrite the previous save",
 	LoadError: "Load Error", // 🟨
 	ManageCustomInfo: "Manage Custom Info", // 🟥
-	CurrentInfo: "Current Info",
+	SaveCurrentInfo: "Save Current Information", // Used by DJ and WE
 	NameOfSave: "Name of save",
 	NameYourInfo: "Name your custom info",
 	Load: "Load", // 🔴
 	NoSavedInfo: "No saved info",
+	LoadSavedInfo: "Load Saved Info",
+	missingTitleMsg: "Missing title.", // 🟡
 
 	SortMethod: "Sort method:",
 
@@ -250,15 +228,14 @@ const common = {
 	Loading: "Loading", // 🟥
 	PleaseWait: "Please wait...", // 🟥
 
-	title: "title",
 	Title: "Title", // 🔵 🟥
-	Title_presentation: "Title:",
+	Title_presentation: "Title:", // 🔴
 	Description: "Description", // 🟥 🔵
 	Description_presentation: "Description:",
 
 	overviewOf: "Overview: {{what}}", // 🟥
 
-	ImportFrom: "Import from {{source}}", // 🔴 🟥 🟨 source is always Lexicon, WordGen or WordEvolve
+	ImportFromLexicon: "Import from Lexicon", // 🔴 🟥 🟨
 	LoadPreset: "Load Preset", // 🔴
 
 	// Import from Lexicon (to WG or WE)
@@ -272,7 +249,7 @@ const common = {
 	TypeRegExHere: "Type regular expression here.",
 	ColXMustHaveY: "Column [x] must contain [y]",
 	ColXMustMatchY: "Column [x] must match expression [y]",
-	Condition: "Condition",
+	ConditionSaved: "Condition saved.", // 🟦2.5
 
 	// These terms should be treated as the `presentational` context
 	TestColumn: "Test column:", // 🟥 the column being tested for a match
@@ -290,22 +267,6 @@ const common = {
 	importSuccess_one: "Imported {{count}} word from $t(Lexicon).", // 🟦3.5
 	importSuccess_other: "Imported {{count}} words from $t(Lexicon).",
 	yesImport: "Yes, Import", // 🔴
-
-	regexpInfo: [ // Markdown format
-		"To put it as simply as possible, a regular expression is a",
-		"sequence of characters that specifies a match pattern in text.",
-		"$t(appTitle) uses JavaScript-style regexes without the",
-		"surrounding slash characters.",
-		"",
-		"Fully explaining regular expressions is a topic that's too",
-		"complicated for this app to cover, but they are very useful. Here",
-		"are some resources where you can learn more about them:",
-		"",
-		"- [Wikipedia: Regular Expression](https://en.wikipedia.org/wiki/Regular_expression)",
-		"- [MDN: Writing a regular expression](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Guide/Regular_expressions#writing_a_regular_expression_pattern)",
-		"- [Regular-Expressions.info](https://www.regular-expressions.info) (a tutorial site)",
-		"- [Geeks for Geeks: Write Reguar Expressions](https://www.geeksforgeeks.org/write-regular-expressions/)"
-	],
 
 	// EXTRA CHARACTERS
 	stoppedCopying: "No longer copying directly to clipboard.", // 🟦2.5
@@ -355,6 +316,23 @@ const common = {
 
 	// The key below is used when someone tries to edit or delete the permanent sort method in sort settings.
 	cannotDeleteSorter: "This is used by $t(WordGen) presets. It cannot be modified or deleted.", // 🟡
+
+	regexpInfo: [ // Markdown format
+		"To put it as simply as possible, a regular expression is a",
+		"sequence of characters that specifies a match pattern in text.",
+		"$t(appTitle) uses JavaScript-style regexes without the",
+		"surrounding slash characters.",
+		"",
+		"Fully explaining regular expressions is a topic that's too",
+		"complicated for this app to cover, but they are very useful. Here",
+		"are some resources where you can learn more about them:",
+		"",
+		"- [Wikipedia: Regular Expression](https://en.wikipedia.org/wiki/Regular_expression)",
+		"- [MDN: Writing a regular expression](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Guide/Regular_expressions#writing_a_regular_expression_pattern)",
+		"- [Regular-Expressions.info](https://www.regular-expressions.info) (a tutorial site)",
+		"- [Geeks for Geeks: Write Reguar Expressions](https://www.geeksforgeeks.org/write-regular-expressions/)"
+	],
+
 };
 
 export default common;

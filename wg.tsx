@@ -74,9 +74,9 @@ const wg = {
 	WordListSyllListControls: "Wordlist and Syllable-List Controls", // 🟥
 	WhatToGenerate: "What to Generate", // 🟥
 	Default: "Default", // 🔴 default sort option
+	ImportFromWG: "Import from WordGen", // 🟥
 
-	// used by clearOverwriteGeneralThings:
-	allThings: "all current character groups, syllables, transformations, and settings",
+	clearAllThingsMsg: "This will clear and overwrite all current character groups, syllables, transformations, and settings.",
 
 
 	// PRESETS

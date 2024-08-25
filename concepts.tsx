@@ -98,7 +98,7 @@ const concepts = {
 
 	YesSaveThem: "Yes, Save Them", // 🔴 "Them" refers to the meanings being linked together
 	NoDiscardThem: "No, Discard Them", // 🔴 See above
-	Combination: "Combination", // The combination of meanings, used by thingSaved
+	CombinationSaved: "Combination saved.", // 🟦2.5 The combination of meanings has been saved
 
 	tapToSaveMsg: "Tap meanings you want to save to $t(common:Lexicon)", // 🟦2.5
 
@@ -113,9 +113,11 @@ const concepts = {
 	delMeaningsMessage_other: "The selected meanings will be removed. $t(common:cannotUndo)",
 
 	MyCombinations: "My Combinations", // 🔴
-	AllMeanings: "All Meanings", // 🔴 saveGeneralThings
-	SelectedMeanings: "the Selected Meanings", // 🔴 saveGeneralThings
+	SaveAllMeanings: "Save All Meanings", // 🔴
+	SaveSelectedMeanings: "Save Selected Meanings", // 🔴
 	CurrentCombo: "Current Combination:", // 🟥 always presentational context
+	saveToLexColumn_one: "{{count}} meaning saved to $t(Lexicon) under \"{{column}}\"", // 🟦3.5
+	saveToLexColumn_other: "{{count}} meanings saved to $t(Lexicon) under \"{{column}}\"", // 🟦3.5
 
 	//
 	//

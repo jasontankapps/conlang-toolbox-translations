@@ -97,12 +97,17 @@ These are terms used across the app, or only on "main" app pages, like Settings 
 | Label | Key | English Translation | Description (if needed) |
 | --- | --- | --- | --- |
 | 🟥 | appTitle | Conlang Toolbox | Title of the app. |
+|  | appTitle_filename | ConlangToolbox | *(filename context)* |
 | 🟥 | appSubtitle | tools for language invention | Subtitle of the app. |
 | 🟥 | MorphoSyntax | MorphoSyntax | Title of the MorphoSyntax tool. It is based on the word "morphosyntax the study of the form and meaning of language through the structure of words and sentences. |
 | 🟥 | WordGen | WordGen | Title of the WordGen tool. It is a combination of "word" and "generator". |
+|  | WordGen_filename | WordGen | *(filename context)* |
 | 🟥 | WordEvolve | WordEvolve | Title of the WordEvolve tool. It is a combination of "word" and "evolve". |
+|  | WordEvolve_filename | WordEvolve | *(filename context)* |
 | 🟥 | Declenjugator | Declenjugator | Title of the Declenjugator tool. It is a combination of "declension" (modifying nouns based on their case) and "conjugation" (modifying verbs based on their tense, aspect and/or mode), along with an -or suffix to indicate it's an object that does something. |
+|  | Declenjugator_filename | Declenjugator | *(filename context)* |
 | 🟥 | Lexicon | Lexicon | Title of the Lexicon tool. |
+|  | Lexicon_filename | Lexicon | *(filename context)* |
 | 🟥 | Concepts | Concepts | Title of the Concepts tool. |
 | 🟥 | AppInfo | App Info | Title of the page where you find information about the app. |
 | 🟥 | AppSettings | App Settings | Title of the page where you find settings for the entire app. |
@@ -118,19 +123,20 @@ These are terms used across the app, or only on "main" app pages, like Settings 
 | 🔴 | Ok | Ok | General acknowledgement |
 | 🔴 | Done | Done | User has finished using this modal or tool |
 | 🔴 | Close | Close | Close the modal |
-| 🔴 | Help | Help | Get helpful information |
 | 🔴 | Delete | Delete | Delete something |
 | 🔴 | Edit | Edit | Edit something |
+| 🔴 | Help | Help | Get helpful information |
 | 🔴 | AddAndClose | Add and Close | Text of button that adds something and closes a modal |
 | 🔴 | AddNew | Add New | Text of button that adds a new thing |
 | 🔴 | Copy | Copy | Copy information |
 | 🔴 | Generate | Generate | Generate some output |
+| 🔴 | SaveAsNew | Save as New | save current info as a new document |
 | 🔴 | CopyToClipboard | Copy to Clipboard | Copy something to the clipboard |
-| 🔵 | CharactersToBeCopied | Characters to be copied | ARIA label for the input box inside Extra Characters that holds characters to be copied. |
 | | Display | Display: | *(presentation context)* A choice of something to display |
 | | SavedAt | Saved: {{time}} | Indicates when something was saved. `{{time}}` is replaced with a timestamp. |
 | 🟦1.5 | CopiedToClipboard | Copied to clipboard | Displays after anything has been copied to the clipboard. |
 | 🟦1.5 | NothingToCopy | Nothing to copy | Displays when the user tries to copy something to the clipboard, but there is nothing to copy. |
+| 🔵 | CharactersToBeCopied | Characters to be copied | ARIA label for the input box inside Extra Characters that holds characters to be copied. |
 | | Untitled | \[Untitled\] | This is used as a document title if no title is given. |
 | | fileFormat | {{title}} - {{date}}.{{extension}} | This becomes a filename and is used by MorphoSyntax, Declenjugator, and Lexicon for exporting documents. `{{title}}` is user-generated, `{{date}}` is replaced with a datestamp in a format like "Thu Jan 01 1970 and `{{extension}}` will be a common file extension like "docx" or "csv". |
 | 🟦10 | UnableToExport | UNABLE TO EXPORT: {{error}} | Displayed when the app is unable to export a document to the user's device. `{{error}}` is a system-generated error message. |
@@ -144,9 +150,9 @@ These are terms used across the app, or only on "main" app pages, like Settings 
 | 🟦3.5 | saveToLexColumn_one | {{count}} word saved to $t(Lexicon) under "{{column}}" | Used when words from other tools are added to Lexicon. `{{column}}` is the name of the column the words were saved under. `$t(Lexicon)` is replaced with the `Lexicon` translation above. |
 | 🟦3.5 | saveToLexColumn_other | {{count}} words saved to $t(Lexicon) under "{{column}}" | Same as above, but for English plurality rules. |
 | 🟨 | SelectAColumn | Select a column | Used in dialogs where the user is attempting to take words from a tool and save them in Lexicon. |
-| 🟡 | SaveToLexiconMessage | Your selected words will be added to the $t(Lexicon) under that column. | Used in dialogs where the user is about to send words to the Lexicon to be saved. |
 | 🟦3.5 🔴 | GoToLexicon | Go to $t(Lexicon) | Used in a button inside a toast message after the user has successfully saved words from a tool into Lexicon. |
 | 🟦2.5 | TapWordsToSave | Tap words you want to save to $t(Lexicon). | Used inside of tools when prompting the user to tap on words on the screen that they wish to save to Lexicon. |
+| 🟡 | SaveToLexiconMessage | Your selected words will be added to the $t(Lexicon) under that column. | Used in dialogs where the user is about to send words to the Lexicon to be saved. |
 | 🟨 🟥 | ChooseFormat | Choose a Format | Used when the user is about to export a file and they have to choose what file format they will use. |
 | 🟨 🟥 | ChooseFormat_presentation | Choose a format: | The *presentation* context of the above. |
 | 🔴 | fileDocx | Word Document (docx) | User-selectable option for file export |
@@ -156,23 +162,6 @@ These are terms used across the app, or only on "main" app pages, like Settings 
 | 🔴 | fileCsv | Spreadsheet (csv) | User-selectable option for file export |
 | 🔴 | fileJson | JSON File | User-selectable option for file export |
 | 🔴 | fileXml | XML File | User-selectable option for file export |
-| 🟦2.5 | thingsDeleted_one | {{things}} deleted | Tells the user that something has been deleted. `{{things}}` will be replaced by a singular thing. This also takes a `{{count}}` property for plurlity. |
-| 🟦2.5 | thingsDeleted_other | {{things}} deleted | Same as above, but for English plurality rules. |
-| 🟡 | clearOverwriteGeneralThings | This will clear and overwrite {{things}}. | General Things are unknown: may be 0, 1, or any number. `{{things}}` will be provided by the app. |
-| 🟥 🔴 | saveGeneralThings | Save {{things}} | General Things are unknown: may be 0, 1, or any number. `{{things}}` will be provided by the app. |
-| 🟨 | DeleteEverythingQ | Delete Everything? | Asking to delete something. The dialog text will specify what is being deleted. |
-| 🟦2 | thingAdded | {{thing}} added. | General message |
-| 🟦2 | thingSaved | {{thing}} saved. | General message |
-| 🟦2.5 | thingDeleted | {{thing}} deleted. | General message |
-| 🟦2 🟨 | thingEdited | {{thing}} edited. | General message |
-| 🔴 🟨 | deleteThing | Delete {{thing}} | General message |
-| 🟥 | editThing | Edit {{thing}} | General message |
-| 🟥 🔴 | addThing | Add {{thing}} | General message |
-| 🔴 | saveThing | Save {{thing}} | General message |
-| 🟥 | loadThing | Load {{thing}} | General message |
-| 🟨 | missingThing | Missing {{thing}} | General message |
-| 🟥 | exportThing | Export {{thing}} | General message |
-|  | exportThing_presentation | Export {{thing}}: | *Presentation* context of the above. |
 | 🟨 | deleteTitleQ | Delete "{{title}}"? | Message used with user-titled info. |
 | 🟨 | loadTitleQ | Load "{{title}}"? | Message used with user-titled info. |
 | 🟦2.5 | titleSaved | "{{title}}" saved. | Message used with user-titled info. |
@@ -182,53 +171,60 @@ These are terms used across the app, or only on "main" app pages, like Settings 
 | 🟦2.5 | titleDeleted | "{{title}}" deleted. | Message used with user-titled info. |
 | 🟦2.5 | titleOverwritten | "{{title}}" overwritten. | Message used with user-titled info. |
 | 🔴 | YesOverwriteIt | Yes, Overwrite It | Confirmation button when the user is about to overwrite stored info in WordGen, WordEvolve, or Declenjugator |
-|  | prevSave | the previous save | Used as a "general thing" in some of the messages above. |
-|  | CurrentInfo | Current Info | Used as a "general thing" in some of the messages above. |
+| 🟡 | ClearOverwritePrevSave | This will clear and overwrite the previous save | Used with stored information in several tools |
 | 🟨 | LoadError | Load Error | Shows up in dialogs explaining that the app was unable to load stored info. |
 | 🟥 | ManageCustomInfo | Manage Custom Info | Header for modals where the user is manipulating stored info inside a tool. |
-|  | NameYourInfo | Name your custom info | Provided as a hint when the user is prompted to entitle a save. |
+| 🟡 | SaveCurrentInfo | Save Current Info | Used by DJ and WE when saving custom info |
 | 🔵 | NameOfSave | Name of save | As above, but is the ARIA text for the input. |
+|  | NameYourInfo | Name your custom info | Provided as a hint when the user is prompted to entitle a save. |
 | 🔴 | Load | Load | When loading stored information. |
 |  | NoSavedInfo | No saved info | A message that shows up in some dialog boxes if the user hasn't saved anything in that tool yet. |
+| 🟡 | missingTitleMsg | Missing title. |  |
 |  | SortMethod | Sort method: | *(presentation context)* Indicates a way to sort the given info. |
 | 🟡 | cannotUndo | This cannot be undone. | This action, usually deleting something, cannot be undone. |
 | 🟡 | areYouSure | Are you sure? | Do you want to do this action? |
 | 🟡 | deleteThisCannotUndo | Are you sure you want to delete this? $t(cannotUndo) | Combines the `cannotDo` message with the common use case where something is about to be deleted. |
+| 🟨 | DeleteEverythingQ | Delete Everything? | Asking to delete something. The dialog text will specify what is being deleted. |
 | 🔴 | confirmDel_one | Yes, Delete It | The things being deleted might be: 1) custom meanings in Concepts; 2) A column or item in Lexicon; 3) Character Groups or Transformations in WG and WE; 4) Syllables in WG; 5) Sound Changes in WE; 6) A single unit of saved custom info in WG, WE, Declenjugator, Lexicon, or MorphoSyntax; 7) A Custom Sort in Settings, or one of their relations or equalities; 8) a group in Declenjugator, or a single declension or conjugation in a group. |
 | 🔴 | confirmDel_other | Yes, Delete Them | The English plural version of the key above. |
-| 🔴 | confirmDelAll | Yes, Delete All | Confirmation when deleting all info in MorphoSyntax or Lexicon. |
+| \*🔴 | confirmDelAll | Yes, Delete All | Confirmation when deleting all info in MorphoSyntax or Lexicon. |
 | 🔴 | confirmLoad | Yes, Load Info | Used to confirm loading Custom Info in WG, WE, Declenjugator, Lexicon, or MorphoSyntax |
-|  | This | This | `This` is used by `deleteThing` and may refer to 1) a Custom Sort in Settings, or one of their relations or equalities; 2) a group in Declenjugator, or a single declension or conjugation in a group |
+| \* | This | This | `This` is used by `deleteThing` and may refer to 1) a Custom Sort in Settings, or one of their relations or equalities; 2) a group in Declenjugator, or a single declension or conjugation in a group |
 | 🟦2.5 | NothingToSave | Nothing to save. | An attempt was made to save something, but there was no information to save. |
 | 🟦2 | Deleted | Deleted | Successful deletion. |
 | 🟨 | UnsavedInfo | Unsaved Info | Dialogs regarding exiting or closing something before everything has saved. |
-|  | error | Error | Simple translation |
-| 🟥 | emphasizedError | \<$t(error)\> | A visually emphasized version of `error`. |
-| 🟨 | regexpError | Error trying to parse "{{regex}}" | The user gave a malformed regular expression `{{regex}}` in WG or WE. |
-| 🟥 | Loading | Loading | A tool or page is loading. |
-| 🟥 | PleaseWait | Please wait... | An additional loading message. |
 | 🟡 | MaybeDiscardThing | Are you sure you want to discard this? | When deciding not to add a new thing |
 | 🟡 | MaybeDiscardEdits | Are you sure you want to discard your edits? | When deciding not to edit an existing thing |
 | 🔴 | YesDiscard | Yes, Discard | Affirmative answer to either of the above two questions. |
 | 🟡 | MaybeClearEntireInput | $t(areYouSure) This will clear the entire input, and cannot be undone. | Clearing the entire Input in Declenjugator and WE |
 | 🔴 | YesClear | Yes, Clear It | Affirmative answer to the above question. |
 | 🔴 | defaultSort | Default sort | Refers to the default sort method (whatever it may be) |
-| 🔴 🟥 🟨 | ImportFrom | Import from {{source}} | `{{source}}` is always Lexicon, WordGen or WordEvolve |
+|  | error | Error | Simple translation |
+| 🟥 | emphasizedError | \<$t(error)\> | A visually emphasized version of `error`. |
+| 🟨 | regexpError | Error trying to parse "{{regex}}" | The user gave a malformed regular expression `{{regex}}` in WG or WE. |
+| 🟥 | Loading | Loading | A tool or page is loading. |
+| 🟥 | PleaseWait | Please wait... | An additional loading message. |
+| 🔵 | Title | Title |  |
+| 🔴 | Title_presentation | Title: | *(presentation context)* |
+| 🟥 🔵 | Description | Description |  |
+|  | Description_presentation | Description: | *(presentation context)* |
+| 🟥 | overviewOf | Overview: {{what}} | `{{what}}` will be replaced by the name of a tool: Declenjugator, WordEvolve or WordGen |
+| 🔴 🟥 🟨 | ImportFromLexicon | Import from Lexicon | (to DJ, WG or WE) |
 | 🔴 | LoadPreset | Load Preset | Load a preset in WE or WG |
 | 🔴 | Import | Import | Import from Lexicon (to WG or WE) |
 | 🟨 | ImportFromWhichColumns | Import from which column(s)? | Import from Lexicon (to WG or WE) |
 |  | optional | (optional) | Placeholder text for optional text inputs |
 |  | AddConditions | Add Conditions $t(optional) | The user can specify conditions that must be met before a specific word can be imported from the Lexicon. |
-|  | Condition | Condition | Used in `thingSaved` inside the Import from Lexicon modal |
 |  | WordMustContainX | Word must contain \[x\] | A condition |
-| 🟥 | WordsThatContain | Words that contain: | *(presentation context)* Prefixes the input box for the above key |
 |  | TypeWordHere | Type part of word here. | Placeholder text for the above input |
 |  | WordMustMatchX | Word must match expression \[x\] | A condition |
-| 🟥 | WordsThatMatch | Words that match: | *(presentation context)* Prefixes the input box for the above key |
 |  | TypeRegExHere | Type regular expression here. | Placeholder text for the above input |
 |  | ColXMustHaveY | Column \[x\] must contain \[y\] | A condition |
 |  | ColXMustMatchY | Column \[x\] must match expression \[y\] | A condition |
+| 🟦2.5 | ConditionSaved | Condition saved. | One of the conditions below has been saved. |
 | 🟥 | TestColumn | Test column: | *(presentation context)* The column being tested for a match (see the two keys above) |
+| 🟥 | WordsThatContain | Words that contain: | *(presentation context)* Prefixes the input box for the above key |
+| 🟥 | WordsThatMatch | Words that match: | *(presentation context)* Prefixes the input box for the above key |
 | 🟥 | WordsWithColumn | Words where the column: | *(presentation context)* Header for displaying the column conditions |
 |  | columnContains | \[{{column}}\] contains "{{test}}" | Shows a result of `ColXMustHaveY` where `{{column}}` is the Lexicon column and `{{test}}` is the user-provided string a word must contain. |
 |  | columnMatches | \[{{column}}\] matches /{{test}}/ | Same as above, but `{{test}}` is the user-provided regular expression. |
@@ -240,7 +236,6 @@ These are terms used across the app, or only on "main" app pages, like Settings 
 | 🟦3.5 | importSuccess_one | Imported {{count}} word from $t(Lexicon) | Successful import |
 | 🟦3.5 | importSuccess_other | Imported {{count}} word from $t(Lexicon) | English plural of the above |
 | 🔴 | yesImport | Yes, Import | Proceed with the import |
-|  | regexpInfo | *This is an array of strings in Markdown format. See [regexpInfo](#regexpinfo) section below.* | A minimal explanation of how to find information on regular expressions. |
 | 🟦2.5 | stoppedCopying | No longer copying directly to clipboard. | Extra Characters |
 | 🟦2.5 | startedCopying | Now copying immediately to clipboard. | Extra Characters |
 | 🟦1.5 | copiedCharToClipboard | Copied {{char}} to clipboard | Extra Characters: Only one character was copied |
@@ -260,6 +255,27 @@ These are terms used across the app, or only on "main" app pages, like Settings 
 |  | extraHelp.help3 | \[ "Characters will display below. Tap them to copy them to the copy-bar above." \] | Help text for Extra Characters. This text appears between the character set display controls and the characters being displayed. *This is an array of strings in Markdown format.* |
 | 🔴 | WGPresetsSorter | WG Presets Sorter | The name of the permanent sort method in sort settings. |
 | 🟡 | cannotDeleteSorter | This is used by $t(WordGen) presets. It cannot be modified or deleted. | Error message shown when a user tries to delete the permanent sort method. |
+
+### regexpInfo
+
+This property is an array of strings in Markdown format. They give a brief overview of how regular expressions work.
+
+Feel free to change the links to resources in your target language.
+
+```javascript
+[
+  "To put it as simply as possible, a regular expression is a sequence of characters that specifies a match pattern in text. $t(appTitle) uses JavaScript-style regexes without the surrounding slash characters.",
+  "",
+  "Fully explaining regular expressions is a topic that's too complicated for this app to cover, but they are very useful. Here are some resources where you can learn more about them:",
+  "",
+  "- [Wikipedia: Regular Expression](https://en.wikipedia.org/wiki/Regular_expression)",
+  "- [MDN: Writing a regular expression](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Guide/Regular_expressions#writing_a_regular_expression_pattern)",
+  "- [Regular-Expressions.info](https://www.regular-expressions.info) (a tutorial site)",
+  "- [Geeks for Geeks: Write Reguar Expressions](https://www.geeksforgeeks.org/write-regular-expressions/)"
+]
+```
+
+---
 
 ### Extra Characters : characters.tsx
 
@@ -283,28 +299,10 @@ This file is imported into common.tsx, and its properties become properties of t
 
 Each character in Extra Characters has an official Unicode name. You can find the list of them in [CHARACTERCODES.md](CHARACTERCODES.md).
 
-### regexpInfo
-
-```javascript
-[
-  "To put it as simply as possible, a regular expression is a sequence of characters that specifies a match pattern in text. $t(appTitle) uses JavaScript-style regexes without the surrounding slash characters.",
-  "",
-  "Fully explaining regular expressions is a topic that's too complicated for this app to cover, but they are very useful. Here are some resources where you can learn more about them:",
-  "",
-  "- [Wikipedia: Regular Expression](https:/\/en.wikipedia.org/wiki/Regular_expression)",
-  "- [MDN: Writing a regular expression](https:\//developer.mozilla.org/en-US/docs/Web/JavaScript/Guide/Regular_expressions#writing_a_regular_expression_pattern)",
-  "- [Regular-Expressions.info](https:\//www.regular-expressions.info) (a tutorial site)",
-  "- [Geeks for Geeks: Write Reguar Expressions](https:/\/www.geeksforgeeks.org/write-regular-expressions/)"
-]
-```
-
----
-
 ## Settings : settings.tsx
 
 | Label | Key | English Translation | Description (if needed) |
 | --- | --- | --- | --- |
-|  | Data | Data | used by `exportThing` |
 | 🟥 🔴 | DisableConfPrompts | Disable Confirmation Prompts |  |
 |  | confPromptExplanation | Eliminates yes/no prompts when deleting or overwriting data. | Explanation for the setting above |
 | 🟥 🔴 | ChangeTheme | Change Theme |  |
@@ -316,7 +314,8 @@ Each character in Extra Characters has an official Unicode name. You can find th
 | 🔴 | Dark | Dark | Theme name |
 | 🔴 | SolarizedLight | Solarized Light | Theme name; "Solarized" is the name of a popular color palette |
 | 🔴 | SolarizedDark | Solarized Dark | Theme name; "Solarized" is the name of a popular color palette |
-|  | exportAllMsg | \[ "Save this info to a note or file.&nbsp;&nbsp;", "You will be able to use it later to restore your data." \] | *This is an array of strings in Markdown format.* |
+| 🟥 | ExportData | Export App Data | Title of the "Export App Info" modal |
+|  | exportAllMsg | \[ "Save this info to a note or file.&nbsp;&nbsp;", "You can use it later to restore your data." \] | *This is an array of strings in Markdown format.* |
 | 🔵 | ExportedData | Exported Data |  |
 | 🟥 | WhatToExport | What to Export |  |
 | 🟡 | nothingImportedMsg | You haven't imported anything yet. |  |
@@ -324,8 +323,9 @@ Each character in Extra Characters has an official Unicode name. You can find th
 | 🟦10 | successImport | Imported new info for {{listing}} | `{{listing}}` will be replaced with a list of tools that received imported data. |
 | 🟦10 | alsoOverwrote | also completely overwrote storage for {{listing}} | Optionally appended to `successImport`; `{{listing}}` will be replaced with a list of tools that had data overwritten with imported data. |
 | 🟦10 | successOverwrote | Completely overwrote storage for {{listing}} | `{{listing}}` will be replaced with a list of tools that had data overwritten with imported data. |
+| 🔴 | exportAppInfo | Export App Info |  |
 |  | ImportInfo | Import Info |  |
-|  | importDescription | Paste your data below. This only accepts data exported through "Export App Info". | The phrase `Export App Info` should be the same text that would be generated if you used the `exportThing` key and replaced `{{thing}}` with the `AppInfo` key. |
+|  | importDescription | Paste your data below. This only accepts data exported through "Export App Info". | The phrase `Export App Info` should be the same text as the `exportAppInfo` key. |
 | 🔵 | DataToImport | Data to Import |  |
 | 🔴 | Reset | Reset |  |
 | 🔴 | Analyze | Analyze |  |
@@ -384,12 +384,22 @@ Each character in Extra Characters has an official Unicode name. You can find th
 | 🔴 | Comma | \[a,b,c,d,e\]: Comma |  |
 | 🔴 | Period | \[a.b.c.d.e\]: Period |  |
 | 🔴 | Semicolon | \[a;b;c;d;e\]: Semicolon |  |
-|  | Relation | Relation | Used in `addThing`, `thingAdded`, `editThing` and `thingEdited` |
+|  | Relation | Relation | Used in `addThing`, `editThing` and `thingEdited` |
 | 🟥 | Relations | Relations |  |
 |  | relationMsg | Similar characters that should be sorted separately. |  |
-|  | Equality | Equality | Used in `addThing`, `thingAdded`, `editThing` and `thingEdited` |
+| 🟥 | AddRelation | Add Relation |  |
+| 🟦2.5 | RelationAdded | Relation added |  |
+| 🟥 | DeleteRelation | Delete Relation? |  |
+| 🟦2.5 | RelationEdited | Relation edited |  |
+| 🟥 | EditRelation | Edit Relation? |  |
+|  | Equality | Equality | Used in `addThing`, `editThing` and `thingEdited` |
 | 🟥 | Equalities | Equalities |  |
 |  | equalityMsg | Characters that should be sorted together as if they were strictly equal. |  |
+| 🟥 | AddEquality | Add Equality |  |
+| 🟦2.5 | EqualityAdded | Equality added |  |
+| 🟥 | DeleteEquality | Delete Equality? |  |
+| 🟦2.5 | EqualityEdited | Equality edited |  |
+| 🟥 | EditEquality | Edit Equality? |  |
 |  | BaseChar | Base Character: | *(presentation context)* |
 |  | BaseEqual | Equal to the Base: | *(presentation context)* |
 |  | CharsSeparator | Characters Separator: | *(presentation context)* |
@@ -414,8 +424,8 @@ Each character in Extra Characters has an official Unicode name. You can find th
 | --- | --- | --- | --- |
 | 🟥 | CreditsAcknowledgements | Credits and Acknowledgements |  |
 |  | credit1 | \[ "App icon is based on \[Toolbox by Maxicons\]\(https:/\/thenounproject.com/term/toolbox/2586725/\) from the Noun Project" \] | *This is an array of strings in Markdown format.* |
-|  | credit2 | \[ "$t(common:WordGen) and $t(common:WordEvolve) are heavily inspired by \[Gen\]\(http:/\/www.zompist.com/gen.html\) and \[SCA²\]\(http:/\/www.zompist.com/sca2.html\) by Mark Rosenfelder" \] | *This is an array of strings in Markdown format.* |
-|  | credit3 | \[ "$t(common:MorphoSyntax) is based on an outline presented throughout \_Describing Morphosyntax: A Guide for Field Linguists\_ by Thomas E. Paine, and it also uses some foreign-language examples presented therein" \] | *This is an array of strings in Markdown format.* |
+|  | credit2 | \[ "$t(common:WordGen) and $t(common:WordEvolve) are heavily inspired by \[Gen\]\(https:/\/www.zompist.com/gen.html\) and \[SCA²\]\(https:/\/www.zompist.com/sca2.html\) by Mark Rosenfelder" \] | *This is an array of strings in Markdown format.* |
+|  | credit3 | \[ "MorphoSyntax is based on an outline presented throughout \_Describing Morphosyntax: A Guide for Field Linguists\_ by Thomas E. Paine, and it also uses some foreign-language examples presented therein" \] | *This is an array of strings in Markdown format.* |
 | 🟥 | BugReports | Bug Reports |  |
 |  | bugReportMsg | \[ "Please report bugs and errors to \[the Github repository\]\(https:\//github.com/jasontankapps/conlang-toolbox/issues\) and incude an error log." \] | *This is an array of strings in Markdown format.* |
 | 🔴 | GetErrLog | Get Error Log |  |
@@ -452,19 +462,19 @@ Each character in Extra Characters has an official Unicode name. You can find th
 | 🟨 | StopLinking | Stop Linking? |  |
 | 🔴 | YesSaveThem | Yes, Save Them | "Them" refers to the meanings being linked together |
 | 🔴 | NoDiscardThem | No, Discard Them | "Them" refers to the meanings being linked together |
-|  | Combination | Combination | The combination of meanings; used by `thingSaved` |
+| 🟦2.5 | CombinationSaved | Combination saved. | The combination of meanings has been saved |
 | 🟦2.5 | tapToSaveMsg | Tap meanings you want to save to $t(common:Lexicon) |  |
-|  | SelectedMeanings_one | Selected meaning | Fills the `{{what}}` role in `saveToLexColumn` |
-|  | SelectedMeanings_other | Selected meanings | As above, but for English plurals |
 | 🟦3 | tapToUnlinkMsg | Tap combinations you want to delete, then tap the Unlink button again. |  |
 | 🟨 | delMeanings_one | Delete {{count}} meaning? | English singular |
 | 🟨 | delMeanings_other | Delete {{count}} meanings? | English plural |
 | 🟡 | delMeaningsMessage_one | The selected meaning will be removed. $t(common:cannotUndo) | English singular |
 | 🟡 | delMeaningsMessage_other | The selected meanings will be removed. $t(common:cannotUndo) | English plural |
 | 🔴 | MyCombinations | My Combinations |  |
-| 🔴 | AllMeanings | All Meanings | Used in `saveGeneralThings` |
-| 🔴 | SelectedMeanings | the Selected Meanings | Used in `saveGeneralThings` |
+| 🔴 | SaveAllMeanings | Save All Meanings |  |
+| 🔴 | SaveSelectedMeanings | Save Selected Meanings |  |
 | 🟥 | CurrentCombo | Current Combination: | *(presentation context)* |
+| 🟦3.5 | saveToLexColumn_one | {{count}} meaning saved to $t(common:Lexicon) under "{{column}}" | `{{column}}` is the name of the column the meanings were saved under. |
+| 🟦3.5 | saveToLexColumn_other | {{count}} meanings saved to $t(common:Lexicon) under "{{column}}" | English plural of the above key |
 
 ### info
 
@@ -570,16 +580,26 @@ You can find the master list of concepts in [CONCEPTS.md](CONCEPTS.md).
 | 🟡 | deleteEverythingMessage | This will erase everything currently displayed (but not anything previously saved). Are you sure you want to do this? |  |
 | 🟡 | loadLexiconConfirm | Are you sure you want to load this? It will overwrite your current lexicon and cannot be reversed. |  |
 | 🟥 | NoSavedLexicons | No Saved Lexicons |  |
+| 🟥 | DeleteStoredLexicon | Delete Stored Lexicon |  |
+| 🟦2.5 | LexiconDeleted | Lexicon deleted. |  |
+| 🟥 🔴 | LoadLexicon | Load Lexicon |  |
+| 🔴 | SaveLexicon | Save Lexicon |  |
+| 🟦2.5 | LexiconSaved | Lexicon saved. |  |
 | 🟦2.5 | LexSavedAsNew | Lexicon saved as new lexicon! |  |
 | 🟡 | needTitleMsg | You must input a title before saving. |  |
 | 🟡 | needLexiconTitleMsg | Please give your lexicon a title before exporting it. |  |
 | 🟡 | needWordsMsg | Please add words to your lexicon before exporting it. |  |
-| 🔴 | Item | Item |  |
+| 🟥 | AddLexiconItem | Add Lexicon Item |  |
+| 🔴 | AddItem | Add Item |  |
+| 🟥 | EditLexiconItem | Edit Lexicon Item |  |
+| 🟨 | DeleteItem | Delete Item? |  |
+| 🟦2.5 | ItemDeleted | Item was deleted. |  |
+| 🔴 | SaveItem | Save Item |  |
 | 🔴 | Column | Column |  |
 | 🟥 | EditCols | Edit Columns |  |
-| 🟥 | LexItem | $t(common:Lexicon) $t(Item) |  |
 | 🟨 | ExitWOSave | Exit Without Saving? |  |
 | 🟡 | exitWithoutSavingMsg | You have unsaved changes. Are you sure you want to exit? |  |
+| 🟦2.5 | ColumnAdded | Column added |  |
 |  | New | New | Default label for a new column |
 | 🟡 | deleteColumnMsg | Are you sure you want to delete this column? $t(common:cannotUndo) |  |
 | 🟥 | LexOptions | $t(common:Lexicon) Options |  |
@@ -595,9 +615,11 @@ You can find the master list of concepts in [CONCEPTS.md](CONCEPTS.md).
 | 🔴 | Small | Small | Small column size *(Note: this must be kept very short)* |
 | 🔴 | Med | Med | Medium column size *(Note: this must be kept very short)* |
 | 🔴 | Large | Large | Large column size *(Note: this must be kept very short)* |
-|  | Changes | Changes | Used by `saveGeneralThings` |
+| 🟡 | SaveChanges | Save Changes | Used when saving an edited word or saving edited columns |
 |  | workingMsg | Working... |  |
 |  | TITLE | TITLE | Only used in CSV exports |
+| 🔴 | ExportLex | Export Lexicon |  |
+| 🟥 | ExportLexicon | Export Lexicon: "{{title}}" | *(semi-presentation context)* `{{title}}` will be replaced with a Lexicon's title |
 | 🔴 | exportTextTab | Text, Tabbed | Type of export |
 | 🔴 | exportTextSemicolon | Text, Semicolons | Type of export |
 | 🔴 | exportTextNewline | Text, Newlines | Type of export |
@@ -698,24 +720,35 @@ The `info` key has multiple subkeys. They are all arrays of strings in Markdown 
 | --- | --- | --- | --- |
 | 🟥 | Groups | Groups | The delenjugation groups as a whole |
 |  | Group | Group | used in `thingDeleted` and `thingSaved` |
-|  | NumGroups_one | {{count}} Group | used by `thingsDeleted` |
-|  | NumGroups_other | {{count}} Groups | English plural of the key above |
+| 🟦2.5 | groupsDeleted_one | {{count}} Group deleted. |  |
+| 🟦2.5 | groupsDeleted_other | {{count}} Groups deleted. | English plural of the key above |
+| 🟦2.5 | GroupSaved | Group saved. |  |
+| 🟦2.5 | GroupDeleted | Group deleted. |  |
 | 🟥 | Type | Type | The 'type' refers to whether a group is a declension, conjugation, or other. |
 |  | Type_presentation | Type: | *(presentation context)* |
 | 🟥 🔴 | Declensions | Declensions | group of declensions on-screen |
-|  | Declension | Declension | a single Declension |
+| 🟥 | AddDeclensions | Add Declension |  |
+| 🟥 | EditDeclensions | Edit Declension |  |
+| 🟦2.5 | DeclensionsSaved | Declension saved. |  |
+| 🟨 | DeleteDeclensions | Delete Declension? |  |
 | 🟥 🔴 | Conjugations | Conjugations | group of conjugations on-screen |
-|  | Conjugation | Conjugation | a single Conjugation |
+| 🟥 | AddConjugations | Add Conjugation |  |
+| 🟥 | EditConjugations | Edit Conjugation |  |
+| 🟨 | DeleteConjugations | Delete Conjugation? |  |
+| 🟦2.5 | ConjugationsSaved | Conjugation saved. |  |
 | 🟥 🔴 | Other | Other | group of 'other' type on-screen |
-|  | Other1 | Other | a single instance of an 'Other' type |
+| 🟥 | AddOther | Add Other |  |
+| 🟥 | EditOther | Edit Other |  |
+| 🟨 | DeleteOther | Delete Other? |  |
+| 🟦2.5 | OtherSaved | Other saved. |  |
 |  | Forms | Forms | a plural version of 'other', mainly used in exports |
 |  | errorBadInternalFormatMsg | Error in exporting: bad format (internal) | An error message |
-|  | Equality | Equality | used by `addThing`, `thingAdded`, `editThing`, `thingEdited` |
-|  | Relation | Relation | used by `addThing`, `thingAdded`, `editThing`, `thingEdited` |
+|  | Equality | Equality | used by `addThing`, `editThing`, `thingEdited` |
+|  | Relation | Relation | used by `addThing`, `editThing`, `thingEdited` |
 | 🔵 | WordsToGiveDJ | Words to send through $t(common:Declenjugator) |  |
 |  | EnterWordsOnePerLine | Enter words here, one per line |  |
-|  | delEntireGroup | This will delete this entire Group, and cannot be undone. |  |
-|  | AllCurrentGroups | all current Groups | used by `clearOverwriteGeneralThings` |
+| 🟡 | delEntireGroup | This will delete this entire Group, and cannot be undone. |  |
+| 🟡 | clearEverythingMsg | This will clear and overwrite all current Groups. |  |
 | 🟨 | ClearAllGroups | Clear All Groups? |  |
 | 🟡 | needTitleOrDescriptionMsg | You must provide a title or description before saving. |  |
 | 🟡 | regExNeedsBothMsg | If using regular expressions, you must provide both match and replacementExpressions. |  |
@@ -737,6 +770,7 @@ The `info` key has multiple subkeys. They are all arrays of strings in Markdown 
 | 🟥 | TitleMethod_Declensions | Title or Description of this declension: | *(presentation context)* |
 | 🟥 | TitleMethod_Conjugations | Title or Description of this conjugation: | *(presentation context)* |
 | 🟥 | TitleMethod_Other | Title or Description of this method: | *(presentation context)* |
+| 🟦2.5 | TitleSaved | Title/Description saved. |  |
 |  | advancedExplanation_Declensions | Use regular expressions to craft a declension. |  |
 |  | advancedExplanation_Conjugations | Use regular expressions to craft a conjugation. |  |
 |  | advancedExplanation_Other | Use regular expressions to craft a method. |  |
@@ -959,24 +993,26 @@ This is an array of two objects. Each object has a `title` property as a header 
 | Label | Key | English Translation | Description (if needed) |
 | --- | --- | --- | --- |
 |  | showUnused | \[ "\#\# Show Unused Sections", "", "Include sections that you did not fill out, leaving space for you to write in later.&nbsp;&nbsp;", "\*\*NOTE: this option has no effect on JSON and XML exports.\*\*" \] | This is an array of strings in Markdown format. |
-|  | clearMSInfo | Clear $t(common:MorphoSyntax) Info |  |
+|  | clearMSInfo | Clear MorphoSyntax Info |  |
 | 🟦2.5 | noInfoToClearMsg | You have no information to clear. |  |
-| 🟦2.5 | clearedMS | All $t(common:MorphoSyntax) information has been cleared. |  |
-|  | morphoSyntaxInfo | everything currently in $t(common:MorphoSyntax) (but not anything previously saved) | used by clearOverwriteGeneralThings |
+| 🟦2.5 | clearedMS | All MorphoSyntax information has been cleared. |  |
+| 🟡 | clearAllMS | This will clear and overwrite everything currently in MorphoSyntax (but not anything previously saved) |  |
 | 🟡 | needInfoToExportMsg | Please add information to your MorphoSyntax document in at least one section before exporting it. |  |
-|  | msDocument | $t(common:MorphoSyntax) document |  |
-|  | msDocument_formal | $t(common:MorphoSyntax) Document | *(formal context)* |
-|  | newMsDocument | New $t(common:MorphoSyntax) document |  |
-|  | msDocumentDescription | A $t(msDocument) exported from $t(common:appTitle). | Used in docx exports, only |
-| 🟥 | MorphoSyntaxSettings | $t(common:MorphoSyntax) $t(common:Settings) |  |
-| 🟥 | NoSavedMorphoSyntaxDocuments | No Saved $t(common:MorphoSyntax) Documents. |  |
-|  | CurrentMSInfo | your current $t(common:MorphoSyntax) information | used by clearOverwriteGeneralThings |
-| 🔵 | msTitle | $t(common:MorphoSyntax) Title |  |
-| 🟥 | msTitle_presentation | $t(common:MorphoSyntax) Title: | *(presentation context)* |
+|  | msDocument | {{title}} - MorphoSyntax Document | *(formal context)* Used in `docx` exports as the title of the file; `{{title}}` is replaced with the user-generated title. |
+|  | msDocumentDescription | A MorphoSyntax document exported from $t(common:appTitle). | Used in `docx` exports to describe the file |
+| 🟥 | DeleteMorphoSyntaxDocument | Delete Saved MorphoSyntax Info | *(formal context)* |
+| 🟥 | MorphoSyntaxSettings | MorphoSyntax $t(common:Settings) |  |
+| 🟥 | NoSavedMorphoSyntaxDocuments | No Saved MorphoSyntax Documents. |  |
+| 🟡 | clearMSInfoMsg | This will clear and overwrite your current MorphoSyntax information |  |
+| 🔵 | msTitle | MorphoSyntax Title |  |
+| 🟥 | msTitle_presentation | MorphoSyntax Title: | *(presentation context)* |
 |  | UsuallyLangName | Usually the language name. |  |
 |  | ShortDescriptionMsg | A short description of this document. |  |
-|  | MorphoSyntaxInfo | $t(common:MorphoSyntax) Info |  |
-|  | SavedMorphoSyntaxInfo | Saved $t(MorphoSyntaxInfo) |  |
+| 🔴 | DeleteSavedMorphoSyntaxInfo | Delete Saved MorphoSyntax Info |  |
+| 🟦2.5 | SavedMorphoSyntaxInfoDeleted | Saved MorphoSyntax info deleted. |  |
+| 🟥 🔴 | ExportMorphoSyntaxInfo | Export MorphoSyntax Info |  |
+| 🔴 | SaveMorphoSyntaxInfo | Save MorphoSyntax Info |  |
+| 🟥 🔴 | LoadMorphoSyntaxInfo | Load MorphoSyntax Info |  |
 | 🟥 | MISSINGTITLE | MISSING TITLE | (error message) |
 | 🔴 | genericInfoButtonText | Information |  |
 | 🔵 | rangeFromTo | Range from {{start}} to {{end}} |  |
@@ -1004,6 +1040,9 @@ These are terms that are used in both WordGen and WordEvolve.
 | --- | --- | --- | --- |
 |  | CharGroup | Character Group |  |
 |  | CharGroups | Character Groups |  |
+| 🟦2.5 | charGroupsDeleted_one | {{count}} Character Groups deleted. |  |
+| 🟦2.5 | charGroupsDeleted_other | {{count}} Character Groups deleted. | English plural of the above |
+| 🟦2.5 | CharGroupDeleted | Character Group deleted. |  |
 | 🟨 | DeleteAll | Delete All |  |
 | 🟡 | delAllCharGroups_one | This will delete the current character group, and cannot be undone. | Takes a `{{count}}` property, if needed. |
 | 🟡 | delAllCharGroups_other | This will delete all {{count}} current character groups, and cannot be undone. | English plural version of the above key. |
@@ -1012,11 +1051,24 @@ These are terms that are used in both WordGen and WordEvolve.
 | 🟦2.5 | importCharGroups_one | Imported {{count}} Character Group. |  |
 | 🟦2.5 | importCharGroups_other | Imported {{count}} Character Groups. | English plural version of the above key. |
 | 🟡 | importOverwriteCG | If any current character group has the same label as an incoming character group, the current character group will be overwritten. Do you want to continue? |  |
+| 🟨 | addCharGroup | Add Character Group |  |
+| 🟦2.5 | charGroupAdded | Character Group added. |  |
+| 🟨 | DeleteCharGroup | Delete Character Group |  |
+| 🟨 | EditCharGroup | Edit Character Group |  |
+| 🟨 | SaveCharGroup | Save Character Group |  |
+| 🟦2.5 | CharGroupSaved | Character Group saved. |  |
 |  | Transformation | Transformation |  |
 |  | Transformations | Transformations |  |
 |  | DescOfTheTransformation | Description of the transformation |  |
 |  | DescOfTheTransformation_formal | Description of the transformation | *(formal context)* |
 |  | DescOfTheTransformation_presentation | Transformation Description: | *(presentation context)* |
+| 🟨 | addTransformation | Add Transformation |  |
+| 🟦2.5 | transformationAdded | Transformation added. |  |
+| 🔴 | SaveTrans | Save Transformation |  |
+| 🟦2.5 | TransSaved | Transformation saved. |  |
+| 🟥 | EditTrans | Edit Transformation |  |
+| 🔴 | DeleteTrans | Delete Transformation |  |
+| 🟦2.5 | TransDeleted | Transformation deleted. |  |
 | 🟡 | noSearchMsg | No search expression present |  |
 |  | searchExpression | search expression |  |
 |  | searchExpression_formal | Search Expression | *(formal context)* |
@@ -1053,11 +1105,16 @@ These are terms that are used in both WordGen and WordEvolve.
 | Label | Key | English Translation | Description (if needed) |
 | --- | --- | --- | --- |
 |  | Evolve | Evolve |  |
-|  | SoundChange | Sound Change | Used by `addThing`, `deleteThing`, `editThing`, `saveThing`, `thingDeleted`, and `thingSaved` |
-| 🟥 | SoundChanges | Sound Changes |  |
-| 🟥 | SoundChangesTab | Sound Changes Tab |  |
-|  | SChange_one | {{count}} Sound Change | used by `thingsDeleted` |
-|  | SChange_other | {{count}} Sound Changes | English plural form of the above |
+|  | SoundChanges | Sound Changes | ?? |
+| 🟦2.5 | changesDeleted_one | {{count}} Sound Change deleted. |  |
+| 🟦2.5 | changesDeleted_other | {{count}} Sound Changes deleted. | English plural form of the above |
+| 🟥 | AddSoundChange | Add Sound Change |  |
+| 🟦2.5 | SoundChangeAdded | Sound Change added. |  |
+| 🔴 | DeleteSoundChange | Delete Sound Change |  |
+| 🟥 | EditSoundChange | Edit Sound Change |  |
+| 🔴 | SaveSoundChange | Save Sound Change |  |
+| 🟦2.5 | SoundChangeDeleted | Sound Change deleted. |  |
+| 🟦2.5 | SoundChangeSaved | Sound Change saved. |  |
 | 🟥 🔴 | ConvertToLowercase | Convert input to lowercase before evolving |  |
 | 🟥 🔴 | SortBeforehand | Sort input before evolving |  |
 | 🟡 | delAllSC | This will delete all current sound changes, and cannot be undone. |  |
@@ -1101,7 +1158,8 @@ These are terms that are used in both WordGen and WordEvolve.
 | 🔴 | OutputAndSCRules | $t(common:Output) and Sound-Change Rules |  |
 | 🔴 | InputThenOutput | $t(common:Input), then $t(common:Output) |  |
 | 🔴 | OutputThenInput | $t(common:Output), then $t(common:Input) |  |
-|  | allThings | all current character groups, transformations and sound changes | used by `clearOverwriteGeneralThings` |
+| 🟥 | ImportFromWG | Import from WordGen |  |
+| 🟡 | clearAllThingsMsg | This will clear and overwrite all current character groups, transformations and sound changes |  |
 |  | GrassmannLaw | Grassmann's Law | Used in Presets |
 |  | RukiRule | Ruki Rule | Used in Presets |
 |  | DahlLaw | Dahl's Law | Used in Presets |
@@ -1287,6 +1345,8 @@ Other `info` properties may access these bits on information by putting a block'
 | --- | --- | --- | --- |
 |  | Syllables_one | Syllable |  |
 |  | Syllables_other | Syllables |  |
+| 🟦2.5 | syllablesDeleted_one | {{count}} Syllable deleted. |  |
+| 🟦2.5 | syllablesDeleted_other | {{count}} Syllables deleted. | English plural form of the above |
 | 🟥 | swSyllables | Single-Syllable Words | *(formal context)* |
 |  | wiSyllables | word-initial syllables |  |
 | 🟥 | wiSyllables_formal | Word-Initial Syllables |  |
@@ -1344,7 +1404,8 @@ Other `info` properties may access these bits on information by putting a block'
 | 🟥 | WordListSyllListControls | Wordlist and Syllable-List Controls |  |
 | 🟥 | WhatToGenerate | What to Generate |  |
 | 🔴 | Default | Default | default sort option |
-|  | allThings | all current character groups, syllables, transformations, and settings | used by `clearOverwriteGeneralThings` |
+| 🟥 | ImportFromWE | Import from WordEvolve |  |
+| 🟡 | clearAllThingsMsg | This will clear and overwrite all current character groups, transformations and sound changes |  |
 
 ### WordGen presets
 

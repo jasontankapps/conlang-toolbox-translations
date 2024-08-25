@@ -8,24 +8,27 @@ const ms = {
 		"**NOTE: this option has no effect on JSON and XML exports.**"
 	],
 
-	clearMSInfo: "Clear $t(common:MorphoSyntax) Info",
+	clearMSInfo: "Clear MorphoSyntax Info",
 	noInfoToClearMsg: "You have no information to clear.", // 🟦2.5
-	clearedMS: "All $t(common:MorphoSyntax) information has been cleared.", // 🟦2.5
-	morphoSyntaxInfo: "everything currently in $t(common:MorphoSyntax) (but not anything previously saved)", // used by clearOverwriteGeneralThings
+	clearedMS: "All MorphoSyntax information has been cleared.", // 🟦2.5
+	clearAllMS: "This will clear and overwrite everything currently in MorphoSyntax (but not anything previously saved).", // 🟡
 	needInfoToExportMsg: "Please add information to your MorphoSyntax document in at least one section before exporting it.", // 🟡
-	msDocument: "$t(common:MorphoSyntax) document",
-	msDocument_formal: "$t(common:MorphoSyntax) Document",
-	newMsDocument: "New $t(common:MorphoSyntax) document",
-	msDocumentDescription: "A $t(msDocument) exported from $t(common:appTitle).", // Used in docx exports, only
-	MorphoSyntaxSettings: "$t(common:MorphoSyntax) $t(common:Settings)", // 🟥
-	NoSavedMorphoSyntaxDocuments: "No Saved $t(common:MorphoSyntax) Documents.", // 🟥
-	CurrentMSInfo: "your current $t(common:MorphoSyntax) information", // used by clearOverwriteGeneralThings
-	msTitle: "$t(common:MorphoSyntax) Title", // 🔵
-	msTitle_presentation: "$t(common:MorphoSyntax) Title:", // 🟥
+	msDocument: "{{title}} - MorphoSyntax Document", // Title of docx exports
+	msDocumentDescription: "A MorphoSyntax document exported from $t(common:appTitle).", // Used in docx exports, only
+	DeleteMorphoSyntaxDocument: "Delete Saved MorphoSyntax Info", // 🟥 formal context
+	MorphoSyntaxSettings: "MorphoSyntax $t(common:Settings)", // 🟥
+	NoSavedMorphoSyntaxDocuments: "No Saved MorphoSyntax Documents.", // 🟥
+	clearMSInfoMsg: "This will clear and overwrite your current MorphoSyntax information.", // 🟡
+	msTitle: "MorphoSyntax Title", // 🔵
+	msTitle_presentation: "MorphoSyntax Title:", // 🟥
 	UsuallyLangName: "Usually the language name.",
 	ShortDescriptionMsg: "A short description of this document.",
-	MorphoSyntaxInfo: "$t(common:MorphoSyntax) Info",
-	SavedMorphoSyntaxInfo: "Saved $t(MorphoSyntaxInfo)",
+	DeleteSavedMorphoSyntaxInfo: "Delete Saved MorphoSyntax Info", // 🔴
+	SavedMorphoSyntaxInfoDeleted: "Saved MorphoSyntax info deleted.", // 🟦2.5
+	ExportMorphoSyntaxInfo: "Export MorphoSyntax Info", // 🟥 🔴
+	SaveMorphoSyntaxInfo: "Save MorphoSyntax Info", // 🔴
+	LoadMorphoSyntaxInfo: "Load MorphoSyntax Info", // 🟥 🔴
+	MorphoSyntaxInfoSaved: "MorphoSyntax info saved.", // 🟦2.5
 	MISSINGTITLE: "MISSING TITLE", // 🟥 (error message)
 	genericInfoButtonText: "Information", // 🔴
 	rangeFromTo: "Range from {{start}} to {{end}}", // 🔵
@@ -2349,7 +2352,7 @@ const ms = {
 
 	// OVERVIEW
 
-	"What is MorphoSyntax?": "What is $t(common:MorphoSyntax)?",
+	"What is MorphoSyntax?": "What is MorphoSyntax?",
 
 	overviewMain: [
 		"This tool offers a way to describe the \"rules\" of a language. It's",

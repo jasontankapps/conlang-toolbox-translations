@@ -10,8 +10,8 @@ const appinfo = {
 	],
 	credit2: [ // Markdown format
 		"$t(common:WordGen) and $t(common:WordEvolve) are heavily inspired by",
-		"[Gen](http://www.zompist.com/gen.html) and",
-		"[SCA²](http://www.zompist.com/sca2.html) by Mark Rosenfelder",
+		"[Gen](https://www.zompist.com/gen.html) and",
+		"[SCA²](https://www.zompist.com/sca2.html) by Mark Rosenfelder",
 	],
 	credit3: [ // Markdown format
 		"$t(common:MorphoSyntax) is based on an outline presented throughout",

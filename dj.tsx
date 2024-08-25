@@ -2,16 +2,27 @@ const dj = {
 
 	Groups: "Groups", // 🟥
 	Group: "Group",
-	NumGroups_one: "{{count}} Group",
-	NumGroups_other: "{{count}} Groups",
+	groupsDeleted_one: "{{count}} Group deleted.",
+	groupsDeleted_other: "{{count}} Groups deleted.",
+	GroupSaved: "Group saved.",
+	GroupDeleted: "Group deleted.",
 	Type: "Type", // 🟥
 	Type_presentation: "Type:",
 	Declensions: "Declensions", // 🟥 🔴 group of declensions on-screen
-	Declension: "Declension", // a single Declension
+	AddDeclensions: "Add Declension", // 🟥
+	EditDeclensions: "Edit Declension", // 🟥
+	DeleteDeclensions: "Delete Declension?", // 🟨
+	DeclensionSaved: "Declension saved.", // 🟦2.5
 	Conjugations: "Conjugations", // 🟥 🔴 group of conjugations on-screen
-	Conjugation: "Conjugation", // a single Conjugation
+	AddConjugations: "Add Conjugation", // 🟥
+	EditConjugations: "Edit Conjugation", // 🟥
+	DeleteConjugations: "Delete Conjugation?", // 🟨
+	ConjugationSaved: "Conjugation saved.", // 🟦2.5
 	Other: "Other", // 🟥 🔴 group of 'other' type on-screen
-	Other1: "Other", // a single instance of an 'Other' type
+	AddOther: "Add Other", // 🟥
+	EditOther: "Edit Other", // 🟥
+	DeleteOther: "Delete Other?", // 🟨
+	OtherSaved: "Other saved.", // 🟦2.5
 	Forms: "Forms", // a pluralized version of 'other', mainly used in exports
 	errorBadInternalFormatMsg: "Error in exporting: bad format (internal)",
 	Equality: "Equality",
@@ -19,9 +30,10 @@ const dj = {
 
 	WordsToGiveDJ: "Words to send through $t(common:Declenjugator)", // 🔵
 	EnterWordsOnePerLine: "Enter words here, one per line",
-	delEntireGroup: "This will delete this entire Group, and cannot be undone.",
-	AllCurrentGroups: "all current Groups",
+	delEntireGroup: "This will delete this entire Group, and cannot be undone.", // 🟡
 	ClearAllGroups: "Clear All Groups?", // 🟨
+	clearEverythingMsg: "This will clear and overwrite all current Groups.", // 🟡
+
 	needTitleOrDescriptionMsg: "You must provide a title or description before saving.", // 🟡
 	regExNeedsBothMsg: "If using regular expressions, you must provide both match and replacement expressions.", // 🟡
 	needConditionMsg: "You must provide at least one condition (start or end) before saving.", // 🟡
@@ -42,6 +54,7 @@ const dj = {
 	TitleMethod_Declensions: "Title or Description of this declension:", // 🟥
 	TitleMethod_Conjugations: "Title or Description of this conjugation:", // 🟥
 	TitleMethod_Other: "Title or Description of this method:", // 🟥
+	TitleSaved: "Title/Description saved.", // 🟦2.5
 	advancedExplanation_Declensions: "Use regular expressions to craft a declension.",
 	advancedExplanation_Conjugations: "Use regular expressions to craft a conjugation.",
 	advancedExplanation_Other: "Use regular expressions to craft a method.",

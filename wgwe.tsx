@@ -2,7 +2,7 @@ const wgwe = {
 
 	// WordGen and WordEvolve common terms
 
-	CharGroup: "Character Group",
+	CharGroup: "Character Group", // del?
 	CharGroups: "Character Groups",
 	DeleteAll: "Delete All", // 🟨
 	delAllCharGroups_one:
@@ -13,18 +13,36 @@ const wgwe = {
 		"This will delete the current transformation, and cannot be undone.", // 🟡
 	delAllTransforms_other:
 		"This will delete all {{count}} current transformations, and cannot be undone.", // 🟡
+	charGroupsDeleted_one: "{{count}} Character Groups deleted.", // 🟦2.5
+	charGroupsDeleted_other: "{{count}} Character Groups deleted.", // 🟦2.5
+	CharGroupDeleted: "Character Group deleted.", // 🟦2.5
+	transDeleted_one: "{{count}} Transformation deleted.", // 🟦2.5
+	transDeleted_other: "{{count}} Transformations deleted.", // 🟦2.5
 	importCharGroups_one: "Imported {{count}} Character Group.", // 🟦2.5
 	importCharGroups_other: "Imported {{count}} Character Groups.", // 🟦2.5
 	importOverwriteCG:
 		"If any current character group has the same label as an incoming"
 		+ " character group,the current character group will be overwritten."
 		+ " Do you want to continue?", // 🟡
+	addCharGroup: "Add Character Group", // 🟨
+	charGroupAdded: "Character Group added.", // 🟦2.5
+	DeleteCharGroup: "Delete Character Group", // 🔴
+	EditCharGroup: "Edit Character Group", // 🟥
+	SaveCharGroup: "Save Character Group", // 🔴
+	CharGroupSaved: "Character Group saved.", // 🟦2.5
 
-	Transformation: "Transformation",
+	Transformation: "Transformation", // del?
 	Transformations: "Transformations",
 	DescOfTheTransformation: "Description of the transformation",
 	DescOfTheTransformation_formal: "Description of the transformation",
 	DescOfTheTransformation_presentation: "Transformation Description:",
+	addTransformation: "Add Transformation", // 🟨
+	transformationAdded: "Transformation added.", // 🟦2.5
+	SaveTrans: "Save Transformation", // 🔴
+	TransSaved: "Transformation saved.", // 🟦2.5
+	EditTrans: "Edit Transformation", // 🟥
+	DeleteTrans: "Delete Transformation", // 🔴
+	TransDeleted: "Transformation deleted.", // 🟦2.5
 
 	noSearchMsg: "No search expression present", // 🟡
 	searchExpression: "search expression",

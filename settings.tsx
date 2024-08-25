@@ -2,7 +2,6 @@ const settings = {
 
 	// SETTINGS
 
-	Data: "Data", // used by exportThing
 	DisableConfPrompts: "Disable Confirmation Prompts", // 🟥 🔴
 	confPromptExplanation: "Eliminates yes/no prompts when deleting or overwriting data.",
 	ChangeTheme: "Change Theme", // 🟥 🔴
@@ -16,9 +15,10 @@ const settings = {
 	SolarizedLight: "Solarized Light", // Solarized is the name of a popular color palette
 	SolarizedDark: "Solarized Dark", // Solarized is the name of a popular color palette
 
+	ExportData: "Export App Data",
 	exportAllMsg: [ // Markdown format
 		"Save this info to a note or file.  ",
-		"You will be able to use it later to restore your data."
+		"You can use it later to restore your data."
 	],
 	ExportedData: "Exported Data", // 🔵
 
@@ -28,11 +28,11 @@ const settings = {
 	successImport: "Imported new info for {{listing}}", // 🟦10
 	alsoOverwrote: "; also completely overwrote storage for {{listing}}", // 🟦10
 	successOverwrote: "Completely overwrote storage for {{listing}}", // 🟦10
+	exportAppInfo: "Export App Info", // 🔴
 
 	ImportInfo: "Import Info",
 	importDescription:
 		"Paste your data below. This only accepts data exported through"
-		//+ " \"$t(common:exportThing, { thing: $t(\"common:AppInfo\") })\".",
 		+ " \"Export App Info\".",
 	DataToImport: "Data to Import", // 🔵
 	Reset: "Reset", // 🔴
@@ -97,7 +97,12 @@ const settings = {
 	noPostPreCharMsg: "You must provide some \"pre\" or \"post\" characters.", // 🟡
 
 	NewCustomSort: "New Custom Sort", // 🔴
-	CustomSort: "Custom Sort",
+	AddSort: "Add Custom Sort", // 🟥
+	SortAdded: "Custom Sort added", // 🟦2.5
+	DeleteSort: "Delete This?", // 🟨
+	DeleteSortButton: "Delete Sort", // 🔴
+	SortDeleted: "Custom Sort deleted", // 🟦2.5
+	EditSort: "Edit Custom Sort", // 🟥
 	TitleOfSort: "Title for this sort",
 	UnicodeSort: "Unicode sort (language-independent)", // 🔴
 	SortSensitivity: "Sort Sensitivity:", // always presentational context
@@ -125,9 +130,19 @@ const settings = {
 	Relation: "Relation",
 	Relations: "Relations", // 🟥
 	relationMsg: "Similar characters that should be sorted separately.",
+	AddRelation: "Add Relation", // 🟥
+	RelationAdded: "Relation added", // 🟦2.5
+	DeleteRelation: "Delete Relation?", // 🟥
+	RelationEdited: "Relation edited", // 🟦2.5
+	EditRelation: "Edit Relation?", // 🟥
 	Equality: "Equality",
 	Equalities: "Equalities", // 🟥
 	equalityMsg: "Characters that should be sorted together as if they were strictly equal.",
+	AddEquality: "Add Equality", // 🟥
+	EqualityAdded: "Equality added", // 🟦2.5
+	DeleteEquality: "Delete Equality?", // 🟥
+	EqualityEdited: "Equality edited", // 🟦2.5
+	EditEquality: "Edit Equality?", // 🟥
 	
 	// The below are presentational context
 	BaseChar: "Base Character:",

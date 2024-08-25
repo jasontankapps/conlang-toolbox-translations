@@ -50,18 +50,30 @@ const lexicon = {
 		"Are you sure you want to load this? It will overwrite your current"
 		+ " lexicon and cannot be reversed.",
 	NoSavedLexicons: "No Saved Lexicons", // 🟥
+	DeleteStoredLexicon: "Delete Stored Lexicon", // 🟥
+	LexiconDeleted: "Lexicon deleted.", // 🟦2.5
+	LoadLexicon: "Load Lexicon", // 🟥 🔴
+	SaveLexicon: "Save Lexicon", // 🔴
+	LexiconSaved: "Lexicon saved.", // 🟦2.5
 
 	LexSavedAsNew: "Lexicon saved as new lexicon!", // 🟦2.5
 	needTitleMsg: "You must input a title before saving.", // 🟡
 	needLexiconTitleMsg: "Please give your lexicon a title before exporting it.", // 🟡
 	needWordsMsg: "Please add words to your lexicon before exporting it.", // 🟡
 
-	Item: "Item", // 🔴
+	AddLexiconItem: "Add Lexicon Item", // 🟥
+	AddItem: "Add Item", // 🔴
+	EditLexiconItem: "Edit Lexicon Item", // 🟥
+	DeleteItem: "Delete Item?", // 🟨
+	ItemDeleted: "Item was deleted.", // 🟦2.5
+	SaveItem: "Save Item", // 🔴
 	Column: "Column", // 🔴
 	EditCols: "Edit Columns", // 🟥
-	LexItem: "$t(common:Lexicon) $t(Item)", // 🟥
+	ItemSaved: "Item saved to Lexicon", // 🟦2.5
 	ExitWOSave: "Exit Without Saving?", // 🟨
 	exitWithoutSavingMsg: "You have unsaved changes. Are you sure you want to exit?", // 🟡
+	AddColumn: "Add Column", // 🟥
+	ColumnAdded: "Column added", // 🟦2.5
 
 	New: "New", // Default label for a new column
 	deleteColumnMsg: "Are you sure you want to delete this column? $t(common:cannotUndo)", // 🟡
@@ -89,6 +101,8 @@ const lexicon = {
 	workingMsg: "Working...",
 	TITLE: "TITLE", // Only used in CSV exports
 
+	ExportLex: "Export Lexicon", // 🔴
+	ExportLexicon: "Export Lexicon: \"{{title}}\"", // 🟥
 	// Types of exports
 	exportTextTab: "Text, Tabbed",
 	exportTextSemicolon: "Text, Semicolons",
