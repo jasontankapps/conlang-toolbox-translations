@@ -1,52 +1,45 @@
 const appinfo = {
 
-	// APP INFO
-
-	CreditsAcknowledgements: "Credits and Acknowledgements", // 🟥
-	credit1: [ // Markdown format
+	CreditsAcknowledgements: "Credits and Acknowledgements",
+	credit1: [
 		"App icon is based on",
 		"[Toolbox by Maxicons](https://thenounproject.com/term/toolbox/2586725/)",
 		"from the Noun Project"
 	],
-	credit2: [ // Markdown format
+	credit2: [
 		"$t(common:WordGen) and $t(common:WordEvolve) are heavily inspired by",
 		"[Gen](https://www.zompist.com/gen.html) and",
 		"[SCA²](https://www.zompist.com/sca2.html) by Mark Rosenfelder",
 	],
-	credit3: [ // Markdown format
+	credit3: [
 		"$t(common:MorphoSyntax) is based on an outline presented throughout",
 		"_Describing Morphosyntax: A Guide for Field Linguists_ by Thomas",
 		"E. Paine, and it also uses some foreign-language examples",
 		"presented therein"
 	],
 
-	BugReports: "Bug Reports", // 🟥
-	bugReportMsg: [ // Markdown format
+	BugReports: "Bug Reports",
+	bugReportMsg: [
 		"Please report bugs and errors to",
 		"[the Github repository](https://github.com/jasontankapps/conlang-toolbox/issues)",
 		"and incude an error log."
 	],
-	GetErrLog: "Get Error Log", // 🔴
+	GetErrLog: "Get Error Log",
 
-	// 'state' refers to the info saved by the app that is used to display info,
-	//   create info, etc.
-	EntireState: "Entire State", // 🟨
-	DebugInfo: "Debug Info", // 🟨
+	EntireState: "Entire State",
+	DebugInfo: "Debug Info",
 
-	// 'logs' refer to hidden reports/notes that the app sometimes makes when
-	//   it encounters an error.
-	CopyLogs: "Copy Logs", // 🔴
-	ClearLogs: "Clear Logs", // 🔴
-	logDeletionMsg: "Logs normally delete themselves after 90 days. Deleting logs cannot be undone.", // 🟡
-	DelThemNow: "Delete Them Now", // 🔴
-	logsClearedMsg: "Logs have been cleared.", // 🟦3.5
+	CopyLogs: "Copy Logs",
+	ClearLogs: "Clear Logs",
+	logDeletionMsg: "Logs normally delete themselves after 90 days. Deleting logs cannot be undone.",
+	DelThemNow: "Delete Them Now",
+	logsClearedMsg: "Logs have been cleared.",
 
-	Changelog: "Changelog", // 🟥 a list of changes made to the app
-	HideOlderChanges: "Hide Older Changes", // 🔴
-	ShowOlderChanges: "Show Older Changes", // 🔴
+	Changelog: "Changelog",
+	HideOlderChanges: "Hide Older Changes",
+	ShowOlderChanges: "Show Older Changes",
 	changelog: {
-		// Markdown format
-		//v0.12.0
+
 		v0120: [
 			"- Overhauled the inner workings of the app to allow for the",
 			"possibility of **translations** to happen; visit",
@@ -61,7 +54,7 @@ const appinfo = {
 			"- Fixed a bug in the way merging items worked in Lexicon",
 			"- Other minor bugfixes and improvements"
 		],
-		//v0.11.3
+
 		v0113: [
 			"- Overhauled main page.",
 			"- Added an \"$t(common:Overview)\" to each tool.",
@@ -88,7 +81,7 @@ const appinfo = {
 			"$t(wgwe:Transformations) with %X references were silently",
 			"crashing if no category \"X\" existed.",
 		],
-		//v0.10.1
+
 		v0101: [
 			"- Bugfix: some properties were not being saved or were otherwise",
 			"coded wrong in $t(common:MorphoSyntax). This has been fixed.",
@@ -108,7 +101,7 @@ const appinfo = {
 			"- Added a mass-delete mode to $t(common:Lexicon).",
 			"- Numerous other changes invisible to the user."
 		],
-		//v.0.9.5
+
 		v095: [
 			"- You can now swipe left on $t(common:Lexicon) items,",
 			"$t(wgwe:CharGroups), $t(wgwe:Transformations) and",
@@ -146,7 +139,7 @@ const appinfo = {
 			"   - Added a way to create compound meanings.",
 			"- Many under-the-hood changes."
 		],
-		//v0.9.4
+
 		v094: [
 			"- Hardware back button should no longer kick you from the app",
 			"without notice.",

@@ -109,6 +109,7 @@ These are terms used across the app, or only on "main" app pages, like Settings 
 | 🟥 | Lexicon | Lexicon | Title of the Lexicon tool. |
 |  | Lexicon_filename | Lexicon | *(filename context)* |
 | 🟥 | Concepts | Concepts | Title of the Concepts tool. |
+| 🟥 🔵 | ExtraChars | ExtraChars | Title of the Exra Characters tool. |
 | 🟥 | AppInfo | App Info | Title of the page where you find information about the app. |
 | 🟥 | AppSettings | App Settings | Title of the page where you find settings for the entire app. |
 | 🟥 | Main | Main | Title of the "About" page, which is also the app startup page. |
@@ -164,10 +165,11 @@ These are terms used across the app, or only on "main" app pages, like Settings 
 | 🔴 | fileXml | XML File | User-selectable option for file export |
 | 🟨 | deleteTitleQ | Delete "{{title}}"? | Message used with user-titled info. |
 | 🟨 | loadTitleQ | Load "{{title}}"? | Message used with user-titled info. |
+| 🟥 | exportTitle | Export "{{title}}" | Message used with user-titled info. |
 | 🟦2.5 | titleSaved | "{{title}}" saved. | Message used with user-titled info. |
-| 🟨 | titleAlreadyExists | "{{title}}" already exists. | Message used with user-titled info. |
+| 🟨 | titleAlreadyExists | "{{title}}" already exists. | Message used with user-titled info. Followed by a message asking if the user wants to overwrite the existing info. |
 | 🟦2.5 | titleLoaded | "{{title}}" loaded. | Message used with user-titled info. |
-| 🟡 | titleNotFound | "{{title}}" not found. | Message used with user-titled info. |
+| 🟡 | titleNotFound | "{{title}}" not found. | Error message used with user-titled info. |
 | 🟦2.5 | titleDeleted | "{{title}}" deleted. | Message used with user-titled info. |
 | 🟦2.5 | titleOverwritten | "{{title}}" overwritten. | Message used with user-titled info. |
 | 🔴 | YesOverwriteIt | Yes, Overwrite It | Confirmation button when the user is about to overwrite stored info in WordGen, WordEvolve, or Declenjugator |
@@ -178,7 +180,8 @@ These are terms used across the app, or only on "main" app pages, like Settings 
 | 🔵 | NameOfSave | Name of save | As above, but is the ARIA text for the input. |
 |  | NameYourInfo | Name your custom info | Provided as a hint when the user is prompted to entitle a save. |
 | 🔴 | Load | Load | When loading stored information. |
-|  | NoSavedInfo | No saved info | A message that shows up in some dialog boxes if the user hasn't saved anything in that tool yet. |
+| 🟡 | NoSavedInfo | No saved info | A message that shows up in some dialog boxes if the user hasn't saved anything in that tool yet. |
+| 🟥 | LoadSavedInfo | Load Saved Info | Used in DJ, WE and WG |
 | 🟡 | missingTitleMsg | Missing title. |  |
 |  | SortMethod | Sort method: | *(presentation context)* Indicates a way to sort the given info. |
 | 🟡 | cannotUndo | This cannot be undone. | This action, usually deleting something, cannot be undone. |
@@ -187,9 +190,7 @@ These are terms used across the app, or only on "main" app pages, like Settings 
 | 🟨 | DeleteEverythingQ | Delete Everything? | Asking to delete something. The dialog text will specify what is being deleted. |
 | 🔴 | confirmDel_one | Yes, Delete It | The things being deleted might be: 1) custom meanings in Concepts; 2) A column or item in Lexicon; 3) Character Groups or Transformations in WG and WE; 4) Syllables in WG; 5) Sound Changes in WE; 6) A single unit of saved custom info in WG, WE, Declenjugator, Lexicon, or MorphoSyntax; 7) A Custom Sort in Settings, or one of their relations or equalities; 8) a group in Declenjugator, or a single declension or conjugation in a group. |
 | 🔴 | confirmDel_other | Yes, Delete Them | The English plural version of the key above. |
-| \*🔴 | confirmDelAll | Yes, Delete All | Confirmation when deleting all info in MorphoSyntax or Lexicon. |
 | 🔴 | confirmLoad | Yes, Load Info | Used to confirm loading Custom Info in WG, WE, Declenjugator, Lexicon, or MorphoSyntax |
-| \* | This | This | `This` is used by `deleteThing` and may refer to 1) a Custom Sort in Settings, or one of their relations or equalities; 2) a group in Declenjugator, or a single declension or conjugation in a group |
 | 🟦2.5 | NothingToSave | Nothing to save. | An attempt was made to save something, but there was no information to save. |
 | 🟦2 | Deleted | Deleted | Successful deletion. |
 | 🟨 | UnsavedInfo | Unsaved Info | Dialogs regarding exiting or closing something before everything has saved. |
@@ -299,6 +300,8 @@ This file is imported into common.tsx, and its properties become properties of t
 
 Each character in Extra Characters has an official Unicode name. You can find the list of them in [CHARACTERCODES.md](CHARACTERCODES.md).
 
+---
+
 ## Settings : settings.tsx
 
 | Label | Key | English Translation | Description (if needed) |
@@ -370,7 +373,13 @@ Each character in Extra Characters has an official Unicode name. You can find th
 | 🟡 | noEqualCharMsg | You must provide some "equal" characters. | Error message |
 | 🟡 | noPostPreCharMsg | You must provide some "pre" or "post" characters. | Error message |
 | 🔴 | NewCustomSort | New Custom Sort |  |
-|  | CustomSort | Custom Sort | Used by `editThing`, `thingDeleted`, `thingSaved`, and `addThing` |
+| 🟥 | AddSort | Add Custom Sort |  |
+| 🟦2.5 | SortAdded | Custom Sort added |  |
+| 🟨 | DeleteSort | Delete This? |  |
+| 🔴 | DeleteSortButton | Delete Sort |  |
+| 🟦2.5 | SortDeleted | Custom Sort deleted |  |
+| 🟥 | EditSort | Edit Custom Sort |  |
+| 🟦2.5 | SortEdited | Custom Sort edited |  |
 |  | TitleOfSort | Title for this sort |  |
 | 🔴 | UnicodeSort | Unicode sort (language-independent) |  |
 |  | SortSensitivity | Sort Sensitivity: | *(presentation context)* |
@@ -384,22 +393,20 @@ Each character in Extra Characters has an official Unicode name. You can find th
 | 🔴 | Comma | \[a,b,c,d,e\]: Comma |  |
 | 🔴 | Period | \[a.b.c.d.e\]: Period |  |
 | 🔴 | Semicolon | \[a;b;c;d;e\]: Semicolon |  |
-|  | Relation | Relation | Used in `addThing`, `editThing` and `thingEdited` |
 | 🟥 | Relations | Relations |  |
 |  | relationMsg | Similar characters that should be sorted separately. |  |
 | 🟥 | AddRelation | Add Relation |  |
 | 🟦2.5 | RelationAdded | Relation added |  |
 | 🟥 | DeleteRelation | Delete Relation? |  |
 | 🟦2.5 | RelationEdited | Relation edited |  |
-| 🟥 | EditRelation | Edit Relation? |  |
-|  | Equality | Equality | Used in `addThing`, `editThing` and `thingEdited` |
+| 🟥 | EditRelation | Edit Relation |  |
 | 🟥 | Equalities | Equalities |  |
 |  | equalityMsg | Characters that should be sorted together as if they were strictly equal. |  |
 | 🟥 | AddEquality | Add Equality |  |
 | 🟦2.5 | EqualityAdded | Equality added |  |
 | 🟥 | DeleteEquality | Delete Equality? |  |
 | 🟦2.5 | EqualityEdited | Equality edited |  |
-| 🟥 | EditEquality | Edit Equality? |  |
+| 🟥 | EditEquality | Edit Equality |  |
 |  | BaseChar | Base Character: | *(presentation context)* |
 |  | BaseEqual | Equal to the Base: | *(presentation context)* |
 |  | CharsSeparator | Characters Separator: | *(presentation context)* |
@@ -458,10 +465,11 @@ Each character in Extra Characters has an official Unicode name. You can find th
 | 🔴 | Landau200 | Landau 200 | Name of a list |
 | 🟡 | addToColumnMsg | Your selected meanings will be added to the $t(common:Lexicon) under that column. |  |
 | 🟦5 | tapToLinkMsg | Tap meanings you want to link, in the order you wish to link them. |  |
-| 🟡 | meaningsStillSelected_other | You have {{count}} meanings still selected. Do you want to link them? | `{{count}}` will **NEVER** be 0 or 1. |
+| 🟡 | meaningsStillSelected_one | You have {{count}} meanings still selected. Do you want to discard this? | This is only shown when one meaning is left selected, meaning that there aren't enough to be linked. `{{count}}` will **NEVER** be 0. |
+| 🟡 | meaningsStillSelected_other | You have {{count}} meanings still selected. Do you want to link them? | This is only shown when two or more meanings are left selected. `{{count}}` will **NEVER** be 0. |
 | 🟨 | StopLinking | Stop Linking? |  |
-| 🔴 | YesSaveThem | Yes, Save Them | "Them" refers to the meanings being linked together |
-| 🔴 | NoDiscardThem | No, Discard Them | "Them" refers to the meanings being linked together |
+| 🔴 | YesSaveThem | Save Them | "Them" refers to the meanings that could be linked together. There wil *always* be two or more. |
+| 🔴 | NoDiscardThem | Discard |  |
 | 🟦2.5 | CombinationSaved | Combination saved. | The combination of meanings has been saved |
 | 🟦2.5 | tapToSaveMsg | Tap meanings you want to save to $t(common:Lexicon) |  |
 | 🟦3 | tapToUnlinkMsg | Tap combinations you want to delete, then tap the Unlink button again. |  |
@@ -554,20 +562,19 @@ You can find the master list of concepts in [CONCEPTS.md](CONCEPTS.md).
 | 🟨 | delItems_one | Delete {{count}} Item? |  |
 | 🟨 | delItems_other | Delete {{count}} Items? |  |
 | 🟦2.5 | delItemsSuccess_one | Deleted {{count}} item. |  |
-|  | delItemsSuccess_other | Deleted {{count}} items. | English plural of the above key |
+| 🟦2.5 | delItemsSuccess_other | Deleted {{count}} items. | English plural of the above key |
 | 🟡 | noInfoProvided | You did not type any information into any text field. |  |
 | 🔵 | MergeSelected | Merge selected items |  |
 | 🔵 | LexiconTitle | $t(common:Lexicon) $t(common:Title) |  |
 |  | LexiconTitle_presentation | $t(common:Lexicon) $t(common:Title) | *Note: This key being in presentation context will cause it to pull common:Title_presentation by default* |
 |  | lexTitleHelperText | Usually the language name. |  |
 |  | lexDescriptionHelperText | A short description of this lexicon. |  |
-| 🟥 | lexItems_one | {{count}} Item | *(formal context)* |
-|  | lexItems_other | {{count}} Items | *(formal context)* English plural of the above key |
-|  | lexitems_one | {{count}} item |  |
-|  | lexitems_other | {{count}} items | English plural of the above key |
+| 🟥 | lexItems_one | {{count}} Item | *(formal context)* Displayed on the main Lexicon page, showing how many items there are. |
+| 🟥 | lexItems_other | {{count}} Items | *(formal context)* English plural of the above key |
+| 🔴 | storedLexItems_one | {{title}} [{{count}} item] | Used in modals, listing a saved Lexicon's title and how many items it stores |
+| 🔴 | storedLexItems_other | {{title}} [{{count}} items] | English plural of the above key |
 | 🟥 | LexiconStorage | $t(common:Lexicon) Storage |  |
 | 🔴 | ClearLexicon | Clear $t(common:Lexicon) |  |
-|  | SavedLexicon | Saved $t(common:Lexicon) | Gets used by `deleteThing` |
 | 🟥 | LexiconSorting | $t(common:Lexicon) Sorting |  |
 |  | sortLexDescription | The Lexicon will be sorted in the order you choose. It alphabetically sorts by the first column in the list. If two items are identical in that column, it will sort them by the next column in the list, and so on. |  |
 |  | Sort | Sort | Used by `deleteThing` |
@@ -590,16 +597,17 @@ You can find the master list of concepts in [CONCEPTS.md](CONCEPTS.md).
 | 🟡 | needLexiconTitleMsg | Please give your lexicon a title before exporting it. |  |
 | 🟡 | needWordsMsg | Please add words to your lexicon before exporting it. |  |
 | 🟥 | AddLexiconItem | Add Lexicon Item |  |
-| 🔴 | AddItem | Add Item |  |
+| 🔴 | AddItem | Add Item | A shorter version of the above key, used in buttons |
 | 🟥 | EditLexiconItem | Edit Lexicon Item |  |
 | 🟨 | DeleteItem | Delete Item? |  |
 | 🟦2.5 | ItemDeleted | Item was deleted. |  |
 | 🔴 | SaveItem | Save Item |  |
-| 🔴 | Column | Column |  |
 | 🟥 | EditCols | Edit Columns |  |
+| 🟦2.5 | ItemSaved | Item saved to Lexicon |  |
 | 🟨 | ExitWOSave | Exit Without Saving? |  |
 | 🟡 | exitWithoutSavingMsg | You have unsaved changes. Are you sure you want to exit? |  |
 | 🟦2.5 | ColumnAdded | Column added |  |
+| 🟥 | AddColumn | Add Column |  |
 |  | New | New | Default label for a new column |
 | 🟡 | deleteColumnMsg | Are you sure you want to delete this column? $t(common:cannotUndo) |  |
 | 🟥 | LexOptions | $t(common:Lexicon) Options |  |
@@ -619,7 +627,6 @@ You can find the master list of concepts in [CONCEPTS.md](CONCEPTS.md).
 |  | workingMsg | Working... |  |
 |  | TITLE | TITLE | Only used in CSV exports |
 | 🔴 | ExportLex | Export Lexicon |  |
-| 🟥 | ExportLexicon | Export Lexicon: "{{title}}" | *(semi-presentation context)* `{{title}}` will be replaced with a Lexicon's title |
 | 🔴 | exportTextTab | Text, Tabbed | Type of export |
 | 🔴 | exportTextSemicolon | Text, Semicolons | Type of export |
 | 🔴 | exportTextNewline | Text, Newlines | Type of export |
@@ -726,25 +733,26 @@ The `info` key has multiple subkeys. They are all arrays of strings in Markdown 
 | 🟦2.5 | GroupDeleted | Group deleted. |  |
 | 🟥 | Type | Type | The 'type' refers to whether a group is a declension, conjugation, or other. |
 |  | Type_presentation | Type: | *(presentation context)* |
-| 🟥 🔴 | Declensions | Declensions | group of declensions on-screen |
+| 🔴 | Declension | Declension |  |
+| 🟥 | Declensions | Declensions | group of declensions on-screen |
 | 🟥 | AddDeclensions | Add Declension |  |
 | 🟥 | EditDeclensions | Edit Declension |  |
 | 🟦2.5 | DeclensionsSaved | Declension saved. |  |
 | 🟨 | DeleteDeclensions | Delete Declension? |  |
-| 🟥 🔴 | Conjugations | Conjugations | group of conjugations on-screen |
+| 🔴 | Conjugation | Conjugation |  |
+| 🟥 | Conjugations | Conjugations | group of conjugations on-screen |
 | 🟥 | AddConjugations | Add Conjugation |  |
 | 🟥 | EditConjugations | Edit Conjugation |  |
 | 🟨 | DeleteConjugations | Delete Conjugation? |  |
 | 🟦2.5 | ConjugationsSaved | Conjugation saved. |  |
-| 🟥 🔴 | Other | Other | group of 'other' type on-screen |
+| 🔴 | Other1 | Other | 'other' type of declension/conjugation |
+| 🟥 | Other | Other | group of 'other' type on-screen |
 | 🟥 | AddOther | Add Other |  |
 | 🟥 | EditOther | Edit Other |  |
 | 🟨 | DeleteOther | Delete Other? |  |
 | 🟦2.5 | OtherSaved | Other saved. |  |
 |  | Forms | Forms | a plural version of 'other', mainly used in exports |
-|  | errorBadInternalFormatMsg | Error in exporting: bad format (internal) | An error message |
-|  | Equality | Equality | used by `addThing`, `editThing`, `thingEdited` |
-|  | Relation | Relation | used by `addThing`, `editThing`, `thingEdited` |
+|  | errorBadInternalFormatMsg | Error in exporting: bad format (internal) | An error message that only appears if something goes very wrong when exporting from Declenjugator |
 | 🔵 | WordsToGiveDJ | Words to send through $t(common:Declenjugator) |  |
 |  | EnterWordsOnePerLine | Enter words here, one per line |  |
 | 🟡 | delEntireGroup | This will delete this entire Group, and cannot be undone. |  |
@@ -774,14 +782,14 @@ The `info` key has multiple subkeys. They are all arrays of strings in Markdown 
 |  | advancedExplanation_Declensions | Use regular expressions to craft a declension. |  |
 |  | advancedExplanation_Conjugations | Use regular expressions to craft a conjugation. |  |
 |  | advancedExplanation_Other | Use regular expressions to craft a method. |  |
-|  | groupAppliesTo | applies to $t(appliesTo) | `appliesTo` will be a user-generated string |
+|  | groupAppliesTo | ; applies to {{appliesTo}} | This is appended to a description of a Group; `{{appliesTo}}` will be a user-generated string |
 | 🟥 | WhatIsDJ | What is $t(common:Declenjugator)? |  |
 | 🟡 | noFormatMsg | You didn't select a format. |  |
 | 🟡 🟦2.5 | noDisplayGroupMsg | Please choose at least one Group to display. |  |
 | 🟥 | UnmatchedWords | Unmatched Words |  |
 | 🟥 | declenjugatorTitle | Declension/Conjugation Title |  |
-| 🟥 | declenjugatorDocumentTitle | Declensions/Conjugations |  |
-|  | declenjugatorDocumentDescription | A declension/conjugation document exported from $t(common:appTitle). |  |
+| 🟥 | declenjugatorDocumentTitle | Declensions/Conjugations | Used in `docx` exports |
+|  | declenjugatorDocumentDescription | A declension/conjugation document exported from $t(common:appTitle). | Used in `docx` exports |
 |  | caseMakerInstructions | Tap on terms to add them. Tap them again to remove them. Tap save button when you're finished. |  |
 | 🔴 | Hide | Hide |  |
 | 🔴 | ShowMore | Show More |  |
@@ -805,7 +813,6 @@ The `info` key has multiple subkeys. They are all arrays of strings in Markdown 
 | 🟥 | OutputTab | Output Tab |  |
 | 🟥 | RegExp | Regular Expression |  |
 | 🟡 | willClearOverwriteMsg | This will clear and overwrite the previous save. |  |
-| 🟥 | LoadSavedInfo | Load Saved Info |  |
 | 🔴 | Export | Export |  |
 | 🟥 | Example | Example |  |
 | 🟥 | Examples | Examples |  |
@@ -994,6 +1001,7 @@ This is an array of two objects. Each object has a `title` property as a header 
 | --- | --- | --- | --- |
 |  | showUnused | \[ "\#\# Show Unused Sections", "", "Include sections that you did not fill out, leaving space for you to write in later.&nbsp;&nbsp;", "\*\*NOTE: this option has no effect on JSON and XML exports.\*\*" \] | This is an array of strings in Markdown format. |
 |  | clearMSInfo | Clear MorphoSyntax Info |  |
+| 🔴 | confirmClear | Yes, Clear All | Confirmation when clearing all info. |
 | 🟦2.5 | noInfoToClearMsg | You have no information to clear. |  |
 | 🟦2.5 | clearedMS | All MorphoSyntax information has been cleared. |  |
 | 🟡 | clearAllMS | This will clear and overwrite everything currently in MorphoSyntax (but not anything previously saved) |  |
@@ -1013,6 +1021,7 @@ This is an array of two objects. Each object has a `title` property as a header 
 | 🟥 🔴 | ExportMorphoSyntaxInfo | Export MorphoSyntax Info |  |
 | 🔴 | SaveMorphoSyntaxInfo | Save MorphoSyntax Info |  |
 | 🟥 🔴 | LoadMorphoSyntaxInfo | Load MorphoSyntax Info |  |
+| 🟦2.5 | MorphoSyntaxInfoSaved | MorphoSyntax info saved. |  |
 | 🟥 | MISSINGTITLE | MISSING TITLE | (error message) |
 | 🔴 | genericInfoButtonText | Information |  |
 | 🔵 | rangeFromTo | Range from {{start}} to {{end}} |  |
@@ -1022,9 +1031,9 @@ This is an array of two objects. Each object has a `title` property as a header 
 |  | noTextExportMsg | \[NO TEXT ENTERED\] | This is an informative message that is only used in exports. |
 |  | noDescriptionExportMsg | \[NO DESCRIPTION PROVIDED\] | This is an informative message that is only used in exports. |
 |  | noSelectionExportMsg | \[NONE SELECTED\] | This is an informative message that is only used in exports. |
-|  | textUnselectedRange | {{number}} | Indicates a number **not** selected by user; only used in exports. |
-|  | textSelectedRange | ({{number}}) | Indicates the number selected by user; only used in exports. |
-|  | textCheckedBox | X | This indicates that a checkbox was checked; only used in exports. |
+|  | textUnselectedRange | {{number}} | Indicates a number **not** selected by user; only used in textual exports. |
+|  | textSelectedRange | ({{number}}) | Indicates the number selected by user; only used in textual exports. |
+|  | textCheckedBox | X | This indicates that a checkbox was checked; only used in textual exports. |
 
 ### The Rest of the Keys
 
@@ -1038,11 +1047,13 @@ These are terms that are used in both WordGen and WordEvolve.
 
 | Label | Key | English Translation | Description (if needed) |
 | --- | --- | --- | --- |
-|  | CharGroup | Character Group |  |
-|  | CharGroups | Character Groups |  |
+|  | CharGroups | Character Groups | Title of page |
+|  | CharGroups_shorter | Char Groups | Shorter version of the above key, used on smaller screens in the tab bar |
 | 🟦2.5 | charGroupsDeleted_one | {{count}} Character Groups deleted. |  |
 | 🟦2.5 | charGroupsDeleted_other | {{count}} Character Groups deleted. | English plural of the above |
 | 🟦2.5 | CharGroupDeleted | Character Group deleted. |  |
+| 🟦2.5 | transDeleted_one | {{count}} Transformation deleted. |  |
+| 🟦2.5 | transDeleted_other | {{count}} Transformations deleted. |  |
 | 🟨 | DeleteAll | Delete All |  |
 | 🟡 | delAllCharGroups_one | This will delete the current character group, and cannot be undone. | Takes a `{{count}}` property, if needed. |
 | 🟡 | delAllCharGroups_other | This will delete all {{count}} current character groups, and cannot be undone. | English plural version of the above key. |
@@ -1051,19 +1062,18 @@ These are terms that are used in both WordGen and WordEvolve.
 | 🟦2.5 | importCharGroups_one | Imported {{count}} Character Group. |  |
 | 🟦2.5 | importCharGroups_other | Imported {{count}} Character Groups. | English plural version of the above key. |
 | 🟡 | importOverwriteCG | If any current character group has the same label as an incoming character group, the current character group will be overwritten. Do you want to continue? |  |
-| 🟨 | addCharGroup | Add Character Group |  |
-| 🟦2.5 | charGroupAdded | Character Group added. |  |
+| 🟨 | AddCharGroup | Add Character Group |  |
 | 🟨 | DeleteCharGroup | Delete Character Group |  |
 | 🟨 | EditCharGroup | Edit Character Group |  |
 | 🟨 | SaveCharGroup | Save Character Group |  |
 | 🟦2.5 | CharGroupSaved | Character Group saved. |  |
-|  | Transformation | Transformation |  |
-|  | Transformations | Transformations |  |
+|  | Transformations | Transformations | Title of page |
+|  | Transformations_shorter | Transforms | Shorter version of the above key, used on smaller screens in the tab bar |
 |  | DescOfTheTransformation | Description of the transformation |  |
 |  | DescOfTheTransformation_formal | Description of the transformation | *(formal context)* |
 |  | DescOfTheTransformation_presentation | Transformation Description: | *(presentation context)* |
-| 🟨 | addTransformation | Add Transformation |  |
-| 🟦2.5 | transformationAdded | Transformation added. |  |
+| 🟨 | AddTransformation | Add Transformation |  |
+| 🟦2.5 | TransformationAdded | Transformation added. |  |
 | 🔴 | SaveTrans | Save Transformation |  |
 | 🟦2.5 | TransSaved | Transformation saved. |  |
 | 🟥 | EditTrans | Edit Transformation |  |
@@ -1105,7 +1115,9 @@ These are terms that are used in both WordGen and WordEvolve.
 | Label | Key | English Translation | Description (if needed) |
 | --- | --- | --- | --- |
 |  | Evolve | Evolve |  |
-|  | SoundChanges | Sound Changes | ?? |
+|  | SoundChanges | Sound Changes | Title of page |
+|  | SoundChanges_shorter | Changes | Shorter version of the above key, used on smaller screens in the tab bar |
+|  | SoundChangesTab | Sound Changes Tab |  |
 | 🟦2.5 | changesDeleted_one | {{count}} Sound Change deleted. |  |
 | 🟦2.5 | changesDeleted_other | {{count}} Sound Changes deleted. | English plural form of the above |
 | 🟥 | AddSoundChange | Add Sound Change |  |
@@ -1343,8 +1355,8 @@ Other `info` properties may access these bits on information by putting a block'
 
 | Label | Key | English Translation | Description (if needed) |
 | --- | --- | --- | --- |
-|  | Syllables_one | Syllable |  |
-|  | Syllables_other | Syllables |  |
+| 🟥 | SyllablesTitle | Syllables | *(formal context)* Name of the Syllables page |
+| 🟥 | Syllables | Syllables | *(formal context)* Label of the syllables box when only one type of syllable is presented |
 | 🟦2.5 | syllablesDeleted_one | {{count}} Syllable deleted. |  |
 | 🟦2.5 | syllablesDeleted_other | {{count}} Syllables deleted. | English plural form of the above |
 | 🟥 | swSyllables | Single-Syllable Words | *(formal context)* |
@@ -1436,133 +1448,147 @@ These keys are a part of `wg.tsx` and name Presets and their components' descrip
 |  | Vowels1 | Vowels 1 | Title of Character Group in a Preset |
 |  | Vowels2 | Vowels 2 | Title of Character Group in a Preset |
 |  | Dipthongs | Dipthongs | Title of Character Group in a Preset |
-|  | WFConjugation | Word-final conjugation | Title of Character Group in the "Complex" preset |
-|  | CONJ | conjugation: {{type}} | Description of a Transformation in the "Complex" preset; `{{type}}` will be replaced by one of the keys below, which represent a gloss of a particular type |
-|  | g1s | 1s | 1st-person singular; a `{{type}}` |
-|  | g2s3sAN | 2s/3s.AN | 2nd-person singular, 3rd-person singular animate; a `{{type}}` |
-|  | g2s | 2s | 2nd-person singular; a `{{type}}` |
-|  | g3sAN | 3s.AN | 3rd-person singular animate; a `{{type}}` |
-|  | g2sFORM | 2s.FORM | 2nd-person singular formal; a `{{type}}` |
-|  | g3sINAN | 3s.INAN | 3rd-person singular inanimate; a `{{type}}` |
-|  | g1DUIN | 1.DU.INCL | 1st-person dual inclusive; a `{{type}}` |
-|  | g1DUEX | 1.DU.EXCL | 1st-person dual exclusive; a `{{type}}` |
-|  | g1PAUIN1pIN | 1.PAU.INCL/1p.INCL | 1st-person paucal inclusive, 1st-person plural inclusive; a `{{type}}` |
-|  | g1PAUIN | 1.PAU.INCL | 1st-person paucal inclusive; a `{{type}}` |
-|  | g1PAUIN1PAUEX1pIN | 1.PAU.INCL/1.PAU.EXCL/1p.INCL | 1st-person paucal inclusive, 1st-person paucal exclusive, 1st-person plural inclusive; a `{{type}}` |
-|  | g1PAUEX | 1.PAU.EXCL | 1st-person paucal exclusive; a `{{type}}` |
-|  | g1PAUEX1pIN | 1.PAU.EXCL/1p.INCL | 1st-person paucal exclusive, 1st-person plural inclusive; a `{{type}}` |
-|  | g1PAUEX1pEX | 1.PAU.EXCL/1p.EXCL | 1st-person paucal exclusive, 1st-person plural exclusive; a `{{type}}` |
-|  | g1pIN | 1p.INCL | 1st-person plural inclusive; a `{{type}}` |
-|  | g1pEX | 1p.EXCL | 1st-person plural exclusive; a `{{type}}` |
-|  | g2PAU | 2.PAU | 2nd-person paucal; a `{{type}}` |
-|  | g2PAUFORM | 2.PAU.FORM | 2nd-person paucal formal; a `{{type}}` |
-|  | g2p | 2p | 2nd-person; a `{{type}}` |
-|  | g2pFORM | 2p.FORM | 2nd-person formal; a `{{type}}` |
-|  | g3PAUAN | 3.PAU.AN | 3rd-person paucal animate; a `{{type}}` |
-|  | g3pAN | 3p.AN | 3rd-person plural animate; a `{{type}}` |
-|  | g3PAUINAN | 3.PAU.INAN | 3rd-person paucal inanimate; a `{{type}}` |
-|  | g3pINAN | 3p.INAN | 3rd-person plural inanimate; a `{{type}}` |
-|  | gGER | GER | gerund; a `{{type}}` |
-|  | changeTo | change {{from}} to {{to}} | Description of a Transformation in the "Complex" preset; the Transformation will change `{{from}}` into `{{to}}`; the `{{from}}` portion will be very descriptive and often complex, while the `{{to}}` portion will usually be very simple |
-|  | tripleVowels | triple vowels | a `{{from}}` |
-|  | doubleDipthongs | double-dipthongs | a `{{from}}` |
-|  | nonWIVowelIPairs | certain non-word-initial vowel-i pairs | a `{{from}}` |
-|  | nPlosive | n-plosive | n followed by a plosive consonant; a `{{from}}` |
-|  | mPlosive | m-plosive | m followed by a plosive consonant; a `{{from}}` |
-|  | retroNPlosive | retroflex n-plosive | retroflex n followed by a plosive consonant; a `{{from}}` |
-|  | pNasal | p-nasal | p followed by a nasal consonant; a `{{from}}` |
-|  | tNasal | t-nasal | t followed by a nasal consonant; a `{{from}}` |
-|  | nasalPostRetroT | nasal after retoflex t | a `{{from}}` |
-|  | pFricative | p-fricative | p followed by a fricative consonant; a `{{from}}` |
-|  | tFricative | t-fricative | t followed by a fricative consonant; a `{{from}}` |
-|  | postRetroTFric | post-retroflex t fricative | a fricative consonant after a retroflex T; a `{{from}}` |
-|  | kFricative | k-fricative | k followed by a fricative consonant; a `{{from}}` |
-|  | fFricative | f-fricative | f followed by a fricative consonant; a `{{from}}` |
-|  | sFricative | s-fricative | s followed by a fricative consonant; a `{{from}}` |
-|  | postRetroSFric | post-retroflex s fricative | a fricative consonant after a retroflex S; a `{{from}}` |
-|  | hFricative | h-fricative | h followed by a fricative consonant; a `{{from}}` |
-|  | ft | ft | a `{{from}}` |
-|  | retroST | retroflex s-t | retroflex s followed by a t; a `{{from}}` |
-|  | nonInitHNotPreG | non-initial h not preceded by a g | a `{{from}}` |
-|  | WVowel | W-vowel | W followed by a vowel; a `{{from}}` |
-|  | remWs | remaining Ws | any Ws that still remain after the previous transformations have been made; a `{{from}}` |
-|  | vowelCh | vowel-ch | vowel followed by ch; a `{{from}}` |
-|  | bWithConditions | B after a vowel and at word-end or before a non-vowel | a `{{from}}` |
-|  | vowelB | vowel-B | vowel followed by a b; a `{{from}}` |
-|  | wordFinalOOrAu | word-final o or au | a `{{from}}` |
-|  | wordFinalOuOrEi | word-final ou or ei | a `{{from}}` |
-|  | wordFinalQu | qu at word-end | a `{{from}}` |
-|  | wordFinalC | word-final c | a `{{from}}` |
-|  | doubleAIU | double a/i/u | aa, ii, or uu; a `{{from}}` |
-|  | wordFinalMkOrMt | word-final mk or mt | a `{{from}}` |
-|  | wordFinalNkOrNp | word-final nk or np | a `{{from}}` |
-|  | ngkNgt | ngk and ngt | a `{{from}}` |
-|  | doubleVowels | double vowels | a `{{to}}` |
-|  | singleDipthongs | single dipthongs | a `{{to}}` |
-|  | dipthong | dipthong | a `{{to}}` |
-|  | dipthongs | dipthongs | a `{{to}}` |
-|  | nt | nt | a `{{to}}` |
-|  | mp | mp | a `{{to}}` |
-|  | retroNRetroPlosive | retroflex n-retroflex plosive | retroflex n followed by retroflex plosive consonant; a `{{to}}` |
-|  | pm | pm | a `{{to}}` |
-|  | tn | tn | a `{{to}}` |
-|  | retroN | retroflex n | a `{{to}}` |
-|  | pf | pf | a `{{to}}` |
-|  | ts | ts | a `{{to}}` |
-|  | retroS | retroflex s | a `{{to}}` |
-|  | kh | kh | a `{{to}}` |
-|  | fp | fp | a `{{to}}` |
-|  | st | st | a `{{to}}` |
-|  | retroT | retroflex t | a `{{to}}` |
-|  | hk | hk | a `{{to}}` |
-|  | retroSRetroT | retroflex s-retroflex t | retroflex s followed by a retroflex t; a `{{to}}` |
-|  | k | k | a `{{to}}` |
-|  | whVowel | wh-vowel | wh followed by a vowel; a `{{to}}` |
-|  | w | w | a `{{to}}` |
-|  | vowelTch | vowel-tch | vowel followed by tch; a `{{to}}` |
-|  | vowelBle | vowel-ble | vowel followed by ble; a `{{to}}` |
-|  | vowelBl | vowel-bl | vowel followed by bl; a `{{to}}` |
-|  | ow | ow | a `{{to}}` |
-|  | oughEigh | ough or eigh | a `{{to}}` |
-|  | que | que | a `{{to}}` |
-|  | ck | ck | a `{{to}}` |
-|  | singleAIU | single a/i/u | a single a, i, or u (started as aa, ii or uu); a `{{to}}` |
-|  | nk | nk | a `{{to}}` |
-|  | deRetro | de-retroflex {{char}} after {{what}} | Description of a Transformation in the "Complex" preset; Changes a retroflex character `{{char}}` into a non-retroflex version, but only if it comes after `{{what}}` |
-|  | deRetroBefore | de-retroflex {{one}} before retroflex {{two}} | Description of a Transformation in the "Complex" preset; Changes a retroflex character `{{one}}` into a non-retroflex version, but only if it comes before `{{two}}` |
-|  | markRetro | mark retroflex {{char}} | Description of a Transformation in the "Complex" preset; Substitutes a capital letter `{{char}}` (e.g. `T`) with its retroflex version (e.g. `ʈ`) |
-|  | aDipthong | a dipthong | used as `{{what}}` |
-|  | s | s | can be used as `{{one}}`, `{{two}}`, `{{what}}`, or `{{char}}` |
-|  | t | t | can be used as `{{one}}`, `{{two}}`, or `{{char}}` |
-|  | n | n | can be used as `{{one}}`, `{{two}}`, or `{{char}}` |
-|  | l | l | can be used as `{{one}}`, `{{two}}`, or `{{char}}` |
-|  | nix | eliminate {{what}} | Description of a Transformation in the "Complex" preset; deletes `{{what}}` |
-|  | thirdVowel | third vowel in a row | a `{{what}}` for `nix` |
-|  | dipthongI | dipthong before i | a `{{what}}` for `nix` |
-|  | plosiveR | plosive before an r | a `{{what}}` for `nix` |
-|  | kNasal | nasal after k | a `{{what}}` for `nix` |
-|  | retroConsNonRetroCons | non-retroflex consonant after retroflex consonants | a `{{what}}` for `nix` |
-|  | nonRetroConsRetroCons | retroflex consonant after non-retroflex consonant | a `{{what}}` for `nix` |
-|  | otherHs | all other h | a `{{what}}` for `nix` |
-|  | otherBs | remaining Bs | a `{{what}}` for `nix` |
-|  | dupeYs | duplicate ys | a `{{what}}` for `nix` |
-|  | qTripVowels | triple+ vowels after q | a `{{what}}` for `nix` |
-|  | reduceMultiHsToH | reduce multiple h to single | Description of a Transformation in the "Complex" preset; e.g. hhhhh -> h |
-|  | reduceDoubleConsToCon | reduce double consonants to one | Description of a Transformation in the "Complex" preset; e.g. cc -> c, dd-> d |
-|  | reduceKhToK | reduce kh to k | Description of a Transformation in the "Complex" preset; kh -> k |
-|  | saveHBeforeStress | save h before stressed syllable | Description of a Transformation in the "Complex" preset |
-|  | saveWIH | save word-initial h | Description of a Transformation in the "Complex" preset |
-|  | saveWFH | save word-final h | Description of a Transformation in the "Complex" preset |
-|  | restoreSavedH | restore saved h | Description of a Transformation in the "Complex" preset; previously, h was "saved" as H, and now H becomes h again. |
-|  | iBeforeE | i before e except after c | Description of a Transformation in the Pseudo-English preset; refers to a common "rule" of English spelling |
-|  | reduceTlClusterAfterCon | reduce tl cluster to t after non-vowel | Description of a Transformation in the Pseudo-English preset |
-|  | reduceTlClusterBeforeConOrEnd | reduce tl cluster to t before consonant or word-end | Description of a Transformation in the Pseudo-English preset |
-|  | reduceTripleToTwo | reduce triple-letter clusters to two | Description of a Transformation in the Pseudo-English preset |
-|  | reduceMultiVowelsToMatching | reduce multiple vowels in a row, where any two vowels match, to the matching vowels | Description of a Transformation in the Pseudo-English preset |
-|  | qFollowedByU | q is always followed by u | Description of a Transformation in the Pseudo-English preset |
-|  | replaceForbiddenSyll | replace forbidden syllable | Description of a Transformation in the Pseudo-Japanese preset; some syllables *could* be possible, but are never actually used in Japanese |
-|  | removeDupeChars | remove duplicate characters | Description of a Transformation in the Pseudo-Japanese preset |
-|  | reduceTripPlusVowelsToTwo | reduce 3+ vowels in a row down to just 2 | Description of a Transformation in the Pseudo-Japanese preset |
+
+Many of the translations below are in "glossing rules" format. See: <https://www.eva.mpg.de/lingua/resources/glossing-rules.php>
+
+| Key | English Translation | Description (if needed) |
+| --- | --- | --- |
+| WFConjugation | Word-final conjugation | Title of Character Group in the "Complex" preset |
+| CONJ | conjugation: {{type}} | Description of a Transformation in the "Complex" preset; `{{type}}` will be replaced by one of the keys below, which represent a gloss of a particular type |
+| g1s | 1s | 1st-person singular; a `{{type}}` |
+| g2s3sAN | 2s/3s.AN | 2nd-person singular, 3rd-person singular animate; a `{{type}}` |
+| g2s | 2s | 2nd-person singular; a `{{type}}` |
+| g3sAN | 3s.AN | 3rd-person singular animate; a `{{type}}` |
+| g2sFORM | 2s.FORM | 2nd-person singular formal; a `{{type}}` |
+| g3sINAN | 3s.INAN | 3rd-person singular inanimate; a `{{type}}` |
+| g1DUIN | 1.DU.INCL | 1st-person dual inclusive; a `{{type}}` |
+| g1DUEX | 1.DU.EXCL | 1st-person dual exclusive; a `{{type}}` |
+| g1PAUIN1pIN | 1.PAU.INCL/1p.INCL | 1st-person paucal inclusive, 1st-person plural inclusive; a `{{type}}` |
+| g1PAUIN | 1.PAU.INCL | 1st-person paucal inclusive; a `{{type}}` |
+| g1PAUIN1PAUEX1pIN | 1.PAU.INCL/1.PAU.EXCL/1p.INCL | 1st-person paucal inclusive, 1st-person paucal exclusive, 1st-person plural inclusive; a `{{type}}` |
+| g1PAUEX | 1.PAU.EXCL | 1st-person paucal exclusive; a `{{type}}` |
+| g1PAUEX1pIN | 1.PAU.EXCL/1p.INCL | 1st-person paucal exclusive, 1st-person plural inclusive; a `{{type}}` |
+| g1PAUEX1pEX | 1.PAU.EXCL/1p.EXCL | 1st-person paucal exclusive, 1st-person plural exclusive; a `{{type}}` |
+| g1pIN | 1p.INCL | 1st-person plural inclusive; a `{{type}}` |
+| g1pEX | 1p.EXCL | 1st-person plural exclusive; a `{{type}}` |
+| g2PAU | 2.PAU | 2nd-person paucal; a `{{type}}` |
+| g2PAUFORM | 2.PAU.FORM | 2nd-person paucal formal; a `{{type}}` |
+| g2p | 2p | 2nd-person; a `{{type}}` |
+| g2pFORM | 2p.FORM | 2nd-person formal; a `{{type}}` |
+| g3PAUAN | 3.PAU.AN | 3rd-person paucal animate; a `{{type}}` |
+| g3pAN | 3p.AN | 3rd-person plural animate; a `{{type}}` |
+| g3PAUINAN | 3.PAU.INAN | 3rd-person paucal inanimate; a `{{type}}` |
+| g3pINAN | 3p.INAN | 3rd-person plural inanimate; a `{{type}}` |
+| gGER | GER | gerund; a `{{type}}` |
+
+| Key | English Translation | Description (if needed) |
+| --- | --- | --- |
+| changeTo | change {{from}} to {{to}} | Description of a Transformation in the "Complex" preset; the Transformation will change `{{from}}` into `{{to}}`; the `{{from}}` portion will be very descriptive and often complex, while the `{{to}}` portion will usually be very simple |
+| tripleVowels | triple vowels | a `{{from}}` |
+| doubleDipthongs | double-dipthongs | a `{{from}}` |
+| nonWIVowelIPairs | certain non-word-initial vowel-i pairs | a `{{from}}` |
+| nPlosive | n-plosive | n followed by a plosive consonant; a `{{from}}` |
+| mPlosive | m-plosive | m followed by a plosive consonant; a `{{from}}` |
+| retroNPlosive | retroflex n-plosive | retroflex n followed by a plosive consonant; a `{{from}}` |
+| pNasal | p-nasal | p followed by a nasal consonant; a `{{from}}` |
+| tNasal | t-nasal | t followed by a nasal consonant; a `{{from}}` |
+| nasalPostRetroT | nasal after retoflex t | a `{{from}}` |
+| pFricative | p-fricative | p followed by a fricative consonant; a `{{from}}` |
+| tFricative | t-fricative | t followed by a fricative consonant; a `{{from}}` |
+| postRetroTFric | post-retroflex t fricative | a fricative consonant after a retroflex T; a `{{from}}` |
+| kFricative | k-fricative | k followed by a fricative consonant; a `{{from}}` |
+| fFricative | f-fricative | f followed by a fricative consonant; a `{{from}}` |
+| sFricative | s-fricative | s followed by a fricative consonant; a `{{from}}` |
+| postRetroSFric | post-retroflex s fricative | a fricative consonant after a retroflex S; a `{{from}}` |
+| hFricative | h-fricative | h followed by a fricative consonant; a `{{from}}` |
+| ft | ft | a `{{from}}` |
+| retroST | retroflex s-t | retroflex s followed by a t; a `{{from}}` |
+| nonInitHNotPreG | non-initial h not preceded by a g | a `{{from}}` |
+| WVowel | W-vowel | W followed by a vowel; a `{{from}}` |
+| remWs | remaining Ws | any Ws that still remain after the previous transformations have been made; a `{{from}}` |
+| vowelCh | vowel-ch | vowel followed by ch; a `{{from}}` |
+| bWithConditions | B after a vowel and at word-end or before a non-vowel | a `{{from}}` |
+| vowelB | vowel-B | vowel followed by a b; a `{{from}}` |
+| wordFinalOOrAu | word-final o or au | a `{{from}}` |
+| wordFinalOuOrEi | word-final ou or ei | a `{{from}}` |
+| wordFinalQu | qu at word-end | a `{{from}}` |
+| wordFinalC | word-final c | a `{{from}}` |
+| doubleAIU | double a/i/u | aa, ii, or uu; a `{{from}}` |
+| wordFinalMkOrMt | word-final mk or mt | a `{{from}}` |
+| wordFinalNkOrNp | word-final nk or np | a `{{from}}` |
+| ngkNgt | ngk and ngt | a `{{from}}` |
+| doubleVowels | double vowels | a `{{to}}` |
+| singleDipthongs | single dipthongs | a `{{to}}` |
+| dipthong | dipthong | a `{{to}}` |
+| dipthongs | dipthongs | a `{{to}}` |
+| nt | nt | a `{{to}}` |
+| mp | mp | a `{{to}}` |
+| retroNRetroPlosive | retroflex n-retroflex plosive | retroflex n followed by retroflex plosive consonant; a `{{to}}` |
+| pm | pm | a `{{to}}` |
+| tn | tn | a `{{to}}` |
+| retroN | retroflex n | a `{{to}}` |
+| pf | pf | a `{{to}}` |
+| ts | ts | a `{{to}}` |
+| retroS | retroflex s | a `{{to}}` |
+| kh | kh | a `{{to}}` |
+| fp | fp | a `{{to}}` |
+| st | st | a `{{to}}` |
+| retroT | retroflex t | a `{{to}}` |
+| hk | hk | a `{{to}}` |
+| retroSRetroT | retroflex s-retroflex t | retroflex s followed by a retroflex t; a `{{to}}` |
+| k | k | a `{{to}}` |
+| whVowel | wh-vowel | wh followed by a vowel; a `{{to}}` |
+| w | w | a `{{to}}` |
+| vowelTch | vowel-tch | vowel followed by tch; a `{{to}}` |
+| vowelBle | vowel-ble | vowel followed by ble; a `{{to}}` |
+| vowelBl | vowel-bl | vowel followed by bl; a `{{to}}` |
+| ow | ow | a `{{to}}` |
+| oughEigh | ough or eigh | a `{{to}}` |
+| que | que | a `{{to}}` |
+| ck | ck | a `{{to}}` |
+| singleAIU | single a/i/u | a single a, i, or u (started as aa, ii or uu); a `{{to}}` |
+| nk | nk | a `{{to}}` |
+
+| Key | English Translation | Description (if needed) |
+| --- | --- | --- |
+| deRetro | de-retroflex {{char}} after {{what}} | Description of a Transformation in the "Complex" preset; Changes a retroflex character `{{char}}` into a non-retroflex version, but only if it comes after `{{what}}` |
+| deRetroBefore | de-retroflex {{one}} before retroflex {{two}} | Description of a Transformation in the "Complex" preset; Changes a retroflex character `{{one}}` into a non-retroflex version, but only if it comes before `{{two}}` |
+| markRetro | mark retroflex {{char}} | Description of a Transformation in the "Complex" preset; Substitutes a capital letter `{{char}}` (e.g. `T`) with its retroflex version (e.g. `ʈ`) |
+| aDipthong | a dipthong | used as `{{what}}` |
+| s | s | can be used as `{{one}}`, `{{two}}`, `{{what}}`, or `{{char}}` |
+| t | t | can be used as `{{one}}`, `{{two}}`, or `{{char}}` |
+| n | n | can be used as `{{one}}`, `{{two}}`, or `{{char}}` |
+| l | l | can be used as `{{one}}`, `{{two}}`, or `{{char}}` |
+| nix | eliminate {{what}} | Description of a Transformation in the "Complex" preset; deletes `{{what}}` |
+| thirdVowel | third vowel in a row | a `{{what}}` for `nix` |
+| dipthongI | dipthong before i | a `{{what}}` for `nix` |
+| plosiveR | plosive before an r | a `{{what}}` for `nix` |
+| kNasal | nasal after k | a `{{what}}` for `nix` |
+| retroConsNonRetroCons | non-retroflex consonant after retroflex consonants | a `{{what}}` for `nix` |
+| nonRetroConsRetroCons | retroflex consonant after non-retroflex consonant | a `{{what}}` for `nix` |
+| otherHs | all other h | a `{{what}}` for `nix` |
+| otherBs | remaining Bs | a `{{what}}` for `nix` |
+| dupeYs | duplicate ys | a `{{what}}` for `nix` |
+| qTripVowels | triple+ vowels after q | a `{{what}}` for `nix` |
+
+| Key | English Translation | Description (if needed) |
+| --- | --- | --- |
+| reduceMultiHsToH | reduce multiple h to single | Description of a Transformation in the "Complex" preset; e.g. hhhhh -> h |
+| reduceDoubleConsToCon | reduce double consonants to one | Description of a Transformation in the "Complex" preset; e.g. cc -> c, dd-> d |
+| reduceKhToK | reduce kh to k | Description of a Transformation in the "Complex" preset; kh -> k |
+| saveHBeforeStress | save h before stressed syllable | Description of a Transformation in the "Complex" preset |
+| saveWIH | save word-initial h | Description of a Transformation in the "Complex" preset |
+| saveWFH | save word-final h | Description of a Transformation in the "Complex" preset |
+| restoreSavedH | restore saved h | Description of a Transformation in the "Complex" preset; previously, h was "saved" as H, and now H becomes h again. |
+| iBeforeE | i before e except after c | Description of a Transformation in the Pseudo-English preset; refers to a common "rule" of English spelling |
+| reduceTlClusterAfterCon | reduce tl cluster to t after non-vowel | Description of a Transformation in the Pseudo-English preset |
+| reduceTlClusterBeforeConOrEnd | reduce tl cluster to t before consonant or word-end | Description of a Transformation in the Pseudo-English preset |
+| reduceTripleToTwo | reduce triple-letter clusters to two | Description of a Transformation in the Pseudo-English preset |
+| reduceMultiVowelsToMatching | reduce multiple vowels in a row, where any two vowels match, to the matching vowels | Description of a Transformation in the Pseudo-English preset |
+| qFollowedByU | q is always followed by u | Description of a Transformation in the Pseudo-English preset |
+| replaceForbiddenSyll | replace forbidden syllable | Description of a Transformation in the Pseudo-Japanese preset; some syllables *could* be possible, but are never actually used in Japanese |
+| removeDupeChars | remove duplicate characters | Description of a Transformation in the Pseudo-Japanese preset |
+| reduceTripPlusVowelsToTwo | reduce 3+ vowels in a row down to just 2 | Description of a Transformation in the Pseudo-Japanese preset |
 
 ### info
 
@@ -1621,9 +1647,9 @@ This section is printed on the Character Group help page, not the Overview page.
 ],
 ```
 
-#### info.syllablesStartIsOverview
+#### info.syllablesStart
 
-This section begins the Syllables section in the Overview, and is not shown on the Syllables help page.
+This section begins the Syllables section in the Syllables help page, but is **not** shown on the Overview page.
 
 Put `` `charGroup example` `` in backticks to insert `info.charGroupExample` as a block.
 
@@ -1643,7 +1669,7 @@ Putting anything else inside backticks will be ignored and not display.
 
 #### info.syllablesStartIsOverview
 
-This section is the beginning of the Syllables help page, and not shown on the Overview page.
+This section is the beginning of the Syllables help page, but is only shown on the Overview page.
 
 ```javascript
 [
@@ -1653,7 +1679,7 @@ This section is the beginning of the Syllables help page, and not shown on the O
 
 #### info.syllablesExample
 
-This is a block of text representing a set of Syllables. It can be used in the next key.
+This is an array of strings representing a set of Syllables. It is presented between the beginning of the Syllables section (either `syllablesStart` or `syllablesStartIsOverview`) and the `syllables` key below.
 
 ```javascript
 [
@@ -1881,20 +1907,32 @@ Second-level numeric lists, like the "Sounds can be grouped like this:" sublist,
 ]
 ```
 
+---
+
 ## CHECKLIST
 
 If you have a working app with the translation loaded, you can follow these steps to ensure all messages are appearing correctly.
 
 1. Settings
+    - Attempt to use the Back Button to exit the app
+        - Verify messaging
+    - Get to the Settings page via the Menu
     - Tap on Change Theme, verify all theme names
-    - Tap on Export Data
+    - Tap on Export App Info
         - Make sure all toggles are on
         - Copy to clipboard, make sure toast message is correct
-    - Go to Import Data
+    - Go to Import App Info
         - Paste in data from clipboard
             - **If you are working with a non-clean version of the app, save this data elsewhere so you can restore your app state when you are done.**
         - Tap on Analyze
-        - Tap on Import, verify the toast message is correct.
+        - Tap on Import, verify the warning messsage.
+        - Tap Yes, verify the toast message is correct.
+        - Repeat the process, but only import WordGen Storage.
+            - Verify messaging.
+        - Repeat the process again, importing WordGen and WordEvolve Storages.
+            - Verify messaging.
+        - Repeat the process again, selecting two non-Storage options.
+            - Verify messaging.
     - Go to Sort Settings
         - Tap on Sort Sensitivity, verify all four options.
         - Tap on Using Custom Sort and verify "WG Presets Sorter" is correct.
@@ -1937,14 +1975,18 @@ If you have a working app with the translation loaded, you can follow these step
     - Add a title and description, tap Save again, verify save message
     - Tap on Save New, verify save message
     - Tap on Load, tap on a saved document, verify warning message
+    - Tap on Delete, tap on a saved document, verify warning message
+        - Confirm, verify the toast message.
     - Go to page 1
-        - Move one slider
+        - Move **every** slider
         - Check at least one checkbox
         - Add text to at least one box
-    - Go to page 2 and check at least one checkbox
+    - Go to page 2 and check at least one checkbox under *2.2.2. Verb Classes*
+    - Go to page 3, choose all three options under *3.4. Adpositional Phrases*
     - Go to settings, tap on Export
         - Leave "Show Unused Sections" on
         - Export three times, once as Text File (plain), once as a Text File (markdown), and finally as a Word Document (docx)
+            - Verify each toast message
         - Leave the app and verify the three exports
             - Check the sliders, checkboxes and text boxes you modified
             - Check the other checkboxes that were not modified and text boxes not filled
@@ -1957,6 +1999,9 @@ If you have a working app with the translation loaded, you can follow these step
         - Tap the Suggest button, verify the error message
         - Add title, label and characters, then tap Add Character Group
         - Save another character group
+            - Use the same Label as the previous Character Group, Tap Save, verify error message
+            - Use a question mark as Label, Tap Save, verify error message
+            - Finish saving the group correctly
         - Swipe left and Tap Edit
             - Verify the title
             - Tap the Delete button, verify the messaging
@@ -1993,7 +2038,9 @@ If you have a working app with the translation loaded, you can follow these step
     5. Go to Output
         - Tap Generate, verify error message
         - Tap Copy button, verify error message
-        - Tap the Settings icon, verify modal, close it
+        - Tap the Settings icon
+            - Verify text
+            - Change to Wordlist, verify new text
     6. Go to Settings
         - Tap Save/Load info
             - Verify title, "no saved info" message
@@ -2014,14 +2061,14 @@ If you have a working app with the translation loaded, you can follow these step
                 - Go back to Character Groups, verify titles of all groups
             - Return to Settings, Load the Medium preset
                 - Go back to Character Groups, verify titles of all groups
-            - Return to Settings, Load the Complex preset.......
+            - Return to Settings, Load the Complex preset.
                 - Go back to Character Groups, verify titles of all groups
                 - Go to Transformations, verify descriptions of all transforms
             - Return to Settings, Load the Pseudo-Latin preset
                 - Go back to Character Groups, verify titles of all groups
             - Return to Settings, Load the Pseudo-Chinese preset
                 - Go back to Character Groups, verify titles of all groups
-            - Return to Settings, Load the Pseudo-English preset......
+            - Return to Settings, Load the Pseudo-English preset.
                 - Go back to Character Groups, verify titles of all groups
                 - Go to Transformations, verify descriptions of all transforms
             - Return to Settings, Load the Pseudo-Japanese preset
@@ -2033,13 +2080,20 @@ If you have a working app with the translation loaded, you can follow these step
             - Tap any number of words
             - Tap the Save icon
                 - Verify messaging
+    8. Generate the `unableToCreateXWords` message
+        - Make a Character Group with a handful of characters
+        - Add one or two Syllables using that Character Group
+        - Go to the Settings page, set Rate of monosyllable words to Always
+        - Go back to Output page, tap on Settings icon
+            - Set the option to generate a wordlist
+            - Max out the 'number of words' slider to 1000.
+        - Tap Generate
 4. WordEvolve
     1. Start with Overview
     2. Go to Input
         - Add a few words
         - Tap the Clear button
             - Verify warning message
-            - Confirm, and verify toast message
         - Add a few words again
     3. Go to Character Groups
         - Tap on the Import button
@@ -2063,30 +2117,48 @@ If you have a working app with the translation loaded, you can follow these step
         - Tap the Clear Everything button
             - Verify the text
             - Tap Yes, verify the toast message
+        - Attempt to create error messages
+            - Create a Sound Change with the following problems:
+                - No underscore in context and exception
+                - Multiple underscores in context and exception
+                - Word-boundary in the middle of a word in context and exception
     6. Go to Output
         - Tap on the Settings icon
             - Verify all text, close modal
         - Tap Copy, verify the error message
         - Tap Evolve, verify the error message
         - Tap Load Preset
-            - Tap on "Great English Vowel Shift"
+            - Tap on Dahl's Law
             - Tap Yes, and verify the toast message
+            - Go to Character Groups and verify titles/descriptions of the groups
+        - Tap Load Preset
+            - Tap on Ingvaeonic Nasal Spirant Law, then Yes
+            - Go to Character Groups and verify titles/descriptions of the groups
     7. Go back to **WordGen** and tap on Character Groups
         - Tap on the Import button
             - Confirm, verify the toast message
-5. Declenjugator
+5. Extra Characters
+    1. Tap on the Extra Characters icon in WG/Syllables
+    2. Tap on Copy icon, verify toast
+        - Tap on any character, verify toast
+    3. Tap on Copy again, verify toast
+    4. Tap twice on the Favorites icon, verifying the toasts
+    5. Tap on the Character Name icon
+        - Go through each Display set and verify all characters and character names
+    6. Tap the help icon, verify new text
+6. Declenjugator
     1. Visit Overview
     2. Go to Input
         - Add a couple of words
         - Tap the Clear button
             - Verify warning message
-            - Confirm, and verify toast message
         - Add a couple of words again
     3. Go to Groups
         - Tap Add
             - Tap Save, verify error message
             - Tap on Type, verify all three types are present
             - Type in a title, tap Save, verify error message
+            - Type some text into the "Type(s) this applies to" text box
             - Tap Use Advanced Method
                 - Tap save, verify error message
                 - Put a Question Mark by itself in the Match Expression
@@ -2103,16 +2175,29 @@ If you have a working app with the translation loaded, you can follow these step
                     - Tap Save, verify error message
                     - Tap (+) again, tap on a word, tap Save again, verify success message
                 - Tap on Use Advanced Method, verify alternate messaging
+                - Tap Save, verify error message
+                - Toggle off Use Advanced Method
                 - Tap Save, verify save message
-            - Swipe left on the new Declension
+            - Swipe left on the new Declension, Tap Edit
                 - Verify the title
                 - Tap the Delete button, verify the messaging
                 - Close modal
             - Swipe left and Tap Delete
                 - Verify the text
                 - Tap Yes, verify the toast message
+            - Change Type to a different type
+                - Use "Add New" to create a new subgroup
+                - Swipe left and delete it
+                - Verify that the saving and deleting messaging has changed
+            - Change to the third Type and repeat the above process
             - Tap Save
-        - Swipe left on the new Group
+        - Tap on the Save icon in the title bar
+            - Save as a new Custom Info
+            - Attempt to save again using the same name
+                - Verify error message
+                - Tap on Yes, Overwrite It
+                    - Verify toast message
+        - Swipe left on the new Group and Tap Edit
             - Verify the title
             - Tap the Delete button, verify the messaging
             - Close modal
@@ -2140,7 +2225,8 @@ If you have a working app with the translation loaded, you can follow these step
             - Tap Copy to Clipboard button, verify message
         - Tap on Export, verify text and all three options
             - If only two options appear, Tap Display As and change it to a Chart, then Tap on Export again
-6. Lexicon
+            - Export as `docx`, verify the document's metadata
+7. Lexicon
     1. Verify main text
     1. Tap Help button, verify text
     1. Tap (+) button, verify error message
@@ -2153,8 +2239,8 @@ If you have a working app with the translation loaded, you can follow these step
             - Tap Save, verify toast message
         - Swipe left on the item, tap Delete
             - Verify text,
-            - Tap Yes, verify toast message
-    1. Tap Save button, verify text
+            - Tap Yes
+    1. Tap Save button, verify "Please wait" and modal text
         - Tap "Save", verify error message (no title)
         - Tap "Export", verify error message (no title)
         - Tap "Load", verify the no-lexicons-saved message
@@ -2167,10 +2253,14 @@ If you have a working app with the translation loaded, you can follow these step
         - Tap "Clear", verify text, Tap Yes, verify toast message
             - Verify all three default column labels
         - Tap "Load", choose a saved Lex, verify toast message
+        - Tap "Delete", choose a saved Lex, confirm, verify toast message
     1. Tap the Tools button, then Tap on the Add button
         - Verify all text
         - Finish adding an item to the Lexicon
         - Tap Tools again, Tap on the Trash button, verify toast messages
+            - Select an item
+            - Tap the final Delete button, verify popup
+            - Confirm, verify toast message
     1. Tap Save button again
         - Tap "Export", verify all text
     1. Tap the Settings button
@@ -2194,7 +2284,9 @@ If you have a working app with the translation loaded, you can follow these step
         - Tap on Import without selecting a column, verify toast message
         - Select a BLANK column, Tap Import, verify toast message
         - Select a filled column, Tap Import, verify toast message
-7. Concepts
+        - Create conditions ("column contains" **and** "column matches")
+            - Verify how they appear on screen when done
+8. Concepts
     1. Verify Display buttons
     1. Tap the help icon, verify all text
     1. Tap on all Display buttons
@@ -2209,15 +2301,17 @@ If you have a working app with the translation loaded, you can follow these step
         - Verify the toast message
         - Verify "Current Combination" text
         - Select at least two words
+        - Tap the Link Button again, verify the messages, Cancel
         - Tap Save, verify toast message
     1. Tap the Unlink button
         - Verify toast message
         - Tap on the combination you created
         - Tap Unlink again
             - Verify dialog text
-8. App Info
+9. App Info
     1. Verify all text
     2. Tap on Get Error Logs, verify the text
+        - Tap on Clear Logs, verify text
     3. Tap on Show Older Changes
         - Verify the new "Hide Other Changes" button
         - Verify all new text

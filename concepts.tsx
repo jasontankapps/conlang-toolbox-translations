@@ -1,9 +1,9 @@
 const concepts = {
-	// Concepts
-	Stop: "Stop", // 🔴
+
+	Stop: "Stop",
 
 	info: {
-		basic: [ // Markdown format
+		basic: [
 			"Presented here are a number of lists of basic concepts.",
 			"Each list was originaly created for the purposes of",
 			"historical-comparative linguistics.",
@@ -13,15 +13,15 @@ const concepts = {
 			"Remember: you can combine multiple meanings into a single",
 			"word!",
 		],
-		controlLexicon: [ // Markdown format
+		controlLexicon: [
 			"Use the \"lexicon\" button to quickly save meanings",
 			"to the $t(common:Lexicon)."
 		],
-		controlJoin: // Markdown format
+		controlJoin:
 			[ "Use the \"join\" button to create compound meanings." ],
-		controlUnjoin: // Markdown format
+		controlUnjoin:
 			[ "Use the \"unjoin\" button to delete compound meanings." ],
-		theLists: [ // Markdown format
+		theLists: [
 			"## Swadesh Lists",
 			"",
 			"Originally assembled by Morris Swadesh, this list of",
@@ -76,48 +76,45 @@ const concepts = {
 		]
 	},
 
-	Swadesh100: "Swadesh 100", // 🔴
-	Swadesh207: "Swadesh 207", // 🔴
-	SwadeshYakhontov: "Swadesh-Yakhontov", // 🔴
-	SwadeshWoodward: "Swadesh-Woodward", // 🔴
-	Dolgopolsky: "Dolgopolsky", // 🔴
-	LeipzigJakarta: "Leipzig-Jakarta", // 🔴
-	ASJP: "ASJP", // 🔴
-	Landau200: "Landau 200", // 🔴
+	Swadesh100: "Swadesh 100",
+	Swadesh207: "Swadesh 207",
+	SwadeshYakhontov: "Swadesh-Yakhontov",
+	SwadeshWoodward: "Swadesh-Woodward",
+	Dolgopolsky: "Dolgopolsky",
+	LeipzigJakarta: "Leipzig-Jakarta",
+	ASJP: "ASJP",
+	Landau200: "Landau 200",
 
-	addToColumnMsg: // 🟡
+	addToColumnMsg:
 		"Your selected meanings will be added to the $t(common:Lexicon) under that column.",
 
-	tapToLinkMsg: // 🟦5
+	tapToLinkMsg:
 		"Tap meanings you want to link, in the order you wish to link them.",
 
-	// The key below takes a {{count}} in case special plurals are needed. Count will NEVER be 0 or 1.
-	meaningsStillSelected_other: "You have {{count}} meanings still selected. Do you want to link them?", // 🟡
+	meaningsStillSelected_one: "You have {{count}} meaning still selected. Do you want to discard this?",
+	meaningsStillSelected_other: "You have {{count}} meanings still selected. Do you want to link them?",
 
-	StopLinking: "Stop Linking?", // 🟨
+	StopLinking: "Stop Linking?",
 
-	YesSaveThem: "Yes, Save Them", // 🔴 "Them" refers to the meanings being linked together
-	NoDiscardThem: "No, Discard Them", // 🔴 See above
-	CombinationSaved: "Combination saved.", // 🟦2.5 The combination of meanings has been saved
+	YesSaveThem: "Save Them",
+	NoDiscardThem: "Discard",
+	CombinationSaved: "Combination saved.",
 
-	tapToSaveMsg: "Tap meanings you want to save to $t(common:Lexicon)", // 🟦2.5
+	tapToSaveMsg: "Tap meanings you want to save to $t(common:Lexicon)",
 
-	SelectedMeanings_one: "Selected meaning", // Fills the {{what}} role in saveToLexColumn
-	SelectedMeanings_other: "Selected meanings",
+	tapToUnlinkMsg: "Tap combinations you want to delete, then tap the Unlink button again.",
 
-	tapToUnlinkMsg: "Tap combinations you want to delete, then tap the Unlink button again.", // 🟦3
-
-	delMeanings_one: "Delete {{count}} meaning?", // 🟨
+	delMeanings_one: "Delete {{count}} meaning?",
 	delMeanings_other: "Delete {{count}} meanings?",
-	delMeaningsMessage_one: "The selected meaning will be removed. $t(common:cannotUndo)", // 🟡
+	delMeaningsMessage_one: "The selected meaning will be removed. $t(common:cannotUndo)",
 	delMeaningsMessage_other: "The selected meanings will be removed. $t(common:cannotUndo)",
 
-	MyCombinations: "My Combinations", // 🔴
-	SaveAllMeanings: "Save All Meanings", // 🔴
-	SaveSelectedMeanings: "Save Selected Meanings", // 🔴
-	CurrentCombo: "Current Combination:", // 🟥 always presentational context
-	saveToLexColumn_one: "{{count}} meaning saved to $t(Lexicon) under \"{{column}}\"", // 🟦3.5
-	saveToLexColumn_other: "{{count}} meanings saved to $t(Lexicon) under \"{{column}}\"", // 🟦3.5
+	MyCombinations: "My Combinations",
+	SaveAllMeanings: "Save All Meanings",
+	SaveSelectedMeanings: "Save Selected Meanings",
+	CurrentCombo: "Current Combination:",
+	saveToLexColumn_one: "{{count}} meaning saved to $t(Lexicon) under \"{{column}}\"",
+	saveToLexColumn_other: "{{count}} meanings saved to $t(Lexicon) under \"{{column}}\"",
 
 	//
 	//

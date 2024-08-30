@@ -1,21 +1,23 @@
 const wg = {
 
-	Syllables_one: "Syllable",
-	Syllables_other: "Syllables",
-	swSyllables: "Single-Syllable Words", // 🟥 formal context
+	SyllablesTitle: "Syllables",
+	Syllables: "Syllables",
+	syllablesDeleted_one: "{{count}} Syllable deleted.",
+	syllablesDeleted_other: "{{count}} Syllables deleted.",
+	swSyllables: "Single-Syllable Words",
 	wiSyllables: "word-initial syllables",
-	wiSyllables_formal: "Word-Initial Syllables", // 🟥
+	wiSyllables_formal: "Word-Initial Syllables",
 	mwSyllables: "mid-word syllables",
-	mwSyllables_formal: "Mid-Word Syllables", // 🟥
+	mwSyllables_formal: "Mid-Word Syllables",
 	wfSyllables: "word-final syllables",
-	wfSyllables_formal: "Word-Final Syllables", // 🟥
+	wfSyllables_formal: "Word-Final Syllables",
 
-	SyllablesTab: "Syllables Tab", // 🟥
-	SettingsTab: "Settings Tab", // 🟥
-	WhatIsWordGen: "What is $t(common:WordGen)?", // 🟥
+	SyllablesTab: "Syllables Tab",
+	SettingsTab: "Settings Tab",
+	WhatIsWordGen: "What is $t(common:WordGen)?",
 
 	DeleteAllSyllables: "Delete All Syllables",
-	delAllSyllables: "This will delete any and all current syllables, and cannot be undone.", // 🟡
+	delAllSyllables: "This will delete any and all current syllables, and cannot be undone.",
 
 	syllableDropoffExplanation:
 		"Syllables at the top of a box tend to be picked more often than"
@@ -24,41 +26,41 @@ const wg = {
 		+ " equiprobable.",
 
 	useLabelsToMakeSyllables: "Use character group labels to construct syllables",
-	useSepDropoffRate: "Use separate dropoff rate", // 🔴 🟥
+	useSepDropoffRate: "Use separate dropoff rate",
 	usedToBeginWords: "These syllables are used to begin words",
 	usedInMiddleOfWords: "These syllables are used between the first and last syllable of a word",
 	usedToEndWords: "These syllables are used to end words",
-	From0To50: "From 0 to 50", // 🔵
-	From0To100: "From 0% to 100%", // 🔵
-	From2To15: "From 2 to 15", // 🔵
+	From0To50: "From 0 to 50",
+	From0To100: "From 0% to 100%",
+	From2To15: "From 2 to 15",
 
-	noCharGroupsDefinedMsg: "You have no character groups defined.", // 🟡
-	noSyllablesDefinedMsg: "You have no syllables defined.", // 🟡
-	missingSyllableTypesMsg: "You are missing one or more types of syllables.", // 🟡
-	unableToCreateXWords: "Unable to create {{amount}} unique words (maxed out at {{max}})", // 🟥
+	noCharGroupsDefinedMsg: "You have no character groups defined.",
+	noSyllablesDefinedMsg: "You have no syllables defined.",
+	missingSyllableTypesMsg: "You are missing one or more types of syllables.",
+	unableToCreateXWords: "Unable to create {{amount}} unique words (maxed out at {{max}})",
 
-	dropoffRate: "Dropoff Rate", // formal context
+	dropoffRate: "Dropoff Rate",
 	characterDropoffExplanation:
 		"Characters at the beginning of a group tend to be picked more often"
 		+ " than characters at the end of the group. This slider controls this"
 		+ " tendency. A rate of zero is flat, making all characters"
 		+ " equiprobable.",
-	CharGroupRunDropoff: "Character Group run dropoff", // 🟥
-	SyllableBoxDropoff: "Syllable box dropoff", // 🟥
-	UseMultiSyllTypes: "Use multiple syllable types", // 🔴
-	PseudoText: "Pseudo-text", // 🔴
-	Wordlist: "Wordlist", // 🔴
+	CharGroupRunDropoff: "Character Group run dropoff",
+	SyllableBoxDropoff: "Syllable box dropoff",
+	UseMultiSyllTypes: "Use multiple syllable types",
+	PseudoText: "Pseudo-text",
+	Wordlist: "Wordlist",
 	AllPossibleSyllables: "All possible syllables",
 	NumberOfSentences: "Number of sentences",
 	CapitalizeWords: "Capitalize words",
 	SortOutput: "Sort output",
 	MultiColumnLayout: "Multi-column layout",
 	WordlistSize: "Wordlist size",
-	ShowSyllableBreaks: "Show syllable breaks", // 🔴
-	SaveLoadCustomInfo: "Save/Load Custom Info", // 🔴
-	RateOfMonos: "Rate of monosyllable words", // 🟥
-	MaxSyllPerWord: "Maximum number of syllables per word", // 🟥
-	CapSentences: "Capitalize sentences", // 🔴
+	ShowSyllableBreaks: "Show syllable breaks",
+	SaveLoadCustomInfo: "Save/Load Custom Info",
+	RateOfMonos: "Rate of monosyllable words",
+	MaxSyllPerWord: "Maximum number of syllables per word",
+	CapSentences: "Capitalize sentences",
 	sentenceBeginning_declarative: "Declarative sentence beginning",
 	sentenceEnding_declarative: "Declarative sentence ending",
 	sentenceBeginning_interrogative: "Interrogative sentence beginning",
@@ -66,22 +68,19 @@ const wg = {
 	sentenceBeginning_exclamatory: "Exclamatory sentence beginning",
 	sentenceEnding_exclamatory: "Exclamatory sentence ending",
 
-	PresetsStoredInfo: "Presets and Stored Info", // 🟥
-	WordGenControls: "Word Generation Controls", // 🟥
-	Never: "Never", // 🔴
-	Always: "Always", // 🔴
-	PseudoTextControls: "Pseudo-text Controls", // 🟥
-	WordListSyllListControls: "Wordlist and Syllable-List Controls", // 🟥
-	WhatToGenerate: "What to Generate", // 🟥
-	Default: "Default", // 🔴 default sort option
-	ImportFromWG: "Import from WordGen", // 🟥
+	PresetsStoredInfo: "Presets and Stored Info",
+	WordGenControls: "Word Generation Controls",
+	Never: "Never",
+	Always: "Always",
+	PseudoTextControls: "Pseudo-text Controls",
+	WordListSyllListControls: "Wordlist and Syllable-List Controls",
+	WhatToGenerate: "What to Generate",
+	Default: "Default",
+	ImportFromWE: "Import from WordEvolve",
 
 	clearAllThingsMsg: "This will clear and overwrite all current character groups, syllables, transformations, and settings.",
 
 
-	// PRESETS
-
-	// names of presets
 	Simple: "Simple",
 	Medium: "Medium",
 	Complex: "Complex",
@@ -91,7 +90,6 @@ const wg = {
 	PseudoEnglish: "Pseudo-English",
 	PseudoJapanese: "Pseudo-Japanese",
 
-	// titles of character groups in presets
 	Consonants: "Consonants",
 	InitialConsonants: "Initial consonants",
 	WordEndingConsonants: "Word-ending consonants",
@@ -110,47 +108,44 @@ const wg = {
 
 	WFConjugation: "Word-final conjugation",
 	CONJ: "conjugation: {{type}}",
-	//   The translations below are in "glossing rules" format
-	//   see: https://www.eva.mpg.de/lingua/resources/glossing-rules.php
-	g1s: "1s", // 1st-person singular
-	g2s3sAN: "2s/3s.AN", // 2nd-person singular, 3rd-person singular animate
-	g2s: "2s", // 2nd-person singular
-	g3sAN: "3s.AN", // 3rd-person singular animate
-	g2sFORM: "2s.FORM", // 2nd-person singular formal
-	g3sINAN: "3s.INAN", // 3rd-person singular inanimate
-	g1DUIN: "1.DU.INCL", // 1st-person dual inclusive
-	g1DUEX: "1.DU.EXCL", // 1st-person dual exclusive
-	g1PAUIN1pIN: "1.PAU.INCL/1p.INCL", // 1st-person paucal inclusive, 1st-person plural inclusive
-	g1PAUIN: "1.PAU.INCL", // 1st-person paucal inclusive
-	g1PAUIN1PAUEX1pIN: "1.PAU.INCL/1.PAU.EXCL/1p.INCL", // 1st-person paucal inclusive, 1st-person paucal exclusive, 1st-person plural inclusive
-	g1PAUEX: "1.PAU.EXCL", // 1st-person paucal exclusive
-	g1PAUEX1pIN: "1.PAU.EXCL/1p.INCL", // 1st-person paucal exclusive, 1st-person plural inclusive
-	g1PAUEX1pEX: "1.PAU.EXCL/1p.EXCL", // 1st-person paucal exclusive, 1st-person plural exclusive
-	g1pIN: "1p.INCL", // 1st-person plural inclusive
-	g1pEX: "1p.EXCL", // 1st-person plural exclusive
-	g2PAU: "2.PAU", // 2nd-person paucal
-	g2PAUFORM: "2.PAU.FORM", // 2nd-person paucal formal
-	g2p: "2p", // 2nd-person
-	g2pFORM: "2p.FORM", // 2nd-person formal
-	g3PAUAN: "3.PAU.AN", // 3rd-person paucal animate
-	g3pAN: "3p.AN", // 3rd-person plural animate
-	g3PAUINAN: "3.PAU.INAN", // 3rd-person paucal inanimate
-	g3pINAN: "3p.INAN", // 3rd-person plural inanimate
-	gGER: "GER", // gerund
+	g1s: "1s",
+	g2s3sAN: "2s/3s.AN",
+	g2s: "2s",
+	g3sAN: "3s.AN",
+	g2sFORM: "2s.FORM",
+	g3sINAN: "3s.INAN",
+	g1DUIN: "1.DU.INCL",
+	g1DUEX: "1.DU.EXCL",
+	g1PAUIN1pIN: "1.PAU.INCL/1p.INCL",
+	g1PAUIN: "1.PAU.INCL",
+	g1PAUIN1PAUEX1pIN: "1.PAU.INCL/1.PAU.EXCL/1p.INCL",
+	g1PAUEX: "1.PAU.EXCL",
+	g1PAUEX1pIN: "1.PAU.EXCL/1p.INCL",
+	g1PAUEX1pEX: "1.PAU.EXCL/1p.EXCL",
+	g1pIN: "1p.INCL",
+	g1pEX: "1p.EXCL",
+	g2PAU: "2.PAU",
+	g2PAUFORM: "2.PAU.FORM",
+	g2p: "2p",
+	g2pFORM: "2p.FORM",
+	g3PAUAN: "3.PAU.AN",
+	g3pAN: "3p.AN",
+	g3PAUINAN: "3.PAU.INAN",
+	g3pINAN: "3p.INAN",
+	gGER: "GER",
 
-	// transformation descriptions: changes (something) to (something else)
 	changeTo: "change {{from}} to {{to}}",
-	// FROM
+
 	tripleVowels: "triple vowels",
 	doubleDipthongs: "double-dipthongs",
 	nonWIVowelIPairs: "certain non-word-initial vowel-i pairs",
-	nPlosive: "n-plosive", // n followed by a plosive consonant
+	nPlosive: "n-plosive",
 	mPlosive: "m-plosive",
-	retroNPlosive: "retroflex n-plosive", // retroflex n followed by a plosive consonant
-	pNasal: "p-nasal", // p followed by a nasal consonant
+	retroNPlosive: "retroflex n-plosive",
+	pNasal: "p-nasal",
 	tNasal: "t-nasal",
 	nasalPostRetroT: "nasal after retoflex t",
-	pFricative: "p-fricative", // p followed by a fricative consonant
+	pFricative: "p-fricative",
 	tFricative: "t-fricative",
 	postRetroTFric: "post-retroflex t fricative",
 	kFricative: "k-fricative",
@@ -159,30 +154,29 @@ const wg = {
 	postRetroSFric: "post-retroflex s fricative",
 	hFricative: "h-fricative",
 	ft: "ft",
-	retroST: "retroflex s-t", // retroflex s followed by a t
+	retroST: "retroflex s-t",
 	nonInitHNotPreG: "non-initial h not preceded by a g",
-	WVowel: "W-vowel", // W followed by a vowel
+	WVowel: "W-vowel",
 	remWs: "remaining Ws",
-	vowelCh: "vowel-ch", // vowel followed by ch
+	vowelCh: "vowel-ch",
 	bWithConditions: "B after a vowel and at word-end or before a non-vowel",
 	vowelB: "vowel-B",
 	wordFinalOOrAu: "word-final o or au",
 	wordFinalOuOrEi: "word-final ou or ei",
 	wordFinalQu: "qu at word-end",
 	wordFinalC: "word-final c",
-	doubleAIU: "double a/i/u", // aa, ii, or uu
+	doubleAIU: "double a/i/u",
 	wordFinalMkOrMt: "word-final mk or mt",
 	wordFinalNkOrNp: "word-final nk or np",
 	ngkNgt: "ngk and ngt",
 
-	//TO
 	doubleVowels: "double vowels",
 	singleDipthongs: "single dipthongs",
 	dipthong: "dipthong",
 	dipthongs: "dipthongs",
 	nt: "nt",
 	mp: "mp",
-	retroNRetroPlosive: "retroflex n-retroflex plosive", // retroflex n followed by retroflex plosive consonant
+	retroNRetroPlosive: "retroflex n-retroflex plosive",
 	pm: "pm",
 	tn: "tn",
 	retroN: "retroflex n",
@@ -194,21 +188,18 @@ const wg = {
 	st: "st",
 	retroT: "retroflex t",
 	hk: "hk",
-	// fp
-	retroSRetroT: "retroflex s-retroflex t", // retroflex s followed by a retroflex t
+	retroSRetroT: "retroflex s-retroflex t",
 	k: "k",
-	whVowel: "wh-vowel", // wh followed by a vowel
+	whVowel: "wh-vowel",
 	w: "w",
-	vowelTch: "vowel-tch", // vowel followed by tch
+	vowelTch: "vowel-tch",
 	vowelBle: "vowel-ble",
 	vowelBl: "vowel-bl",
 	ow: "ow",
 	oughEigh: "ough or eigh",
 	que: "que",
 	ck: "ck",
-	singleAIU: "single a/i/u", // a single a, i, or u (started as aa, ii or uu)
-	// mp
-	// nt
+	singleAIU: "single a/i/u",
 	nk: "nk",
 
 	deRetro: "de-retroflex {{char}} after {{what}}",
@@ -221,7 +212,6 @@ const wg = {
 	l: "l",
 
 	nix: "eliminate {{what}}",
-	// things being eliminated
 	thirdVowel: "third vowel in a row",
 	dipthongI: "dipthong before i",
 	plosiveR: "plosive before an r",
@@ -234,17 +224,15 @@ const wg = {
 	qTripVowels: "triple+ vowels after q",
 
 
-	// Complex
-	reduceMultiHsToH: "reduce multiple h to single", // e.g. hhhhh -> h
-	reduceDoubleConsToCon: "reduce double consonants to one", // e.g. cc -> c, dd-> d
-	reduceKhToK: "reduce kh to k", // kh -> k
+	reduceMultiHsToH: "reduce multiple h to single",
+	reduceDoubleConsToCon: "reduce double consonants to one",
+	reduceKhToK: "reduce kh to k",
 
 	saveHBeforeStress: "save h before stressed syllable",
 	saveWIH: "save word-initial h",
 	saveWFH: "save word-final h",
-	restoreSavedH: "restore saved h", // previously, h was "saved" as H. now, H becomes h again.
+	restoreSavedH: "restore saved h",
 
-	// Pseudo-English
 	iBeforeE: "i before e except after c",
 	reduceTlClusterAfterCon: "reduce tl cluster to t after non-vowel",
 	reduceTlClusterBeforeConOrEnd: "reduce tl cluster to t before consonant or word-end",
@@ -252,21 +240,18 @@ const wg = {
 	reduceMultiVowelsToMatching: "reduce multiple vowels in a row, where any two vowels match, to the matching vowels",
 	qFollowedByU: "q is always followed by u",
 
-	// Pseudo-Japanese
-	replaceForbiddenSyll: "replace forbidden syllable", // some syllables *could* be possible, but are never actually used in Japanese
+	replaceForbiddenSyll: "replace forbidden syllable",
 	removeDupeChars: "remove duplicate characters",
 	reduceTripPlusVowelsToTwo: "reduce 3+ vowels in a row down to just 2",
 
 	info: {
-		charGroupExample: [ // strong, emphasized
+		charGroupExample: [
 			"I=pbk",
 			"L=lr",
 			"C=pbklr",
 			"V=eioau"
 		],
-		charGroups: [ // Markdown format
-			// `example` will insert the charGroupExample as a block
-			// `anything else` will treat "anything else" as highlighted IPA text
+		charGroups: [
 			"This is where you define groups of sounds. The two simplest",
 			"groupings are _consonants_ and _vowels_, but you may want to",
 			"create multiple character groups depending on how you",
@@ -295,11 +280,11 @@ const wg = {
 			"others. You can adjust this _dropoff rate_, or eliminate it",
 			"entirely, on the **$t(common:Settings)** tab.",
 		],
-		charGroupsIsOverview: [ // Markdown format
+		charGroupsIsOverview: [
 			"**Character group run dropoff** is explained in the",
 			"**$t(common:Settings)** section below.",
 		],
-		charGroupsNotOverview: [ // Markdown format
+		charGroupsNotOverview: [
 			"**Character group run dropoff** ranges from 0 to 50. At zero",
 			"(flat), character group choices are all equiprobable. Otherwise,",
 			"the higher the number, the more likely it is that the first",
@@ -308,10 +293,7 @@ const wg = {
 		],
 
 
-		syllablesStart: [ // Markdown format
-			// This section is used if we're only showing the Syllables card
-				// `charGroup example` will insert the charGroupExample as a block
-				// `anything else` will be ignored
+		syllablesStart: [
 			"This is where you determine how your syllables are formed.",
 			"You use the _labels_ to describe the elements that make",
 			"up a syllable.",
@@ -325,21 +307,19 @@ const wg = {
 			"Then you could decide to make a list of syllables such as the",
 			"following:",
 		],
-		syllablesStartIsOverview: [ // Markdown format
-			// This section is used if we're showing all cards at once
+		syllablesStartIsOverview: [
 			"This is where you determine how your syllables are formed.",
 			"You use the _labels_ to describe the elements that make",
 			"up a syllable. For example, using the character groups",
 			"in the previous section, you could decide to make a list of",
 			"syllables such as the following:",
 		],
-		// syllablesExample is shown as a block in between syllablesStart* and syllables
-		syllablesExample: [ //strong, emphasized
+		syllablesExample: [
 			"ILV",
 			"CV",
 			"ILVC"
 		],
-		syllables: [ // Markdown format
+		syllables: [
 			"The above can generate syllables such as _pla_, _ku_, or",
 			"_brep_, which could then be combined into words such as",
 			"_plabrep_ or _kupla_. You can also put characters in a syllable",
@@ -364,13 +344,11 @@ const wg = {
 			"upper limit on the number of syllables any one word can",
 			"have."
 		],
-		syllablesEndIsOverview: [ // Markdown format
-			// This section is used if we're showing all cards at once
+		syllablesEndIsOverview: [
 			"The **Syllable box dropoff** is explained in the",
 			"**$t(common:Settings)** section below.",
 		],
-		syllablesEnd: [ // Markdown format
-			// This section is used if we're only showing the Syllables card
+		syllablesEnd: [
 			"The **Syllable box dropoff** ranges from 0 to 50. At zero",
 			"(flat), syllable choices are all equiprobable. Otherwise, the",
 			"higher the number, the more likely it is that the first lines in",
@@ -380,26 +358,6 @@ const wg = {
 
 
 		transBlocks: {
-			//    "important" info is put in a box.
-			//    "unimportant" info is put on its own in a way that meshes
-			//                   well with important info
-			//     use only ONE of the following:
-			//        simple
-			//        reversed
-			//        important + unimportant + complex
-			//BlockFormat: {
-			//	serif: true, // Makes the content use a serif font (default false)
-			//	arrow: "->", // This text here will be replaced with an arrow character
-			//                   pointing in the correct direction (default "->")
-			//	simple: [array of strings] in the format important, unimportant, important, ...
-			//	reversed: [array of strings] in the format unimportant, important, unimportant...
-			//	important: "!" string, marks the boundaries of "important" info (default "!")
-			//	unimportant: "$" string, marks the boundaries of "unimportant" info (default "$")
-			//	complex: [array of strings] in the format "Some !important! and
-			//              $unimportant$ stuff with regular stuff."
-			//}
-			//
-			// insert a formatted block into the text with `nameOfBlock`
 			block1: {
 				serif: true,
 				arrow: "->",
@@ -432,8 +390,7 @@ const wg = {
 				simple: ["[kp]t+", "->", "tt"]
 			}
 		},
-		trans: [ // Markdown format
-			// Use `DRAG HANDLE` to insert the drag handle icon into the text.
+		trans: [
 			"There may be cases when you need to fine-tune the words that",
 			"get generated on the **Output Tab**. A common reason would be to",
 			"turn a specific character into two or three letters. You may",
@@ -478,12 +435,12 @@ const wg = {
 			"- Anticipatory assimilation: `block5`",
 		],
 
-		outputMain: [ // Markdown format
+		outputMain: [
 			"This is where the magic happens. Click the **Generate**",
 			"button and your output will appear. Press the button again",
 			"and a new set of output will replace it."
 		],
-		outputSettings: [ // Markdown format
+		outputSettings: [
 			"Click on the gear icon to open a list of options. The first",
 			"is a drop-down menu where you can select what to output. The",
 			"choices are **Pseudo-text**, **Wordlist** and",
@@ -515,7 +472,7 @@ const wg = {
 			"will break any _transformations_ that try to work across",
 			"syllable boundaries."
 		],
-		outputLexicon: [ // Markdown format
+		outputLexicon: [
 			"Once you've generated words, you can save them to the",
 			"**$t(common:Lexicon)**. Click the book button and the generated",
 			"words will light up. Tap on words you wish to save. When you've",
@@ -524,7 +481,7 @@ const wg = {
 			"**$t(common:Lexicon)** column to import them into."
 		],
 
-		settings: [ // Markdown format
+		settings: [
 			"This final tab fine-tunes the output. These can make a huge",
 			"difference in how your conlang appears.",
 			"",
@@ -580,7 +537,7 @@ const wg = {
 			"punctuation before and after these sentences if you wish."
 		],
 
-		overview: [ // Markdown format
+		overview: [
 			"This tool is for attempting to generate new words based on",
 			"rules you set up.",
 			"",
@@ -609,7 +566,6 @@ const wg = {
 			"    5. w",
 			"    6. a, o",
 			"    7. n",
-			// second-level ordered lists like the one above will use lowercase roman numerals
 			"3. Syllables can be made from (i)+(ii), (iii)+(iv), (v)+(vi),",
 			"(ii) by itself, and (vii) by itself.",
 			"",

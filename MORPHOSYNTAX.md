@@ -86,9 +86,9 @@ The format follows this pattern:
 1) table cells in a row are separated by single pipes: |
 2) table rows are separated by double pipes: ||
 3) an optional final row, not broken into cells, is separated from
-   the other by three pipes: |||
+   the others by three pipes: |||
 4) pipes must have at least one space on either side, e.g.
-   `this is || ok`, but `this is||not ok`
+   `this is || ok`, but `these| are||not |||ok`
 
 Except for the optional final row, table rows should have an equal
 number of cells. Rows should come in pairs. The odd rows will be an

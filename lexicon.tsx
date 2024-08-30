@@ -1,17 +1,16 @@
 const lexicon = {
-	// Lexicon
 	beginDeleteMode:
 		"Tap on items to mark them for deletion. Finish deleting by tapping"
 		+ " the top floating button. Cancel by tapping the bottom floating"
 		+ " button.",
-	delItems_one: "Delete {{count}} Item?", // 🟨
+	delItems_one: "Delete {{count}} Item?",
 	delItems_other: "Delete {{count}} Items?",
-	delItemsSuccess_one: "Deleted {{count}} item.", // 🟦2.5
+	delItemsSuccess_one: "Deleted {{count}} item.",
 	delItemsSuccess_other: "Deleted {{count}} items.",
 
-	noInfoProvided: "You did not type any information into any text field.", // 🟡
+	noInfoProvided: "You did not type any information into any text field.",
 
-	MergeSelected: "Merge selected items", // 🔵
+	MergeSelected: "Merge selected items",
 
 	LexiconTitle: "$t(common:Lexicon) $t(common:Title)",
 	LexiconTitle_presentation: "$t(common:Lexicon) $t(common:Title)",
@@ -19,15 +18,14 @@ const lexicon = {
 	lexTitleHelperText: "Usually the language name.",
 	lexDescriptionHelperText: "A short description of this lexicon.",
 
-	lexItems_one: "{{count}} Item", // 🟥
+	lexItems_one: "{{count}} Item",
 	lexItems_other: "{{count}} Items",
-	lexitems_one: "{{count}} item",
-	lexitems_other: "{{count}} items",
+	storedLexItems_one: "{{title}} [{{count}} item]",
+	storedLexItems_other: "{{title}} [{{count}} items]",
 
-	LexiconStorage: "$t(common:Lexicon) Storage", // 🟥
-	ClearLexicon: "Clear $t(common:Lexicon)", // 🔴
-	SavedLexicon: "Saved $t(common:Lexicon)",
-	LexiconSorting: "$t(common:Lexicon) Sorting", // 🟥
+	LexiconStorage: "$t(common:Lexicon) Storage",
+	ClearLexicon: "Clear $t(common:Lexicon)",
+	LexiconSorting: "$t(common:Lexicon) Sorting",
 	sortLexDescription:
 		"The Lexicon will be sorted in the order you choose. It alphabetically"
 		+ " sorts by the first column in the list. If two items are identical"
@@ -37,73 +35,70 @@ const lexicon = {
 	Sort: "Sort",
 	Sort_presentation: "Sort:",
 
-	DeleteSelectedLexItems: "Delete selected lexicon items", // 🔵
-	DeleteMultipleLexItems: "Delete multiple lexicon items", // 🔵
-	CancelDel: "Cancel deleting", // 🔵
-	LexCleared: "Lexicon cleared", // 🟦4
-	NothingToClear: "Nothing to clear", // 🟦3
-	deleteEverythingMessage: // 🟡
+	DeleteSelectedLexItems: "Delete selected lexicon items",
+	DeleteMultipleLexItems: "Delete multiple lexicon items",
+	CancelDel: "Cancel deleting",
+	LexCleared: "Lexicon cleared",
+	NothingToClear: "Nothing to clear",
+	deleteEverythingMessage:
 		"This will erase everything currently displayed (but not anything"
 		+ " previously saved). Are you sure you want to do this?",
 
-	loadLexiconConfirm: // 🟡
+	loadLexiconConfirm:
 		"Are you sure you want to load this? It will overwrite your current"
 		+ " lexicon and cannot be reversed.",
-	NoSavedLexicons: "No Saved Lexicons", // 🟥
-	DeleteStoredLexicon: "Delete Stored Lexicon", // 🟥
-	LexiconDeleted: "Lexicon deleted.", // 🟦2.5
-	LoadLexicon: "Load Lexicon", // 🟥 🔴
-	SaveLexicon: "Save Lexicon", // 🔴
-	LexiconSaved: "Lexicon saved.", // 🟦2.5
+	NoSavedLexicons: "No Saved Lexicons",
+	DeleteStoredLexicon: "Delete Stored Lexicon",
+	LexiconDeleted: "Lexicon deleted.",
+	LoadLexicon: "Load Lexicon",
+	SaveLexicon: "Save Lexicon",
+	LexiconSaved: "Lexicon saved.",
 
-	LexSavedAsNew: "Lexicon saved as new lexicon!", // 🟦2.5
-	needTitleMsg: "You must input a title before saving.", // 🟡
-	needLexiconTitleMsg: "Please give your lexicon a title before exporting it.", // 🟡
-	needWordsMsg: "Please add words to your lexicon before exporting it.", // 🟡
+	LexSavedAsNew: "Lexicon saved as new lexicon!",
+	needTitleMsg: "You must input a title before saving.",
+	needLexiconTitleMsg: "Please give your lexicon a title before exporting it.",
+	needWordsMsg: "Please add words to your lexicon before exporting it.",
 
-	AddLexiconItem: "Add Lexicon Item", // 🟥
-	AddItem: "Add Item", // 🔴
-	EditLexiconItem: "Edit Lexicon Item", // 🟥
-	DeleteItem: "Delete Item?", // 🟨
-	ItemDeleted: "Item was deleted.", // 🟦2.5
-	SaveItem: "Save Item", // 🔴
-	Column: "Column", // 🔴
-	EditCols: "Edit Columns", // 🟥
-	ItemSaved: "Item saved to Lexicon", // 🟦2.5
-	ExitWOSave: "Exit Without Saving?", // 🟨
-	exitWithoutSavingMsg: "You have unsaved changes. Are you sure you want to exit?", // 🟡
-	AddColumn: "Add Column", // 🟥
-	ColumnAdded: "Column added", // 🟦2.5
+	AddLexiconItem: "Add Lexicon Item",
+	AddItem: "Add Item",
+	EditLexiconItem: "Edit Lexicon Item",
+	DeleteItem: "Delete Item?",
+	ItemDeleted: "Item was deleted.",
+	SaveItem: "Save Item",
+	EditCols: "Edit Columns",
+	ItemSaved: "Item saved to Lexicon",
+	ExitWOSave: "Exit Without Saving?",
+	exitWithoutSavingMsg: "You have unsaved changes. Are you sure you want to exit?",
+	AddColumn: "Add Column",
+	ColumnAdded: "Column added",
 
-	New: "New", // Default label for a new column
-	deleteColumnMsg: "Are you sure you want to delete this column? $t(common:cannotUndo)", // 🟡
-	LexOptions: "$t(common:Lexicon) Options", // 🟥
-	ShowTitles: "Show Full Column Titles", // 🔴
-	cannotDeleteFinalColumnMsg: "Cannot delete: a Lexicon must contain at least ONE column.", // 🟦 5
+	New: "New",
+	deleteColumnMsg: "Are you sure you want to delete this column? $t(common:cannotUndo)",
+	LexOptions: "$t(common:Lexicon) Options",
+	ShowTitles: "Show Full Column Titles",
+	cannotDeleteFinalColumnMsg: "Cannot delete: a Lexicon must contain at least ONE column.",
 
-	// always presentational context:
 	SortBlanks: "Sort blank columns:",
 
-	RearrangeColumns: "Rearrange Lexicon Columns", // 🟥
-	// The below describe how blank columns will be sorted in the Lexicon
-	optionToBeginning: "To Beginning, Always", // 🔴
-	optionToEnd: "To End, Always", // 🔴
-	optionAlphaFirst: "As Alphabetically First", // 🔴
-	optionAlphaLast: "As Alphabetically Last", // 🔴
-	// Column Info
-	FieldName: "Field Name", // 🔵
-	// The following labels should be kept short
-	Small: "Small", // (small column size)
-	Med: "Med", // (medium column size)
-	Large: "Large",  // (large column size)
+	RearrangeColumns: "Rearrange Lexicon Columns",
 
-	Changes: "Changes",
+	optionToBeginning: "To Beginning, Always",
+	optionToEnd: "To End, Always",
+	optionAlphaFirst: "As Alphabetically First",
+	optionAlphaLast: "As Alphabetically Last",
+
+	FieldName: "Field Name",
+
+	Small: "Small",
+	Med: "Med",
+	Large: "Large",
+	SaveChanges: "Save Changes",
+
 	workingMsg: "Working...",
-	TITLE: "TITLE", // Only used in CSV exports
+	TITLE: "TITLE",
 
-	ExportLex: "Export Lexicon", // 🔴
-	ExportLexicon: "Export Lexicon: \"{{title}}\"", // 🟥
-	// Types of exports
+	ExportLex: "Export Lexicon",
+
 	exportTextTab: "Text, Tabbed",
 	exportTextSemicolon: "Text, Semicolons",
 	exportTextNewline: "Text, Newlines",
@@ -112,7 +107,6 @@ const lexicon = {
 	fileJson: "JSON File",
 	fileXml: "XML File",
 
-	// Initial lexicon column labels
 	Word: "Word",
 	PartOfSpeech: "Part of Speech",
 	Definition: "Definition",
@@ -123,10 +117,10 @@ const lexicon = {
 		+ " are merged, and see a preview of the final result in the \"Current"
 		+ " Merged Result\" section. This action cannot be undone.",
 	HowToMerge: "How to Merge",
-	CurrentMerge: "Current merged result:", // presentational context
-	CancelMerge: "Cancel Merging", // 🔴
-	SaveMerge: "Save and Merge", // 🔴
-	MergeItems: "Merge Items", // 🟥 🔵
+	CurrentMerge: "Current merged result:",
+	CancelMerge: "Cancel Merging",
+	SaveMerge: "Save and Merge",
+	MergeItems: "Merge Items",
 
 	merge: {
 		first: "Use first non-blank value",
@@ -139,19 +133,19 @@ const lexicon = {
 	},
 
 	info: {
-		basic: [ // Markdown format
+		basic: [
 			"This tool is for storing the raw info of your language,",
 			"whether that be words or something else. The default setup",
 			"includes dictionary-style columns such as \"word\", \"part of",
 			"speech\" and \"definition\", but you can add, remove, or",
 			"rename columns as you see fit."
 		],
-		description: [ // Markdown format
+		description: [
 			"The beginning of the page has a place where you can title your",
 			"collection and give it a short description. You can toggle this",
 			"entire section by using the (^) button at the top of the page."
 		],
-		saveCounterAndSort: [ // Markdown format
+		saveCounterAndSort: [
 			"The save button at the top can be used to store, delete, and",
 			"export entire lexicons.",
 			"",
@@ -161,8 +155,7 @@ const lexicon = {
 			"you can choose which columns will be used to sort your",
 			"collection."
 		],
-		editColumnsEtc: [ // Markdown format
-			// Use `DRAG HANDLE` to insert the drag handle icon into the text.
+		editColumnsEtc: [
 			"The gear icon opens the **Edit Columns** settings. You can",
 			"choose whether or not to show the columns' full names, the",
 			"method you wish to use to sort the $t(common:Lexicon), and how",
@@ -180,7 +173,7 @@ const lexicon = {
 			"You can **swipe left** on each one to find **Edit** and",
 			"**Delete** buttons."
 		],
-		mergeButton: [ // Markdown format
+		mergeButton: [
 			"You can swipe right on a lexicon item to find the",
 			"**Merge Items** button. You can use this to mark multiple",
 			"entries. Once you've selected at least two, a large paperclip",
@@ -204,7 +197,7 @@ const lexicon = {
 			"and \"definition\" column with each other and merge them into",
 			"single entries."
 		],
-		toolButton: [ // Markdown format
+		toolButton: [
 			"At the bottom of the page, you'll find a large tool button. You",
 			"can tap on it to pull up a small menu. Tap on the (+) button to",
 			"pop up a large form for adding to the $t(common:Lexicon). Tap on",

@@ -9,41 +9,42 @@ const ms = {
 	],
 
 	clearMSInfo: "Clear MorphoSyntax Info",
-	noInfoToClearMsg: "You have no information to clear.", // 🟦2.5
-	clearedMS: "All MorphoSyntax information has been cleared.", // 🟦2.5
-	clearAllMS: "This will clear and overwrite everything currently in MorphoSyntax (but not anything previously saved).", // 🟡
-	needInfoToExportMsg: "Please add information to your MorphoSyntax document in at least one section before exporting it.", // 🟡
-	msDocument: "{{title}} - MorphoSyntax Document", // Title of docx exports
-	msDocumentDescription: "A MorphoSyntax document exported from $t(common:appTitle).", // Used in docx exports, only
-	DeleteMorphoSyntaxDocument: "Delete Saved MorphoSyntax Info", // 🟥 formal context
-	MorphoSyntaxSettings: "MorphoSyntax $t(common:Settings)", // 🟥
-	NoSavedMorphoSyntaxDocuments: "No Saved MorphoSyntax Documents.", // 🟥
-	clearMSInfoMsg: "This will clear and overwrite your current MorphoSyntax information.", // 🟡
-	msTitle: "MorphoSyntax Title", // 🔵
-	msTitle_presentation: "MorphoSyntax Title:", // 🟥
+	confirmClear: "Yes, Clear All",
+	noInfoToClearMsg: "You have no information to clear.",
+	clearedMS: "All MorphoSyntax information has been cleared.",
+	clearAllMS: "This will clear and overwrite everything currently in MorphoSyntax (but not anything previously saved).",
+	needInfoToExportMsg: "Please add information to your MorphoSyntax document in at least one section before exporting it.",
+	msDocument: "{{title}} - MorphoSyntax Document",
+	msDocumentDescription: "A MorphoSyntax document exported from $t(common:appTitle).",
+	DeleteMorphoSyntaxDocument: "Delete Saved MorphoSyntax Info",
+	MorphoSyntaxSettings: "MorphoSyntax $t(common:Settings)",
+	NoSavedMorphoSyntaxDocuments: "No Saved MorphoSyntax Documents.",
+	clearMSInfoMsg: "This will clear and overwrite your current MorphoSyntax information.",
+	msTitle: "MorphoSyntax Title",
+	msTitle_presentation: "MorphoSyntax Title:",
 	UsuallyLangName: "Usually the language name.",
 	ShortDescriptionMsg: "A short description of this document.",
-	DeleteSavedMorphoSyntaxInfo: "Delete Saved MorphoSyntax Info", // 🔴
-	SavedMorphoSyntaxInfoDeleted: "Saved MorphoSyntax info deleted.", // 🟦2.5
-	ExportMorphoSyntaxInfo: "Export MorphoSyntax Info", // 🟥 🔴
-	SaveMorphoSyntaxInfo: "Save MorphoSyntax Info", // 🔴
-	LoadMorphoSyntaxInfo: "Load MorphoSyntax Info", // 🟥 🔴
-	MorphoSyntaxInfoSaved: "MorphoSyntax info saved.", // 🟦2.5
-	MISSINGTITLE: "MISSING TITLE", // 🟥 (error message)
-	genericInfoButtonText: "Information", // 🔴
-	rangeFromTo: "Range from {{start}} to {{end}}", // 🔵
-	// The items below are error (or informative) messages that will only be used in exports
+	DeleteSavedMorphoSyntaxInfo: "Delete Saved MorphoSyntax Info",
+	SavedMorphoSyntaxInfoDeleted: "Saved MorphoSyntax info deleted.",
+	ExportMorphoSyntaxInfo: "Export MorphoSyntax Info",
+	SaveMorphoSyntaxInfo: "Save MorphoSyntax Info",
+	LoadMorphoSyntaxInfo: "Load MorphoSyntax Info",
+	MorphoSyntaxInfoSaved: "MorphoSyntax info saved.",
+	MISSINGTITLE: "MISSING TITLE",
+	genericInfoButtonText: "Information",
+	rangeFromTo: "Range from {{start}} to {{end}}",
+
 	missingDocumentMsg: "[MISSING]",
 	missingTextDocumentMsg: "[MISSING TEXT PROMPT]",
 	noLabelDocumentMsg: "[LABEL NOT FOUND FOR \"{{box}}\"]",
-	// The items below are informative messages that will only be used in exports
+
 	noTextExportMsg: "[NO TEXT ENTERED]",
 	noDescriptionExportMsg: "[NO DESCRIPTION PROVIDED]",
 	noSelectionExportMsg: "[NONE SELECTED]",
-	// Only used in exports, indicates what range number was selected
-	textUnselectedRange: "{{number}}", // not selected by user
-	textSelectedRange: "({{number}})", // selected by user
-	// Only used in exports, indicates that a checkbox was checked
+
+	textUnselectedRange: "{{number}}",
+	textSelectedRange: "({{number}})",
+
 	textCheckedBox: "X",
 
 	// INFORMATIONAL KEYS
@@ -382,21 +383,21 @@ const ms = {
 	checkboxVerbClassesExport: {
 		header: "Verb Types that are handled in a special way:",
 		labels: [
-			"Actions: Agent affects Patient.",
-			"Action-Processes: Agent only.",
-			"Weather Verbs: in English, these require a dummy Agent (the \"It\" in \"It is raining\"); this is not the case in many other languages!",
-			"States: be hot, be broken, be frozen, etc; may be predicate-bound",
-			"Involuntary Processes: He grew; It broke; They died; etc.",
-			"Bodily Functions: cough, sweat, bleed, cry, etc.",
-			"Motion: go, float, proceed, etc.",
-			"Position: sit, stand, hang, etc.",
-			"Factive: something comes into being: e.g. build, form, ignite, create; rarely treated differently than Actions",
-			"Cognition: know, suspect, forget etc.",
-			"Sensation: hear, see, taste, etc.",
-			"Emotion: be happy, be afraid, be mellow, etc.",
-			"Utterance: say, yell, murmur, declare, chat, etc.",
-			"Manipulation: force, urge, cause, let, permit, allow, compel, etc.",
-			"Other Verb Class(es): you might have a distinction different from those already listed"
+			"Actions (Agent affects Patient)",
+			"Action-Processes (Agent only)",
+			"Weather Verbs (in English, these require a dummy Agent (\"_It_ is raining\"); this is not the case in many other languages!)",
+			"States (be hot, be broken, be frozen, etc; may be predicate-bound)",
+			"Involuntary Processes (he grew; it broke; they died; etc.)",
+			"Bodily Functions (cough, sweat, bleed, cry, etc.)",
+			"Motion (go, float, proceed, etc.)",
+			"Position (sit, stand, hang, etc.)",
+			"Factive (something comes into being: e.g. build, form, ignite, create; rarely treated differently than Actions)",
+			"Cognition (know, suspect, forget etc.)",
+			"Sensation (hear, see, taste, etc.)",
+			"Emotion (be happy, be afraid, be mellow, etc.)",
+			"Utterance (say, yell, murmur, declare, chat, etc.)",
+			"Manipulation (force, urge, cause, let, permit, allow, compel, etc.)",
+			"Other Verb Class(es) (you might have a distinction different from those already listed)"
 		]
 	},
 	text222: "If you have marked a verb class as \"Special\", describe how the language treats it differently than the \"regular\" verbs.",
@@ -716,8 +717,8 @@ const ms = {
 
 	// PAGE FOUR
 
-	"4-Noun Operations": "4. Noun Operations",
 	"4-Noun and Noun Phrase Operations": "4. Noun and Noun Phrase Operations",
+	"4-Noun Operations": "4. Noun Operations", // Shorter version for the Menu
 	"4-1-Compounding": "4.1. Compounding",
 	title41: "Compounding",
 	label41: "Noun-Piles",
@@ -875,8 +876,8 @@ const ms = {
 
 	// PAGE FIVE
 
-	"5-Predicate Nominals etc.": "5. Predicate Nominals etc.",
 	"5-Predicate Nominals and Related Constructions": "5. Predicate Nominals and Related Constructions",
+	"5-Predicate Nominals etc.": "5. Predicate Nominals etc.", // Shorter version for the Menu
 	title5: "Predicate Nominals",
 	label5: "General Information to Consider",
 	info5: [
@@ -1043,8 +1044,8 @@ const ms = {
 
 	// PAGE SEVEN
 
-	"7-Voice/Valence Operations": "7. Voice/Valence Operations",
 	"7-Voice and Valence Adjusting Operations": "7. Voice and Valence Adjusting Operations",
+	"7-Voice/Valence Operations": "7. Voice/Valence Operations", // Shorter version for the Menu
 	title7: "Valence",
 	label7: "What is Valence?",
 	info7: [
@@ -1301,8 +1302,8 @@ const ms = {
 
 	// PAGE EIGHT
 
-	"8-Other Verb Operations": "8. Other Verb Operations",
 	"8-Other Verb and Verb Phrase Operations": "8. Other Verb and Verb Phrase Operations",
+	"8-Other Verb Operations": "8. Other Verb Operations", // Shorter version for the Menu
 	"8-1-Nominalization": "8.1. Nominalization",
 	title81: "Nominalization",
 	label81: "Making Nouns",
@@ -1626,8 +1627,8 @@ const ms = {
 
 	// PAGE NINE
 
-	"9-Pragmatic Marking": "9. Pragmatic Marking",
 	"9-Pragmatically Marked Structures": "9. Pragmatically Marked Structures",
+	"9-Pragmatic Marking": "9. Pragmatic Marking", // Shorter version for the Menu
 	title9: "Pragmatics",
 	label9: "What are Pragmatics?",
 	info9: [
@@ -1940,7 +1941,7 @@ const ms = {
 		"- Also known as **Content Questions** or **Information Questions**,",
 		"Question-Word Questions (QWs) are best exemplified by the English",
 		"words who, whom, what, where, when, why, which, and how.",
-		"- All languages have a set of special QWQs. Often, they are similar",
+		"- All languages have a set of special QWs. Often, they are similar",
 		"or identical to a set of pronouns used elsewhere in the language.",
 		"(e.g. English's who, where, when.)",
 		"- QWs accomplish two things:",
@@ -2352,7 +2353,7 @@ const ms = {
 
 	// OVERVIEW
 
-	"What is MorphoSyntax?": "What is MorphoSyntax?",
+	WhatIsMS: "What is MorphoSyntax?",
 
 	overviewMain: [
 		"This tool offers a way to describe the \"rules\" of a language. It's",
