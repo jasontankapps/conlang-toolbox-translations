@@ -1,5 +1,9 @@
 # Translation Guide
 
+I am not multilingual, so I cannot provide translations for other languages (nor can I pay for pricey and often-inaccurate translate-on-demand services). But if you're familiar with `i18next` and linguistic terminoloy and want to volunteer a translation, fork this repo and give it a shot. Credit will be given to translators in the app itself.
+
+## Overview
+
 This contains a copy of the translation files for [Conlang Toolbox](https://www.github.com/jasontankapps/conlang-toolbox) for easy access. They are formatted as Typescript modules that export JSON objects compliant with [i18next](https://www.i18next.com/misc/json-format).
 
 ## PLURALITY
@@ -433,6 +437,7 @@ Each character in Extra Characters has an official Unicode name. You can find th
 |  | credit1 | \[ "App icon is based on \[Toolbox by Maxicons\]\(https:/\/thenounproject.com/term/toolbox/2586725/\) from the Noun Project" \] | *This is an array of strings in Markdown format.* |
 |  | credit2 | \[ "$t(common:WordGen) and $t(common:WordEvolve) are heavily inspired by \[Gen\]\(https:/\/www.zompist.com/gen.html\) and \[SCA²\]\(https:/\/www.zompist.com/sca2.html\) by Mark Rosenfelder" \] | *This is an array of strings in Markdown format.* |
 |  | credit3 | \[ "MorphoSyntax is based on an outline presented throughout \_Describing Morphosyntax: A Guide for Field Linguists\_ by Thomas E. Paine, and it also uses some foreign-language examples presented therein" \] | *This is an array of strings in Markdown format.* |
+|  | credit_en | ~~English trandlation by so-and-so~~ | Replace `en` in the key with your language's two-letter code and give yourself credit here. |
 | 🟥 | BugReports | Bug Reports |  |
 |  | bugReportMsg | \[ "Please report bugs and errors to \[the Github repository\]\(https:\//github.com/jasontankapps/conlang-toolbox/issues\) and incude an error log." \] | *This is an array of strings in Markdown format.* |
 | 🔴 | GetErrLog | Get Error Log |  |
