@@ -113,7 +113,7 @@ These are terms used across the app, or only on "main" app pages, like Settings 
 | 🟥 | Lexicon | Lexicon | Title of the Lexicon tool. |
 |  | Lexicon_filename | Lexicon | *(filename context)* |
 | 🟥 | Concepts | Concepts | Title of the Concepts tool. |
-| 🟥 🔵 | ExtraChars | ExtraChars | Title of the Exra Characters tool. |
+| 🟥 🔵 | ExtraChars | Extra Characters | Title of the Exra Characters tool. |
 | 🟥 | AppInfo | App Info | Title of the page where you find information about the app. |
 | 🟥 | AppSettings | App Settings | Title of the page where you find settings for the entire app. |
 | 🟥 | Main | Main | Title of the "About" page, which is also the app startup page. |
