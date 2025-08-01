@@ -439,15 +439,8 @@ Each character in Extra Characters has an official Unicode name. You can find th
 |  | credit3 | \[ "MorphoSyntax is based on an outline presented throughout \_Describing Morphosyntax: A Guide for Field Linguists\_ by Thomas E. Paine, and it also uses some foreign-language examples presented therein" \] | *This is an array of strings in Markdown format.* |
 |  | credit_en | ~~English trandlation by so-and-so~~ | Replace `en` in the key with your language's two-letter code and give yourself credit here. |
 | 🟥 | BugReports | Bug Reports |  |
-|  | bugReportMsg | \[ "Please report bugs and errors to \[the Github repository\]\(https:\//github.com/jasontankapps/conlang-toolbox/issues\) and incude an error log." \] | *This is an array of strings in Markdown format.* |
-| 🔴 | GetErrLog | Get Error Log |  |
+|  | bugReportMsg | \[ "Please report bugs and errors to \[the Github repository\]\(https:\//github.com/jasontankapps/conlang-toolbox/issues\). In order to diagnose errors, you need to include information from the tool or tools that are causing you problems. \*\*This will include the raw data you've currently have loaded up in the app.\*\* Choose the tools you are having problems with, then copy the information that appears in the box below and submit it to the GitHub." \] | *This is an array of strings in Markdown format.* |
 | 🟨 | EntireState | Entire State | 'State' refers to the info saved by the app that is used to display info, create info, etc. |
-| 🟨 | DebugInfo | Debug Info |  |
-| 🔴 | CopyLogs | Copy Logs | 'Logs' refer to hidden reports/notes that the app sometimes makes when it encounters an error. |
-| 🔴 | ClearLogs | Clear Logs | 'Logs' refer to hidden reports/notes that the app sometimes makes when it encounters an error. |
-| 🟡 | logDeletionMsg | Logs normally delete themselves after 90 days. Deleting logs cannot be undone. | 'Logs' refer to hidden reports/notes that the app sometimes makes when it encounters an error. |
-| 🔴 | DelThemNow | Delete Them Now | "Them" refers to the logs. |
-| 🟦3.5 | logsClearedMsg | Logs have been cleared. |  |
 | 🟥 | Changelog | Changelog | A list of changes made to the app |
 | 🔴 | HideOlderChanges | Hide Older Changes |  |
 | 🔴 | ShowOlderChanges | Show Older Changes |  |
