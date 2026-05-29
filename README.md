@@ -376,6 +376,7 @@ Each character in Extra Characters has an official Unicode name. You can find th
 | 🟡 | noBaseCharMsg | You must provide a "base" character. | Error message |
 | 🟡 | noEqualCharMsg | You must provide some "equal" characters. | Error message |
 | 🟡 | noPostPreCharMsg | You must provide some "pre" or "post" characters. | Error message |
+|  | CustomSort | Custom Sort |  |
 | 🔴 | NewCustomSort | New Custom Sort |  |
 | 🟥 | AddSort | Add Custom Sort |  |
 | 🟦2.5 | SortAdded | Custom Sort added |  |
@@ -1015,7 +1016,7 @@ This is an array of two objects. Each object has a `title` property as a header 
 |  | UsuallyLangName | Usually the language name. |  |
 |  | ShortDescriptionMsg | A short description of this document. |  |
 | 🔴 | DeleteSavedMorphoSyntaxInfo | Delete Saved MorphoSyntax Info |  |
-| 🟦2.5 | SavedMorphoSyntaxInfoDeleted | Saved MorphoSyntax info deleted. |  |
+| 🟦2.5 | SavedMorphoSyntaxInfoDeleted | The saved MorphoSyntax info has been deleted. |  |
 | 🟥 🔴 | ExportMorphoSyntaxInfo | Export MorphoSyntax Info |  |
 | 🔴 | SaveMorphoSyntaxInfo | Save MorphoSyntax Info |  |
 | 🟥 🔴 | LoadMorphoSyntaxInfo | Load MorphoSyntax Info |  |

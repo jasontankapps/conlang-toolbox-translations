@@ -37,6 +37,7 @@ const appinfo = {
 	changelog: {
 
 		v0130: [
+			"- Visual change to the Concepts text-alignment button",
 			"- Clarified how to make bug reports",
 			"- Other minor bugfixes and improvements"
 		],
